@@ -1,0 +1,98 @@
+auspice_json_prefix: ncov
+
+# These parameters are only used by the `export_for_nextstrain` rule and shouldn't need to be modified.
+# To modify the s3 _source_ bucket, specify this directly in the `inputs` section of the config.
+# P.S. These are intentionally set as top-level keys as this allows command-line overrides.
+S3_DST_BUCKET: "nextstrain-ncov-private"
+S3_DST_COMPRESSION: "xz"
+S3_DST_ORIGINS: ["gisaid"]
+
+genes: ["ORF1a", "ORF1b", "S", "ORF3a", "M", "N"]
+use_nextalign: true
+
+# Start from pre-filtered and aligned sequences
+inputs:
+  - name: gisaid
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    filtered: "s3://nextstrain-ncov-private/filtered.fasta.xz"
+
+# Define locations for which builds should be created.
+# For each build we specify a subsampling scheme via an explicit key.
+# These subsampling schemes are defined at the bottom of this file.
+# (They override the defaults)
+builds:
+  adaptive-evolution:
+    subsampling_scheme: global_by_region
+    auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
+    title: "Phylogeny of SARS-CoV-2 viruses"
+
+# remove S dropout sequences and sequences without division label in US
+filter:
+  exclude_where: "division='USA' purpose_of_sequencing='S dropout'"
+
+# if different exposure traits should be used for some builds, specify here
+# otherwise the default exposure in defaults/parameters.yaml will used
+exposure:
+  adaptive-evolution:
+    trait: "region"
+    exposure: "region_exposure"
+
+# if different traits should be reconstructed for some builds, specify here
+# otherwise the default trait config in defaults/parameters.yaml will used
+traits:
+  adaptive-evolution:
+    sampling_bias_correction: 2.5
+    columns: ["region_exposure"]
+
+files:
+  description: "adaptive_evolution_profiles/adaptive-evolution/adaptive_evolution_description.md"
+
+subsampling:
+  # Custom subsampling logic for global region.
+  global_by_region:
+    africa:
+      group_by: "country year month"
+      max_sequences: 1600
+      sampling_scheme: "--probabilistic-sampling"
+      exclude: "--exclude-where 'region!=Africa'"
+      min_date: "--min-date 2019-12-01"
+      max_date: "--max-date 2021-05-15"
+    asia:
+      group_by: "country year month"
+      max_sequences: 1600
+      sampling_scheme: "--probabilistic-sampling"
+      exclude: "--exclude-where 'region!=Asia'"
+      min_date: "--min-date 2019-12-01"
+      max_date: "--max-date 2021-05-15"
+    europe:
+      group_by: "country year month"
+      max_sequences: 1600
+      sampling_scheme: "--probabilistic-sampling"
+      exclude: "--exclude-where 'region!=Europe'"
+      min_date: "--min-date 2019-12-01"
+      max_date: "--max-date 2021-05-15"
+    north_america:
+      group_by: "division year month"
+      max_sequences: 1600
+      sampling_scheme: "--probabilistic-sampling"
+      exclude: "--exclude-where 'region!=North America'"
+      min_date: "--min-date 2019-12-01"
+      max_date: "--max-date 2021-05-15"
+    oceania:
+      group_by: "division year month"
+      max_sequences: 1600
+      sampling_scheme: "--probabilistic-sampling"
+      exclude: "--exclude-where 'region!=Oceania'"
+      min_date: "--min-date 2019-12-01"
+      max_date: "--max-date 2021-05-15"
+    south_america:
+      group_by: "country year month"
+      max_sequences: 1600
+      sampling_scheme: "--probabilistic-sampling"
+      exclude: "--exclude-where 'region!=South America'"
+      min_date: "--min-date 2019-12-01"
+      max_date: "--max-date 2021-05-15"
+
+# Define frequencies parameters.
+frequencies:
+    recent_days_to_censor: 7
