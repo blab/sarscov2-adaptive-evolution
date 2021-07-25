@@ -1,5 +1,20 @@
+# Files created by the ncov pipeline, which we want to keep out of git
+ncov-workflow/benchmarks/
+ncov-workflow/logs/
+ncov-workflow/results/
+ncov-workflow/build/
+ncov-workflow/auspice/
+ncov-workflow/data/*
+ncov-workflow/defaults/colors.tsv
+ncov-workflow/defaults/colors_*.tsv
+ncov-workflow/stats.json
+
+# Sensitive environment variables
+environment*
+
 # Snakemake state dir
 .snakemake
+snakemake_log
 
 # For Python #
 ##############
@@ -12,6 +27,12 @@
 .DS_Store
 .DS_Store?
 ._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*~
 
 # git files #
 ######################
