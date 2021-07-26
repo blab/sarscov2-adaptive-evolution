@@ -1,8 +1,9 @@
 {
   "title": "Genomic epidemiology of novel coronavirus",
-  "build_url": "https://github.com/nextstrain/ncov",
+  "build_url": "https://github.com/blab/sarscov2-adaptive-evolution/",
   "maintainers": [
-    {"name": "the Nextstrain team", "url": "https://nextstrain.org/"}
+    {"name": "Katie Kistler", "url": "https://bedford.io/team/katie-kistler/"},
+    {"name": "Trevor Bedford", "url": "https://bedford.io/team/trevor-bedford/"}
   ],
   "data_provenance": [
     {
@@ -21,11 +22,6 @@
       "type": "categorical"
     },
     {
-      "key": "GISAID_clade",
-      "title": "GISAID Clade",
-      "type": "categorical"
-    },
-    {
       "key": "S1_mutations",
       "title": "S1 mutations",
       "type": "continuous"
@@ -39,11 +35,6 @@
       "key": "current_frequency",
       "title": "Current frequency",
       "type": "continuous"
-    },
-    {
-      "key": "location",
-      "title": "Location",
-      "type": "categorical"
     },
     {
       "key": "division",
@@ -66,16 +57,6 @@
       "type": "categorical"
     },
     {
-      "key": "age",
-      "title": "Age",
-      "type": "continuous"
-    },
-    {
-      "key": "sex",
-      "title": "Sex",
-      "type": "categorical"
-    },
-    {
       "key": "author",
       "title": "Authors",
       "type": "categorical"
@@ -88,11 +69,6 @@
     {
       "key": "submitting_lab",
       "title": "Submitting Lab",
-      "type": "categorical"
-    },
-    {
-      "key": "recency",
-      "title": "Submission Date",
       "type": "categorical"
     },
     {
@@ -125,21 +101,18 @@
     "region"
   ],
   "display_defaults": {
-    "color_by": "clade_membership",
+    "color_by": "emerging_lineage",
     "distance_measure": "num_date",
     "geo_resolution": "country",
     "map_triplicate": true,
-    "branch_label": "clade",
+    "branch_label": "none",
     "transmission_lines": false
   },
   "filters": [
-    "recency",
     "clade_membership",
     "emerging_lineage",
     "region",
     "country",
-    "division",
-    "location",
     "host",
     "pango_lineage"
   ],

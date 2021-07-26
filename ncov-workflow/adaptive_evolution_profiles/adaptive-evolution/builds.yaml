@@ -24,7 +24,7 @@ builds:
   adaptive-evolution:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-    title: "Phylogeny of SARS-CoV-2 viruses"
+    title: "Global phylogeny of SARS-CoV-2"
 
 # remove S dropout sequences and sequences without division label in US
 filter:
@@ -95,4 +95,5 @@ subsampling:
 
 # Define frequencies parameters.
 frequencies:
-    recent_days_to_censor: 7
+  min_date: 2020-01-01
+  max_date: 2021-05-15
