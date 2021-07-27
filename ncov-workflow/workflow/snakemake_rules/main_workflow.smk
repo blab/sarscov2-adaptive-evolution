@@ -1065,7 +1065,6 @@ rule tip_frequencies:
         "benchmarks/tip_frequencies_{build_name}.txt"
     params:
         min_date = _get_min_date_for_frequencies,
-        max_date = _get_max_date_for_frequencies,
         pivot_interval = config["frequencies"]["pivot_interval"],
         pivot_interval_units = config["frequencies"]["pivot_interval_units"],
         narrow_bandwidth = config["frequencies"]["narrow_bandwidth"],
@@ -1081,7 +1080,6 @@ rule tip_frequencies:
             --metadata {input.metadata} \
             --tree {input.tree} \
             --min-date {params.min_date} \
-            --max-date {params.max_date} \
             --pivot-interval {params.pivot_interval} \
             --pivot-interval-units {params.pivot_interval_units} \
             --narrow-bandwidth {params.narrow_bandwidth} \
