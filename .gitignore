@@ -21,6 +21,7 @@ snakemake_log
 *.pyc
 .tox/
 .cache/
+.ipynb_checkpoints
 
 # OS generated files #
 ######################
