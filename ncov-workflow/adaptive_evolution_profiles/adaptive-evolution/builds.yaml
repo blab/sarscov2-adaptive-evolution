@@ -21,10 +21,11 @@ inputs:
 # These subsampling schemes are defined at the bottom of this file.
 # (They override the defaults)
 builds:
-  adaptive-evolution:
+  adaptive-evolution-2021-05-15:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
     title: "Global phylogeny of SARS-CoV-2"
+    max_date: 2021-05-15
 
 # remove S dropout sequences and sequences without division label in US
 filter:
@@ -56,44 +57,43 @@ subsampling:
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Africa'"
       min_date: "--min-date 2019-12-01"
-      max_date: "--max-date 2021-05-15"
+      max_date: "--max-date {max_date}"
     asia:
       group_by: "country year month"
       max_sequences: 1600
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Asia'"
       min_date: "--min-date 2019-12-01"
-      max_date: "--max-date 2021-05-15"
+      max_date: "--max-date {max_date}"
     europe:
       group_by: "country year month"
       max_sequences: 1600
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Europe'"
       min_date: "--min-date 2019-12-01"
-      max_date: "--max-date 2021-05-15"
+      max_date: "--max-date {max_date}"
     north_america:
       group_by: "division year month"
       max_sequences: 1600
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=North America'"
       min_date: "--min-date 2019-12-01"
-      max_date: "--max-date 2021-05-15"
+      max_date: "--max-date {max_date}"
     oceania:
       group_by: "division year month"
       max_sequences: 1600
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Oceania'"
       min_date: "--min-date 2019-12-01"
-      max_date: "--max-date 2021-05-15"
+      max_date: "--max-date {max_date}"
     south_america:
       group_by: "country year month"
       max_sequences: 1600
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=South America'"
       min_date: "--min-date 2019-12-01"
-      max_date: "--max-date 2021-05-15"
+      max_date: "--max-date {max_date}"
 
 # Define frequencies parameters.
 frequencies:
   min_date: 2020-01-01
-  max_date: 2021-05-15
