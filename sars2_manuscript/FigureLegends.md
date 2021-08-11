@@ -20,7 +20,10 @@ The mean and 95% confidence intervals for nonsynonymous/synonymous divergence ra
 #### Figure 3: S1 substitutions are temporally clustered
 **A** Time line showing accumulation of S1 nonsynonymous, synonymous, and RdRp nonsynonymous mutations between the root and a representative tip (isolate USA/ME-HETL-J3202/2021) with wait times between mutations illustrated in below. The exact date of a mutation is chosen by randomly selecting a date along the branch the mutation occurs on. **B** Distribution of wait times between S1 nonsynonymous, S1 synonymous, and RdRp nonsynonymous mutations. Empirical wait times (in color) are plotted along with expected wait times (gray). Expected wait times determined from randomizing mutations across the phylogeny using a multinomial draw with mutation likelihood proportional to relative branch length. The results of 1000 iterations are shown. **C** ***i*** The mean empirical wait time from 1000 iterations of the analysis (colored bar) is compared to the distribution of mean expected wait times (gray) to yield a p-value. ***ii*** The proportion of observed wait times under 0.3 years (colored bar) is compared to the distribution of expected wait times under 0.3 years (gray).
 
-#### Figure 3 supplement 1: Distribution of expected wait times is affected by the number of mutations that occur across the phylogeny.
+#### Figure 3 supplement 1: Temporal accumulation of S1 mutations on representative paths through the tree.
+The total number of accumulated S1 nonsynonymous mutations is counted at every branch along a path through the tree. This is plotted for 3 representative paths from the root to an isolate in an emerging lineage clade. The isolate and emerging lineage are labeled on each panel.
+
+#### Figure 3 supplement 2: Distribution of expected wait times is affected by the number of mutations that occur across the phylogeny.
 The phylogeny was randomized with varying numbers of mutations to display the expected wait time distributions if 50, 100, 200, 300, 400 or 500 mutations occur on internal branches of the phylogeny. Each randomization is run for 10 iterations. The empirical number of S1 nonsynonymous, S1 synonymous, and RdRp nonsynonymous mutations observed on internal branches of the phylogeny are indicated.
 
  <br /> <br /> <br />
