@@ -598,3 +598,39 @@ def final_pos_genotype(mutation_list, mutation):
             mutation_at_pos = False
 
     return mutation_at_pos
+
+
+def prune_tree(tree, num_descending_tips):
+    """
+    Return a list of all terminal branches on a tree that is
+    pruned to only branches with 3 or more descending tips
+    """
+
+    # make a list of all terminal nodes on a tree truncated to branches
+    # with at least num_descending_tips descending tips
+    pruned_terminals = []
+    for node in tree.find_clades(terminal=False):
+        # make sure node has at least the specified number of descending tips
+        if len(node.get_terminals()) >= num_descending_tips:
+
+            # if a parent of the node is already listed, overwrite it
+            parents = get_parent(tree, node)[:-1]
+            parent_names = [p.name for p in parents]
+
+            # want path ends, so parents true terminals should not be in pruned_terminals
+            # find whether any parents are listed in pruned_terminals
+            matches = list((i in pruned_terminals for i in parent_names))
+
+            # if a parent of this node is in pruned_terminals,
+            # that parent is not a true terminal and should be removed
+            if True in matches:
+                match_indicies = [index for index, value in enumerate(matches) if value == True]
+                for match_index in match_indicies:
+                    pruned_terminals.remove(parent_names[match_index])
+
+            pruned_terminals.append(node.name)
+
+    # remove root
+    pruned_terminals.remove('NODE_0000000')
+
+    return pruned_terminals
