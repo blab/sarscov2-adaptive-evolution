@@ -9,6 +9,9 @@ ncov-workflow/defaults/colors.tsv
 ncov-workflow/defaults/colors_*.tsv
 ncov-workflow/stats.json
 
+# Old and unfinished analyses
+wip_analyses/*
+
 # Sensitive environment variables
 environment*
 
