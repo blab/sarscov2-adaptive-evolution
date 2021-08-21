@@ -37,5 +37,5 @@ Every occurrence of the convergently-evolved mutations is colored according to t
 **A** Same as Fig3A, completed using sequences up to April 15, 2021 (1 month before the primary analysis). **B** Same as Fig3B, completed using sequences up to April 15, 2021. **C** Same as Fig3A, completed using sequences up to June 15, 2021 (1 month after the primary analysis). **D** Same as Fig3B, completed using sequences up to June 15, 2021.
 
  <br /> <br /> <br />
-#### Figure 5: Clades with the 3-amino acid deletion in Nsp6 have a higher number of S1 mutations.
+#### Figure 5: Clades with the 3-amino acid deletion in Nsp6 have a high number of S1 mutations.
 **A** The mean number of S1 mutations (top), or RdRp mutations (bottom), that occur in clades that have (blue/orange) or do not have (gray) the 3-amino acid deletion in Nsp6. The expected difference is shown on the left, and empirical data is shown on the right. Expectation is based off of 100 randomizations of the tree. Error bars shown standard deviation. **B** The difference in the number of nonsynonymous S1 (dark blue), S1 synonymous (light blue), and nonsynonymous RdRp (orange) mutations that occur before versus after a convergently-evolved mutation is shown. Error bars show 95% confidence intervals. 
