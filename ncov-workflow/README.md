@@ -11,5 +11,5 @@ snakemake -j 1 -p --profile adaptive_evolution_profiles/adaptive-evolution
 
 However, running via cluster or AWS will be faster:
 ```
-nextstrain build --aws-batch --cpus 16 --memory 12GiB --detach . --set-threads tree=16 --profile adaptive_evolution_profiles/adaptive-evolution
+nextstrain build --aws-batch --cpus 16 --memory 64GiB --detach . --set-threads tree=16 --profile adaptive_evolution_profiles/adaptive-evolution
 ```
