@@ -63,7 +63,7 @@ def hue_regplot(data, x, y, hue, palette=None, **kwargs):
 
     return regplots
 
-def get_linear_reg_stats(df, mut_location, x_axis):
+def get_linear_reg_stats(df, mut_location, x_axis, y_axis):
 
     df_subset = df.copy()
     df_subset = df_subset[df_subset['mut_location']==mut_location]
@@ -72,7 +72,7 @@ def get_linear_reg_stats(df, mut_location, x_axis):
         df_subset = df_subset.dropna()
 
 
-    slope, intercept, r_value, p_value, std_err = stats.linregress(df_subset[x_axis], df_subset['muts_per_codon'])
+    slope, intercept, r_value, p_value, std_err = stats.linregress(df_subset[x_axis], df_subset[y_axis])
     slope = round(slope, 4)
     r_value = round(r_value, 2)
 

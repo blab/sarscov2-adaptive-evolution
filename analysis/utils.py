@@ -374,6 +374,117 @@ def add_mut_accumulation_attr(tree):
     return tree
 
 
+def add_del_accumulation_attr(tree):
+    """
+    For each node on the tree, count the number of deletions that have happened along the path from root to node (including this node). Separate the counts by gene and store them as an attribute of the node. A deletion of several adjacent amino acids is counted as one mutation event.
+
+    Also store an attribute that lists the number of nonsynonymous SNPs accumulated at each node. This is different than the attribute added by `add_mut_accumulation_attr`, which lists a count of SNPs+deletions
+
+    Must run `add_mut_accumulation_attr` on the tree before running `add_del_accumulation_attr`
+    """
+
+
+    for node in tree.find_clades():
+
+        #Find all parents of the node
+        parents = get_parent(tree, node)
+
+        #Find mutations that occur in the parents
+        parents_spike_dels = []
+        parents_s1_dels = []
+        parents_s2_dels = []
+        parents_rdrp_dels = []
+        parents_nsp6_dels = []
+        parents_nsp4_dels = []
+        parents_n_dels = []
+        parents_e_dels = []
+        parents_m_dels = []
+
+        for parent in parents:
+            if hasattr(parent, "branch_attrs") and "mutations" in parent.branch_attrs:
+                if "S" in parent.branch_attrs["mutations"]:
+                    for mut in parent.branch_attrs["mutations"]["S"]:
+                        if mut[-1] == '-':
+                            parents_spike_dels+=[mut]
+                            # nextstrain calls pos 13 in sigpep, not S1
+                            if int(mut[1:-1]) in range(14,686):
+                                parents_s1_dels+=[mut]
+                            elif int(mut[1:-1]) in range(687,1274):
+                                parents_s2_dels+=[mut]
+                #find RdRp muts
+                #and Nsp4 and 6 muts
+                if "ORF1a" in parent.branch_attrs["mutations"]:
+                    for mut in parent.branch_attrs["mutations"]["ORF1a"]:
+                        if mut[-1] == '-':
+                            if int(mut[1:-1]) in range(4492,4401):
+                                #renumber mut according to rdrp protein
+                                rdrp_mut = f'{mut[0]}{int(mut[1:-1])-4492}{mut[-1]}'
+                                parents_rdrp_dels+=[rdrp_mut]
+                            elif int(mut[1:-1]) in range(3570,3859):
+                                # exclude this ancestral mut
+                                if mut!= 'K3833N':
+                                    #renumber mut according to nsp6 protein
+                                    nsp6_mut = f'{mut[0]}{int(mut[1:-1])-3570}{mut[-1]}'
+                                    parents_nsp6_dels+=[nsp6_mut]
+                            elif int(mut[1:-1]) in range(2777,3261):
+                                #renumber mut according to nsp6 protein
+                                nsp4_mut = f'{mut[0]}{int(mut[1:-1])-2777}{mut[-1]}'
+                                parents_nsp4_dels+=[nsp4_mut]
+                if "ORF1b" in parent.branch_attrs["mutations"]:
+                    for mut in parent.branch_attrs["mutations"]["ORF1b"]:
+                        if mut[-1] == '-':
+                            if int(mut[1:-1]) in range(1,923):
+                                #renumber mut according to rdrp protein
+                                rdrp_mut = f'{mut[0]}{int(mut[1:-1])+9}{mut[-1]}'
+                                parents_rdrp_dels+=[rdrp_mut]
+                # find N muts
+                if "N" in parent.branch_attrs["mutations"]:
+                    for mut in parent.branch_attrs["mutations"]["N"]:
+                        if mut[-1] == '-':
+                            parents_n_dels+=parent.branch_attrs["mutations"]["N"]
+                # find E muts
+                if "E" in parent.branch_attrs["mutations"]:
+                    for mut in parent.branch_attrs["mutations"]["E"]:
+                        if mut[-1] == '-':
+                            parents_e_dels+=parent.branch_attrs["mutations"]["E"]
+                # find M muts
+                if "M" in parent.branch_attrs["mutations"]:
+                    for mut in parent.branch_attrs["mutations"]["M"]:
+                        if mut[-1] == '-':
+                            parents_m_dels+=parent.branch_attrs["mutations"]["M"]
+
+
+
+        # count deletion of adjacent nucleotides as one mutation event
+        spike_deletion_count = consolidate_deletions(parents_spike_dels)
+        s1_deletion_count = consolidate_deletions(parents_s1_dels)
+        s2_deletion_count = consolidate_deletions(parents_s2_dels)
+        rdrp_deletion_count = consolidate_deletions(parents_rdrp_dels)
+        nsp6_deletion_count = consolidate_deletions(parents_nsp6_dels)
+        nsp4_deletion_count = consolidate_deletions(parents_nsp4_dels)
+        n_deletion_count = consolidate_deletions(parents_n_dels)
+        e_deletion_count = consolidate_deletions(parents_e_dels)
+        m_deletion_count = consolidate_deletions(parents_m_dels)
+
+        # add node attribute that lists the number of deletions accumulated at each node
+        node.node_attrs['deletion_accumulation']= {'Spike': spike_deletion_count,
+                                                   'S1': s1_deletion_count, 'S2':s2_deletion_count,
+                                                   'RdRp':rdrp_deletion_count, 'Nsp6':nsp6_deletion_count,
+                                                   'Nsp4':nsp4_deletion_count, 'N':n_deletion_count,
+                                                   'M': m_deletion_count, 'E': e_deletion_count}
+        # add node attribute that lists the number of nonsynonymous SNPs accumulated at each node
+        node.node_attrs['nonsyn_snps_accumulation'] = {'Spike': node.node_attrs["spike_accumulation"] - spike_deletion_count,
+                                                       'S1': node.node_attrs["s1_accumulation"] - s1_deletion_count,
+                                                       'S2': node.node_attrs["s2_accumulation"] - s2_deletion_count,
+                                                       'RdRp': node.node_attrs["rdrp_accumulation"] - rdrp_deletion_count,
+                                                       'Nsp6': node.node_attrs["nsp6_accumulation"] - nsp6_deletion_count,
+                                                       'Nsp4': node.node_attrs["nsp4_accumulation"] - nsp4_deletion_count,
+                                                       'N': node.node_attrs["n_accumulation"] - n_deletion_count,
+                                                       'M': node.node_attrs["m_accumulation"] - m_deletion_count,
+                                                       'E': node.node_attrs["e_accumulation"] - e_deletion_count}
+
+    return tree
+
 def add_mut_at_node_attr(tree):
     """
     For each node, find the number of mutations that happened within each gene. Store this as an attribute of the node
