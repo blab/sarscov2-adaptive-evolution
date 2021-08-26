@@ -631,6 +631,9 @@ def prune_tree(tree, num_descending_tips):
             pruned_terminals.append(node.name)
 
     # remove root
-    pruned_terminals.remove('NODE_0000000')
+    for x in ['NODE_0000000', 'NODE_0000001']:
+        if x in pruned_terminals:
+            pruned_terminals.remove(x)
+
 
     return pruned_terminals
