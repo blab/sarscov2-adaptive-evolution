@@ -37,7 +37,7 @@ The phylogeny was randomized with varying numbers of mutations to display the ex
 Every occurrence of the convergently-evolved mutations is colored according to the emerging lineage it occurs at the base of. Multiple emerging lineages descending from the branch a mutation occurs on is represented by light purple.
 
 #### Figure 4 supplement 2: Analyses of convergent evolution shown 1 month before and 1 month after the primary analysis
-**A** Same as Fig3A, completed using sequences up to April 15, 2021 (1 month before the primary analysis). **B** Same as Fig3B, completed using sequences up to April 15, 2021. **C** Same as Fig3A, completed using sequences up to June 15, 2021 (1 month after the primary analysis). **D** Same as Fig3B, completed using sequences up to June 15, 2021.
+**A** Same as Fig4A, completed using sequences up to April 15, 2021 (1 month before the primary analysis). **B** Same as Fig4B, completed using sequences up to April 15, 2021. **C** Same as Fig4A, completed using sequences up to June 15, 2021 (1 month after the primary analysis). **D** Same as Fig4B, completed using sequences up to June 15, 2021.
 
  <br /> <br /> <br />
 #### Figure 5: Clades with the 3-amino acid deletion in Nsp6 have a high number of S1 mutations.
