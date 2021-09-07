@@ -4,11 +4,12 @@
 #### Figure 1 supplement 1: Phylogeny of 9544 SARS-CoV-2 genomes
 Screenshot of the phylogeny used for the primary analyses in this manuscript. Tips and branches are colored according to emerging lineage. Emerging lineages are labeled by PANGO lineage and WHO Variant of Interest (VOI) or Variant of Concern (VOC) designation. An interactive version of this phylogeny can be accessed at nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15
 
-#### Figure 1 supplement 2: Correlation between nonsynonymous mutation accumulation and clade success is strongest in S1
+#### Figure 1 supplement 2: Deletions contribute to protein-coding changes in S1, N and Nsp6
+For each gene nonsynonymous mutation accumulation is separated into nonsynonymous SNPs (left) and deletions (right). Accumulation of these mutations is plotted against logistic growth rate for 8 genes (or subunits), as in Fig1B.
+
+#### Figure 1 supplement 3: Correlation between nonsynonymous mutation accumulation and clade success is strongest in S1
 Nonsynonymous mutation accumulation (mutations per codon) is plotted against logistic growth rate for 8 genes (or subunits), as in Fig1B. 
 
-#### Figure 1 supplement 3: Deletions contribute to protein-coding changes in S1, N and Nsp6
-For each gene nonsynonymous mutation accumulation is separated into nonsynonymous SNPs (left) and deletions (right). Accumulation of these mutations is plotted against logistic growth rate for 8 genes (or subunits), as in Fig1B.
 
 
  <br /> <br /> <br />
