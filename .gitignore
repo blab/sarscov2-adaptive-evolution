@@ -19,6 +19,9 @@ environment*
 .snakemake
 snakemake_log
 
+# Manuscript
+sarscov2-adaptive-evolution.pdf
+
 # For Python #
 ##############
 *.pyc
@@ -26,6 +29,15 @@ snakemake_log
 .cache/
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+
+# LaTeX intermediaries #
+########################
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.pdfsync
 
 # OS generated files #
 ######################
