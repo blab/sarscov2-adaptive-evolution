@@ -40,10 +40,22 @@ for record in SeqIO.parse(open("reference_seq_edited.gb","r"), "genbank"):
 
 # make dictionary with length of each gene
 gene_lengths_aa = {k:len(v) for k,v in reference_sequence_aa.items()}
-# Nsp6 and Nsp4 are part of ORF1a, but not labeled in the reference file
-# manually add their lengths here
+# Nsps are part of ORF1a, but not labeled in the reference file
+# manually add their lengths here (from https://www.ncbi.nlm.nih.gov/gene/43740578)
+gene_lengths_aa['Nsp1'] = 180
+gene_lengths_aa['Nsp2'] = 638
+gene_lengths_aa['Nsp3'] = 1945
+gene_lengths_aa['Nsp4'] = 500
+gene_lengths_aa['Nsp5'] = 306
 gene_lengths_aa['Nsp6'] = 290
-gene_lengths_aa['Nsp4'] = 485
+gene_lengths_aa['Nsp7'] = 83
+gene_lengths_aa['Nsp8'] = 198
+gene_lengths_aa['Nsp9'] = 113
+gene_lengths_aa['Nsp10'] = 139
+gene_lengths_aa['Nsp13'] = 601
+gene_lengths_aa['Nsp14'] = 527
+gene_lengths_aa['Nsp15'] = 346
+gene_lengths_aa['Nsp16'] = 298
 
 
 def sars2_genome_info():
@@ -278,11 +290,31 @@ def add_mut_accumulation_attr(tree):
         parents_s1_muts = []
         parents_s2_muts = []
         parents_rdrp_muts = []
-        parents_nsp6_muts = []
-        parents_nsp4_muts = []
+
         parents_n_muts = []
         parents_e_muts = []
         parents_m_muts = []
+        parents_orf3a_muts = []
+        parents_orf6_muts = []
+        parents_orf7a_muts = []
+        parents_orf7b_muts = []
+        parents_orf8_muts = []
+        parents_orf9b_muts = []
+
+        parents_nsp1_muts = []
+        parents_nsp2_muts = []
+        parents_nsp3_muts = []
+        parents_nsp4_muts = []
+        parents_nsp5_muts = []
+        parents_nsp6_muts = []
+        parents_nsp7_muts = []
+        parents_nsp8_muts = []
+        parents_nsp9_muts = []
+        parents_nsp10_muts = []
+        parents_nsp13_muts = []
+        parents_nsp14_muts = []
+        parents_nsp15_muts = []
+        parents_nsp16_muts = []
 
         parents_s1_syn = []
 
@@ -300,26 +332,62 @@ def add_mut_accumulation_attr(tree):
                 #and Nsp4 and 6 muts
                 if "ORF1a" in parent.branch_attrs["mutations"]:
                     for mut in parent.branch_attrs["mutations"]["ORF1a"]:
-                        if int(mut[1:-1]) in range(4492,4401):
+                        if int(mut[1:-1]) in range(4393,4401):
                             #renumber mut according to rdrp protein
-                            rdrp_mut = f'{mut[0]}{int(mut[1:-1])-4492}{mut[-1]}'
+                            rdrp_mut = f'{mut[0]}{int(mut[1:-1])-4393}{mut[-1]}'
                             parents_rdrp_muts+=[rdrp_mut]
+
+                        elif int(mut[1:-1]) in range(1,180):
+                            nsp1_mut = f'{mut[0]}{int(mut[1:-1])-1}{mut[-1]}'
+                            parents_nsp1_muts+=[nsp1_mut]
+                        elif int(mut[1:-1]) in range(181,818):
+                            nsp2_mut = f'{mut[0]}{int(mut[1:-1])-181}{mut[-1]}'
+                            parents_nsp2_muts+=[nsp2_mut]
+                        elif int(mut[1:-1]) in range(819,2763):
+                            nsp3_mut = f'{mut[0]}{int(mut[1:-1])-819}{mut[-1]}'
+                            parents_nsp3_muts+=[nsp3_mut]
+                        elif int(mut[1:-1]) in range(2764,3263):
+                            nsp4_mut = f'{mut[0]}{int(mut[1:-1])-2764}{mut[-1]}'
+                            parents_nsp4_muts+=[nsp4_mut]
+                        elif int(mut[1:-1]) in range(3264,3569):
+                            nsp5_mut = f'{mut[0]}{int(mut[1:-1])-3264}{mut[-1]}'
+                            parents_nsp5_muts+=[nsp5_mut]
                         elif int(mut[1:-1]) in range(3570,3859):
                             # exclude this ancestral mut
                             if mut!= 'K3833N':
                                 #renumber mut according to nsp6 protein
                                 nsp6_mut = f'{mut[0]}{int(mut[1:-1])-3570}{mut[-1]}'
                                 parents_nsp6_muts+=[nsp6_mut]
-                        elif int(mut[1:-1]) in range(2777,3261):
-                            #renumber mut according to nsp6 protein
-                            nsp4_mut = f'{mut[0]}{int(mut[1:-1])-2777}{mut[-1]}'
-                            parents_nsp4_muts+=[nsp4_mut]
+                        elif int(mut[1:-1]) in range(3860,3942):
+                            nsp7_mut = f'{mut[0]}{int(mut[1:-1])-3860}{mut[-1]}'
+                            parents_nsp7_muts+=[nsp7_mut]
+                        elif int(mut[1:-1]) in range(3943,4140):
+                            nsp8_mut = f'{mut[0]}{int(mut[1:-1])-3943}{mut[-1]}'
+                            parents_nsp8_muts+=[nsp8_mut]
+                        elif int(mut[1:-1]) in range(4141,4253):
+                            nsp9_mut = f'{mut[0]}{int(mut[1:-1])-4141}{mut[-1]}'
+                            parents_nsp9_muts+=[nsp9_mut]
+                        elif int(mut[1:-1]) in range(4254,4392):
+                            nsp10_mut = f'{mut[0]}{int(mut[1:-1])-4254}{mut[-1]}'
+                            parents_nsp10_muts+=[nsp10_mut]
                 if "ORF1b" in parent.branch_attrs["mutations"]:
                     for mut in parent.branch_attrs["mutations"]["ORF1b"]:
                         if int(mut[1:-1]) in range(1,923):
                             #renumber mut according to rdrp protein
                             rdrp_mut = f'{mut[0]}{int(mut[1:-1])+9}{mut[-1]}'
                             parents_rdrp_muts+=[rdrp_mut]
+                        elif int(mut[1:-1]) in range(924,1524):
+                            nsp13_mut = f'{mut[0]}{int(mut[1:-1])-924}{mut[-1]}'
+                            parents_nsp13_muts+=[nsp13_mut]
+                        elif int(mut[1:-1]) in range(1525,2051):
+                            nsp14_mut = f'{mut[0]}{int(mut[1:-1])-1525}{mut[-1]}'
+                            parents_nsp14_muts+=[nsp14_mut]
+                        elif int(mut[1:-1]) in range(2052,2397):
+                            nsp15_mut = f'{mut[0]}{int(mut[1:-1])-2052}{mut[-1]}'
+                            parents_nsp15_muts+=[nsp15_mut]
+                        elif int(mut[1:-1]) in range(2398,2695):
+                            nsp16_mut = f'{mut[0]}{int(mut[1:-1])-2398}{mut[-1]}'
+                            parents_nsp16_muts+=[nsp16_mut]
                 # find N muts
                 if "N" in parent.branch_attrs["mutations"]:
                     parents_n_muts+=parent.branch_attrs["mutations"]["N"]
@@ -329,6 +397,24 @@ def add_mut_accumulation_attr(tree):
                 # find M muts
                 if "M" in parent.branch_attrs["mutations"]:
                     parents_m_muts+=parent.branch_attrs["mutations"]["M"]
+                # find ORF3a muts
+                if "ORF3a" in parent.branch_attrs["mutations"]:
+                    parents_orf3a_muts+=parent.branch_attrs["mutations"]["ORF3a"]
+                # find ORF6 muts
+                if "ORF6" in parent.branch_attrs["mutations"]:
+                    parents_orf6_muts+=parent.branch_attrs["mutations"]["ORF6"]
+                # find ORF7a muts
+                if "ORF7a" in parent.branch_attrs["mutations"]:
+                    parents_orf7a_muts+=parent.branch_attrs["mutations"]["ORF7a"]
+                # find ORF7b muts
+                if "ORF7b" in parent.branch_attrs["mutations"]:
+                    parents_orf7b_muts+=parent.branch_attrs["mutations"]["ORF7b"]
+                # find ORF8 muts
+                if "ORF8" in parent.branch_attrs["mutations"]:
+                    parents_orf8_muts+=parent.branch_attrs["mutations"]["ORF8"]
+                # find ORF9b muts
+                if "ORF9b" in parent.branch_attrs["mutations"]:
+                    parents_orf9b_muts+=parent.branch_attrs["mutations"]["ORF9b"]
             if hasattr(parent, 'node_attrs') and 'syn_muts' in parent.node_attrs:
                 if 'S1' in parent.node_attrs['syn_muts']:
                     parents_s1_syn += parent.node_attrs['syn_muts']['S1']
@@ -339,13 +425,30 @@ def add_mut_accumulation_attr(tree):
         parents_s1_muts = remove_reversions(parents_s1_muts)
         parents_s2_muts = remove_reversions(parents_s2_muts)
         parents_rdrp_muts = remove_reversions(parents_rdrp_muts)
-        parents_nsp6_muts = remove_reversions(parents_nsp6_muts)
-        parents_nsp4_muts = remove_reversions(parents_nsp4_muts)
         parents_n_muts = remove_reversions(parents_n_muts)
         parents_e_muts = remove_reversions(parents_e_muts)
         parents_m_muts = remove_reversions(parents_m_muts)
+        parents_orf3a_muts = remove_reversions(parents_orf3a_muts)
+        parents_orf6_muts = remove_reversions(parents_orf6_muts)
+        parents_orf7a_muts = remove_reversions(parents_orf7a_muts)
+        parents_orf7b_muts = remove_reversions(parents_orf7b_muts)
+        parents_orf8_muts = remove_reversions(parents_orf8_muts)
+        parents_orf9b_muts = remove_reversions(parents_orf9b_muts)
 
-
+        parents_nsp1_muts = remove_reversions(parents_nsp1_muts)
+        parents_nsp2_muts = remove_reversions(parents_nsp2_muts)
+        parents_nsp3_muts = remove_reversions(parents_nsp3_muts)
+        parents_nsp4_muts = remove_reversions(parents_nsp4_muts)
+        parents_nsp5_muts = remove_reversions(parents_nsp5_muts)
+        parents_nsp6_muts = remove_reversions(parents_nsp6_muts)
+        parents_nsp7_muts = remove_reversions(parents_nsp7_muts)
+        parents_nsp8_muts = remove_reversions(parents_nsp8_muts)
+        parents_nsp9_muts = remove_reversions(parents_nsp9_muts)
+        parents_nsp10_muts = remove_reversions(parents_nsp10_muts)
+        parents_nsp13_muts = remove_reversions(parents_nsp13_muts)
+        parents_nsp14_muts = remove_reversions(parents_nsp14_muts)
+        parents_nsp15_muts = remove_reversions(parents_nsp15_muts)
+        parents_nsp16_muts = remove_reversions(parents_nsp16_muts)
 
 
         # count deletion of adjacent nucleotides as one mutation event
@@ -353,11 +456,30 @@ def add_mut_accumulation_attr(tree):
         s1_mutation_count = consolidate_deletions(parents_s1_muts)
         s2_mutation_count = consolidate_deletions(parents_s2_muts)
         rdrp_mutation_count = consolidate_deletions(parents_rdrp_muts)
-        nsp6_mutation_count = consolidate_deletions(parents_nsp6_muts)
-        nsp4_mutation_count = consolidate_deletions(parents_nsp4_muts)
         n_mutation_count = consolidate_deletions(parents_n_muts)
         e_mutation_count = consolidate_deletions(parents_e_muts)
         m_mutation_count = consolidate_deletions(parents_m_muts)
+        orf3a_mutation_count = consolidate_deletions(parents_orf3a_muts)
+        orf6_mutation_count = consolidate_deletions(parents_orf6_muts)
+        orf7a_mutation_count = consolidate_deletions(parents_orf7a_muts)
+        orf7b_mutation_count = consolidate_deletions(parents_orf7b_muts)
+        orf8_mutation_count = consolidate_deletions(parents_orf8_muts)
+        orf9b_mutation_count = consolidate_deletions(parents_orf9b_muts)
+
+        nsp1_mutation_count = consolidate_deletions(parents_nsp1_muts)
+        nsp2_mutation_count = consolidate_deletions(parents_nsp2_muts)
+        nsp3_mutation_count = consolidate_deletions(parents_nsp3_muts)
+        nsp4_mutation_count = consolidate_deletions(parents_nsp4_muts)
+        nsp5_mutation_count = consolidate_deletions(parents_nsp5_muts)
+        nsp6_mutation_count = consolidate_deletions(parents_nsp6_muts)
+        nsp7_mutation_count = consolidate_deletions(parents_nsp7_muts)
+        nsp8_mutation_count = consolidate_deletions(parents_nsp8_muts)
+        nsp9_mutation_count = consolidate_deletions(parents_nsp9_muts)
+        nsp10_mutation_count = consolidate_deletions(parents_nsp10_muts)
+        nsp13_mutation_count = consolidate_deletions(parents_nsp13_muts)
+        nsp14_mutation_count = consolidate_deletions(parents_nsp14_muts)
+        nsp15_mutation_count = consolidate_deletions(parents_nsp15_muts)
+        nsp16_mutation_count = consolidate_deletions(parents_nsp16_muts)
 
 
         node.node_attrs["s1_syn_accumulation"] = len(parents_s1_syn)
@@ -366,11 +488,29 @@ def add_mut_accumulation_attr(tree):
         node.node_attrs["s1_accumulation"] = s1_mutation_count
         node.node_attrs["s2_accumulation"] = s2_mutation_count
         node.node_attrs["rdrp_accumulation"] = rdrp_mutation_count
-        node.node_attrs["nsp6_accumulation"] = nsp6_mutation_count
-        node.node_attrs["nsp4_accumulation"] = nsp4_mutation_count
         node.node_attrs["n_accumulation"] = n_mutation_count
         node.node_attrs["e_accumulation"] = e_mutation_count
         node.node_attrs["m_accumulation"] = m_mutation_count
+        node.node_attrs["orf3a_accumulation"] = orf3a_mutation_count
+        node.node_attrs["orf6_accumulation"] = orf6_mutation_count
+        node.node_attrs["orf7a_accumulation"] = orf7a_mutation_count
+        node.node_attrs["orf7b_accumulation"] = orf7b_mutation_count
+        node.node_attrs["orf8_accumulation"] = orf8_mutation_count
+        node.node_attrs["orf9b_accumulation"] = orf9b_mutation_count
+        node.node_attrs["nsp1_accumulation"] = nsp1_mutation_count
+        node.node_attrs["nsp2_accumulation"] = nsp2_mutation_count
+        node.node_attrs["nsp3_accumulation"] = nsp3_mutation_count
+        node.node_attrs["nsp4_accumulation"] = nsp4_mutation_count
+        node.node_attrs["nsp5_accumulation"] = nsp5_mutation_count
+        node.node_attrs["nsp6_accumulation"] = nsp6_mutation_count
+        node.node_attrs["nsp7_accumulation"] = nsp7_mutation_count
+        node.node_attrs["nsp8_accumulation"] = nsp8_mutation_count
+        node.node_attrs["nsp9_accumulation"] = nsp9_mutation_count
+        node.node_attrs["nsp10_accumulation"] = nsp10_mutation_count
+        node.node_attrs["nsp13_accumulation"] = nsp13_mutation_count
+        node.node_attrs["nsp14_accumulation"] = nsp14_mutation_count
+        node.node_attrs["nsp15_accumulation"] = nsp15_mutation_count
+        node.node_attrs["nsp16_accumulation"] = nsp16_mutation_count
     return tree
 
 
@@ -399,6 +539,7 @@ def add_del_accumulation_attr(tree):
         parents_n_dels = []
         parents_e_dels = []
         parents_m_dels = []
+        parents_orf7a_dels = []
 
         for parent in parents:
             if hasattr(parent, "branch_attrs") and "mutations" in parent.branch_attrs:
@@ -416,9 +557,9 @@ def add_del_accumulation_attr(tree):
                 if "ORF1a" in parent.branch_attrs["mutations"]:
                     for mut in parent.branch_attrs["mutations"]["ORF1a"]:
                         if mut[-1] == '-':
-                            if int(mut[1:-1]) in range(4492,4401):
+                            if int(mut[1:-1]) in range(4393,4401):
                                 #renumber mut according to rdrp protein
-                                rdrp_mut = f'{mut[0]}{int(mut[1:-1])-4492}{mut[-1]}'
+                                rdrp_mut = f'{mut[0]}{int(mut[1:-1])-4393}{mut[-1]}'
                                 parents_rdrp_dels+=[rdrp_mut]
                             elif int(mut[1:-1]) in range(3570,3859):
                                 # exclude this ancestral mut
@@ -426,7 +567,7 @@ def add_del_accumulation_attr(tree):
                                     #renumber mut according to nsp6 protein
                                     nsp6_mut = f'{mut[0]}{int(mut[1:-1])-3570}{mut[-1]}'
                                     parents_nsp6_dels+=[nsp6_mut]
-                            elif int(mut[1:-1]) in range(2777,3261):
+                            elif int(mut[1:-1]) in range(2754,3263):
                                 #renumber mut according to nsp6 protein
                                 nsp4_mut = f'{mut[0]}{int(mut[1:-1])-2777}{mut[-1]}'
                                 parents_nsp4_dels+=[nsp4_mut]
@@ -452,6 +593,11 @@ def add_del_accumulation_attr(tree):
                     for mut in parent.branch_attrs["mutations"]["M"]:
                         if mut[-1] == '-':
                             parents_m_dels+=parent.branch_attrs["mutations"]["M"]
+                # find ORF7a muts
+                if "ORF7a" in parent.branch_attrs["mutations"]:
+                    for mut in parent.branch_attrs["mutations"]["ORF7a"]:
+                        if mut[-1] == '-':
+                            parents_m_dels+=parent.branch_attrs["mutations"]["ORF7a"]
 
 
 
@@ -465,13 +611,15 @@ def add_del_accumulation_attr(tree):
         n_deletion_count = consolidate_deletions(parents_n_dels)
         e_deletion_count = consolidate_deletions(parents_e_dels)
         m_deletion_count = consolidate_deletions(parents_m_dels)
+        orf7a_deletion_count = consolidate_deletions(parents_orf7a_dels)
 
         # add node attribute that lists the number of deletions accumulated at each node
         node.node_attrs['deletion_accumulation']= {'Spike': spike_deletion_count,
                                                    'S1': s1_deletion_count, 'S2':s2_deletion_count,
                                                    'RdRp':rdrp_deletion_count, 'Nsp6':nsp6_deletion_count,
                                                    'Nsp4':nsp4_deletion_count, 'N':n_deletion_count,
-                                                   'M': m_deletion_count, 'E': e_deletion_count}
+                                                   'M': m_deletion_count, 'E': e_deletion_count,
+                                                   'ORF7a': orf7a_deletion_count}
         # add node attribute that lists the number of nonsynonymous SNPs accumulated at each node
         node.node_attrs['nonsyn_snps_accumulation'] = {'Spike': node.node_attrs["spike_accumulation"] - spike_deletion_count,
                                                        'S1': node.node_attrs["s1_accumulation"] - s1_deletion_count,
@@ -481,13 +629,15 @@ def add_del_accumulation_attr(tree):
                                                        'Nsp4': node.node_attrs["nsp4_accumulation"] - nsp4_deletion_count,
                                                        'N': node.node_attrs["n_accumulation"] - n_deletion_count,
                                                        'M': node.node_attrs["m_accumulation"] - m_deletion_count,
-                                                       'E': node.node_attrs["e_accumulation"] - e_deletion_count}
+                                                       'E': node.node_attrs["e_accumulation"] - e_deletion_count,
+                                                       'ORF7a': node.node_attrs["orf7a_accumulation"] - orf7a_deletion_count}
 
     return tree
 
 def add_mut_at_node_attr(tree):
     """
     For each node, find the number of mutations that happened within each gene. Store this as an attribute of the node
+    Nsp genome locations from: https://www.ncbi.nlm.nih.gov/gene/43740578
     """
     for node in tree.find_clades(terminal=False):
 
@@ -519,31 +669,92 @@ def add_mut_at_node_attr(tree):
 
 
             rdrp_nonsyn_at_this_node = []
-            nsp6_nonsyn_at_this_node = []
+
+            nsp1_nonsyn_at_this_node = []
+            nsp2_nonsyn_at_this_node = []
+            nsp3_nonsyn_at_this_node = []
             nsp4_nonsyn_at_this_node = []
+            nsp6_nonsyn_at_this_node = []
+            nsp5_nonsyn_at_this_node = []
+            nsp7_nonsyn_at_this_node = []
+            nsp8_nonsyn_at_this_node = []
+            nsp9_nonsyn_at_this_node = []
+            nsp10_nonsyn_at_this_node = []
+            nsp13_nonsyn_at_this_node = []
+            nsp14_nonsyn_at_this_node = []
+            nsp15_nonsyn_at_this_node = []
+            nsp16_nonsyn_at_this_node = []
             if "ORF1a" in node.branch_attrs["mutations"]:
                 for mut in node.branch_attrs["mutations"]["ORF1a"]:
-                    if int(mut[1:-1]) in range(4492,4401):
+                    if int(mut[1:-1]) in range(4393,4401):
                         rdrp_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(1,180):
+                        nsp1_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(181,818):
+                        nsp2_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(819,2763):
+                        nsp3_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(2764,3263):
+                        nsp4_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(3264,3569):
+                        nsp5_nonsyn_at_this_node.append(mut)
                     elif int(mut[1:-1]) in range(3570,3859):
                         # exclude this ancestral mut
                         if mut!= 'K3833N':
                             nsp6_nonsyn_at_this_node.append(mut)
-                    elif int(mut[1:-1]) in range(2777,3261):
-                        nsp4_nonsyn_at_this_node.append(mut)
-
+                    elif int(mut[1:-1]) in range(3860,3942):
+                        nsp7_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(3943,4140):
+                        nsp8_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(4141,4253):
+                        nsp9_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(4254,4392):
+                        nsp10_nonsyn_at_this_node.append(mut)
 
             if "ORF1b" in node.branch_attrs["mutations"]:
                 for mut in node.branch_attrs["mutations"]["ORF1b"]:
                     if int(mut[1:-1]) in range(1,923):
                         rdrp_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(924,1524):
+                        nsp13_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(1525,2051):
+                        nsp14_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(2052,2397):
+                        nsp15_nonsyn_at_this_node.append(mut)
+                    elif int(mut[1:-1]) in range(2398,2695):
+                        nsp16_nonsyn_at_this_node.append(mut)
 
             rdrp_consolidated = consolidate_deletions_2(rdrp_nonsyn_at_this_node)
             node.nonsyn_at_node['RdRp'] =  len(rdrp_consolidated)
-            nsp6_consolidated = consolidate_deletions_2(nsp6_nonsyn_at_this_node)
-            node.nonsyn_at_node['Nsp6'] = len(nsp6_consolidated)
+
+            nsp1_consolidated = consolidate_deletions_2(nsp1_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp1'] = len(nsp1_consolidated)
+            nsp2_consolidated = consolidate_deletions_2(nsp2_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp2'] = len(nsp2_consolidated)
+            nsp3_consolidated = consolidate_deletions_2(nsp3_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp3'] = len(nsp3_consolidated)
             nsp4_consolidated = consolidate_deletions_2(nsp4_nonsyn_at_this_node)
             node.nonsyn_at_node['Nsp4'] = len(nsp4_consolidated)
+            nsp5_consolidated = consolidate_deletions_2(nsp5_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp5'] = len(nsp5_consolidated)
+            nsp6_consolidated = consolidate_deletions_2(nsp6_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp6'] = len(nsp6_consolidated)
+            nsp7_consolidated = consolidate_deletions_2(nsp7_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp7'] = len(nsp7_consolidated)
+            nsp8_consolidated = consolidate_deletions_2(nsp8_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp8'] = len(nsp8_consolidated)
+            nsp9_consolidated = consolidate_deletions_2(nsp9_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp9'] = len(nsp9_consolidated)
+            nsp10_consolidated = consolidate_deletions_2(nsp10_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp10'] = len(nsp10_consolidated)
+            nsp13_consolidated = consolidate_deletions_2(nsp13_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp13'] = len(nsp13_consolidated)
+            nsp14_consolidated = consolidate_deletions_2(nsp14_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp14'] = len(nsp14_consolidated)
+            nsp15_consolidated = consolidate_deletions_2(nsp15_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp15'] = len(nsp15_consolidated)
+            nsp16_consolidated = consolidate_deletions_2(nsp16_nonsyn_at_this_node)
+            node.nonsyn_at_node['Nsp16'] = len(nsp16_consolidated)
 
             n_nonsyn_at_this_node = []
             if "N" in node.branch_attrs["mutations"]:
@@ -568,6 +779,54 @@ def add_mut_at_node_attr(tree):
 
             m_consolidated = consolidate_deletions_2(m_nonsyn_at_this_node)
             node.nonsyn_at_node['M'] = len(m_consolidated)
+
+            orf3a_nonsyn_at_this_node = []
+            if "ORF3a" in node.branch_attrs["mutations"]:
+                for mut in node.branch_attrs["mutations"]["ORF3a"]:
+                    orf3a_nonsyn_at_this_node.append(mut)
+
+            orf3a_consolidated = consolidate_deletions_2(orf3a_nonsyn_at_this_node)
+            node.nonsyn_at_node['ORF3a'] = len(orf3a_consolidated)
+
+            orf6_nonsyn_at_this_node = []
+            if "ORF6" in node.branch_attrs["mutations"]:
+                for mut in node.branch_attrs["mutations"]["ORF6"]:
+                    orf6_nonsyn_at_this_node.append(mut)
+
+            orf6_consolidated = consolidate_deletions_2(orf6_nonsyn_at_this_node)
+            node.nonsyn_at_node['ORF6'] = len(orf6_consolidated)
+
+            orf7a_nonsyn_at_this_node = []
+            if "ORF7a" in node.branch_attrs["mutations"]:
+                for mut in node.branch_attrs["mutations"]["ORF7a"]:
+                    orf7a_nonsyn_at_this_node.append(mut)
+
+            orf7a_consolidated = consolidate_deletions_2(orf7a_nonsyn_at_this_node)
+            node.nonsyn_at_node['ORF7a'] = len(orf7a_consolidated)
+
+            orf7b_nonsyn_at_this_node = []
+            if "ORF7b" in node.branch_attrs["mutations"]:
+                for mut in node.branch_attrs["mutations"]["ORF7b"]:
+                    orf7b_nonsyn_at_this_node.append(mut)
+
+            orf7b_consolidated = consolidate_deletions_2(orf7b_nonsyn_at_this_node)
+            node.nonsyn_at_node['ORF7b'] = len(orf7b_consolidated)
+
+            orf8_nonsyn_at_this_node = []
+            if "ORF8" in node.branch_attrs["mutations"]:
+                for mut in node.branch_attrs["mutations"]["ORF8"]:
+                    orf8_nonsyn_at_this_node.append(mut)
+
+            orf8_consolidated = consolidate_deletions_2(orf8_nonsyn_at_this_node)
+            node.nonsyn_at_node['ORF8'] = len(orf8_consolidated)
+
+            orf9b_nonsyn_at_this_node = []
+            if "ORF9b" in node.branch_attrs["mutations"]:
+                for mut in node.branch_attrs["mutations"]["ORF9b"]:
+                    orf9b_nonsyn_at_this_node.append(mut)
+
+            orf9b_consolidated = consolidate_deletions_2(orf9b_nonsyn_at_this_node)
+            node.nonsyn_at_node['ORF9b'] = len(orf9b_consolidated)
     return tree
 
 
@@ -611,7 +870,7 @@ def add_changes_from_ref_attr(tree):
                 #and Nsp4 and 6 muts
                 if "ORF1a" in parent.branch_attrs["mutations"]:
                     for mut in parent.branch_attrs["mutations"]["ORF1a"]:
-                        if int(mut[1:-1]) in range(4492,4401):
+                        if int(mut[1:-1]) in range(4393,4401):
                             #renumber mut according to rdrp protein
                             rdrp_mut = f'{mut[0]}{int(mut[1:-1])-4492}{mut[-1]}'
                             parents_rdrp_muts+=[rdrp_mut]

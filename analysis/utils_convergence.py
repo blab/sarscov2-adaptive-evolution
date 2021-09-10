@@ -48,7 +48,10 @@ def count_independent_occurrences(tree, mutation_type='aa'):
                             # append mutation to a list of all observed mutations
                             # exclude if mutation is in stop codon position of gene
                             if int(mut[1:-1])!=gene_lengths_aa[gene]:
-                                all_mutations.append(gene_mutation)
+                                #S:142D likely occurred once and the D/G flickering at this site is because sequences are being assigned reference genotype
+                                # not likely a real thing, so exclude it from analysis
+                                if gene_mutation not in ['S:G142D','S:D142G']:
+                                    all_mutations.append(gene_mutation)
 
 
     # Find all mutations that occurred on internal branches of the phylogeny
@@ -98,9 +101,12 @@ def logistic_growth_of_clades_w_mut(tree, all_mutations_unique, mutation_type='a
 
                             # exclude mutations to last codon of gene (stop codon)
                             if int(mut[1:-1])!=gene_lengths_aa[gene]:
+                                #S:142D likely occurred once and the D/G flickering at this site is because sequences are being assigned reference genotype
+                                # not likely a real thing, so exclude it from analysis
+                                if gene_mutation not in ['S:G142D','S:D142G']:
 
-                                if logistic_growth!=None:
-                                    growth_dict[gene_mutation].append(logistic_growth)
+                                    if logistic_growth!=None:
+                                        growth_dict[gene_mutation].append(logistic_growth)
 
 
     # get rid of empty entries
