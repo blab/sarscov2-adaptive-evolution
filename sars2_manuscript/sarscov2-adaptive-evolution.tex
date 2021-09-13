@@ -148,6 +148,9 @@ Because positive selection causes alleles or clades to increase in frequency in 
 Clade success and the number of nonsynonymous S1 mutations are positively correlated, with a correlation coefficient $r$ of 0.46 (Figure \ref{fig:mutaccumulation}B).
 To test whether this correlation is greater than expected, we randomized the placement of mutations across branches of the phylogeny and computed a $p$-value between the empirical $r$ and the distribution of $r$ values from 1000 randomizations.
 The positive correlation between S1 mutations and logistic growth rate is statistically significant compared to the expected distribution ($p<0.005$), but is absent for S1 synonymous mutations and is not significant for RdRp substitutions (Figure \ref{fig:mutaccumulation}C).
+
+We applied this method to every gene in the SARS-CoV-2 genome (Table \ref{tab:table1}). The highest nonsynonymous mutation rate is observed in ORF8. 
+However, ORF8 substitutions are not correlated with clade success (Table \ref{tab:table1}), and many lineages acquire premature stop codons in ORF8, indicating that the high rate of ORF8 substitutions is likely due, at least in part, to a lack of functional constraints. 
 Mutations within other regions of the genome, including spike S2 and nucleocapsid (N), also accumulate at reasonably-high levels, but only Nsp6 and ORF7a mutations have a significant relationship with growth rates at the $p=0.01$ level (Table \ref{tab:table1}, Figure \ref{fig:mutaccummoregenes}).
 
 \begin{table}[]
