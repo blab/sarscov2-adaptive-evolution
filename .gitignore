@@ -10,7 +10,7 @@ ncov-workflow/defaults/colors_*.tsv
 ncov-workflow/stats.json
 
 # Old and unfinished analyses
-wip_analyses/*
+analysis/wip_analyses/*
 
 # Sensitive environment variables
 environment*
@@ -21,6 +21,9 @@ snakemake_log
 
 # Manuscript
 sarscov2-adaptive-evolution.pdf
+
+# Cover Letter
+sars2_manuscript/cover_letter/*
 
 # For Python #
 ##############
