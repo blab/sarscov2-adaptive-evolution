@@ -412,6 +412,7 @@ def add_mut_accumulation_attr(tree):
                 # find ORF8 muts
                 if "ORF8" in parent.branch_attrs["mutations"]:
                     parents_orf8_muts+=parent.branch_attrs["mutations"]["ORF8"]
+
                 # find ORF9b muts
                 if "ORF9b" in parent.branch_attrs["mutations"]:
                     parents_orf9b_muts+=parent.branch_attrs["mutations"]["ORF9b"]
