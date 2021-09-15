@@ -14,7 +14,7 @@ Nonsynonymous mutation accumulation (mutations per codon) is plotted against log
 
  <br /> <br /> <br />
 #### Figure 2: Ratio of nonsynonymous to synonymous divergence is highest S1
-The ratio of nonsynonymous to synonymous divergence within various coding regions is plotted over time. Each point shows the mean and 95% confidence interval of this ratio for all isolates present in a 0.2 year window (ending at the date indicated on the x-axis). Nonsynonymous divergence is calculated as the nonsynonymous Hamming distance between the sequence of an isolate and the root, normalized by the total possible number of nonsynonymous sites. The same is done for synonymous divergence. Divergence is calculated for various locations within the genome.
+The ratio of nonsynonymous to synonymous divergence within various coding regions is plotted over time. Each point shows the mean and 95% confidence interval of this ratio for all internal branches present in a 0.2 year window (ending at the date indicated on the x-axis). Nonsynonymous divergence is calculated as the nonsynonymous Hamming distance between the sequence of an isolate and the root, normalized by the total possible number of nonsynonymous sites. The same is done for synonymous divergence. Divergence is calculated for various locations within the genome.
 
 #### Figure 2 supplement 1: Ratio of nonsynonymous to synonymous divergence in influenza H3N2
 The mean and 95% confidence intervals for nonsynonymous/synonymous divergence ratios in the H3N2 genes HA1 and PB1 are shown over a 12-year period. 
