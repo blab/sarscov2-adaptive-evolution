@@ -93,10 +93,11 @@ The HA1 subunit of hemagglutinin both mediates binding to host cell receptors an
 Thus, in the context of an exposed host, selection for receptor binding avidity \cite{Hensley2009-at} and for escape from humoral immunity \cite{Bedford2014-rg} drive fixation of mutations in the HA1 subunit.
 The coronavirus protein subunit equivalent in function to HA1 is spike S1.
 Previously, we showed that at least two seasonal coronaviruses (229E and OC43) exhibit adaptive evolution concentrated in the S1 subunit of spike \cite{Kistler2021-va}.
-By demonstrating that strong immune responses to a particular historical isolate of 229E do not neutralize 229E viruses that circulate years afterwards, Eguia et al confirmed that 229E evolves antigenically \cite{Eguia_undated-om}.
+By demonstrating that strong immune responses to a particular historical isolate of 229E do not neutralize 229E viruses that circulate years afterwards, Eguia et al confirmed that 229E evolves antigenically \cite{Eguia_2021}.
 
 Standard methods used to detect adaptive evolution in seasonal influenza and seasonal coronaviruses rely on the fixation (or near fixation) of nonsynonymous changes, and thus require years or decades of evolutionary time.
-These methods are ill-fit to identify early adaptive evolution of a virus that has experienced a recent spillover event, such as SARS-CoV-2, given that the common ancestor of globally circulating viruses is currently no earlier than January 2020, corresponding to the base of clade 20A or lineage B.1 \cite{Hadfield2018-wr}.
+These methods are ill-fit to identify early adaptive evolution of a virus that has experienced a recent spillover event.
+For example, the common ancestor of globally circulating SARS-CoV-2 viruses is currently no earlier than January 2020, corresponding to the base of clade 20A or lineage B.1 \cite{Hadfield2018-wr}.
 Here, we present a new method to identify regions of the genome undergoing adaptive evolution, which is well-suited to early time points.
 This method correlates clade success with the accumulation of protein-coding changes in certain genes.
 We apply this method to SARS-CoV-2 genomic data from Dec 2019 to May 2021, focusing on the period of VOC and VOI emergence.
@@ -111,7 +112,7 @@ Together, these results indicate adaptation to a novel host and a partially immu
 \section*{Results}
 \subsection*{Accumulation of nonsynonymous mutations in spike S1 correlates with clade success}
 RNA viruses are known for their remarkably high error rates and, thus, the rapid generation of mutations.
-Despite possessing some proof-reading capacity (a relatively rare function for an RNA virus), SARS-CoV-2 has been accumulating roughly 24-25 substitutions per year (\href{https://nextstrain.org/ncov/gisaid/global?l=clock}{nextstrain.org/ncov/gisaid/global?l=clock}).
+Despite possessing some proof-reading capacity (a relatively rare function for an RNA virus), SARS-CoV-2 has been accumulating roughly 24-25 substitutions per year (\href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15?l=clock}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15?l=clock}).
 The null hypothesis is that these substitutions reflect neutral evolution: the result of genetic drift acting on random mutations.
 To determine whether this is true, or whether adaptive evolution is also contributing to the accumulation of mutations, we started by comparing substitution rates in different regions of the genome.
 
@@ -243,7 +244,7 @@ These results indicate a temporal structure to the adaptive evolution of SARS-Co
 	The exact date of a mutation is chosen by randomly selecting a date along the branch the mutation occurs on.
 	\textbf{B)} Distribution of wait times between S1 nonsynonymous, S1 synonymous, and RdRp nonsynonymous mutations.
 	Empirical wait times (in color) are plotted along with expected wait times (gray).
-	Expected wait times determined from randomizing mutations across the phylogeny using a multinomial draw with mutation likelihood proportional to relative branch length.
+	Expected wait times are determined from randomizing mutations across the phylogeny using a multinomial draw with mutation likelihood proportional to relative branch length.
 	The results of 1000 iterations are shown.
 	\textbf{C)} \textbf{i)} The mean empirical wait time from 1000 iterations of the analysis (colored bar) is compared to the distribution of mean expected wait times (gray) to yield a $p$-value.
 	\textbf{ii)} The proportion of observed wait times under 0.3 years (colored bar) is compared to the distribution of expected wait times under 0.3 years (gray).
@@ -393,7 +394,7 @@ The code for all analyses presented in this manuscript is located at \href{https
 All analyses in this manuscript were performed using data downloaded from the GISAID EpiCoV database (\href{https://gisaid.org}{gisaid.org}, \cite{Shu2017-ql}) on July 29, 2021 and curated by the Nextstrain nCoV ingest pipeline (\href{https://github.com/nextstrain/ncov-ingest}{github.com/nextstrain/ncov-ingest}).
 This dataset contained 2,459,376 viral genomes and associated metadata.
 These genomes were aligned with Nextalign (\href{https://docs.nextstrain.org/projects/nextclade/en/latest/user/nextalign-cli.html}{docs.nextstrain.org/projects/nextclade/en/latest/user/nextalign-cli.html}) and masked to minimize error in phylogenetic inference associated with problematic amplicon sites.
-Masked alignments were filtered to exclude strains that were known outliers, sequenced due to `S dropout', mis-annotated with a admin division of `USA', shorter than 27,000 bp of A, C, T, or G bases, missing complete date information, annotated with a date prior to October 2019, flagged with more than 20 mutations above the expected number based on the mutational clock rate, or flagged by Nextclade (\href{https://docs.nextstrain.org/projects/nextclade/en/latest/user/algorithm/07-quality-control.html}{docs.nextstrain.org/projects/nextclade/en/latest/user/algorithm/07-quality-control.html}) with one or more clusters of 6 or more private differences in a 100-nucleotide window.
+Masked alignments were filtered to exclude strains that were known outliers, sequenced due to `S dropout', mis-annotated with an admin division of `USA', shorter than 27,000 bp of A, C, T, or G bases, missing complete date information, annotated with a date prior to October 2019, flagged with more than 20 mutations above the expected number based on the mutational clock rate, or flagged by Nextclade (\href{https://docs.nextstrain.org/projects/nextclade/en/latest/user/algorithm/07-quality-control.html}{docs.nextstrain.org/projects/nextclade/en/latest/user/algorithm/07-quality-control.html}) with one or more clusters of 6 or more private differences in a 100-nucleotide window.
 After filtering 2,213,085 genomes remained.
 
 After filtering, SARS-CoV-2 genomes were evenly sampled across geographic scales and time. Specifically, a maximum of 1,600 strains were sampled from each continental region including Africa, Asia, Europe, North America, Oceania, and South America for an approximate total of 9,600 genomes per phylogeny.
