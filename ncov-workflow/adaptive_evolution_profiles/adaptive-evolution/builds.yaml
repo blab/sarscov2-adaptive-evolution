@@ -56,16 +56,16 @@ builds:
   #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
   #   title: "Global phylogeny of SARS-CoV-2 (July 15, 2021)"
   #   max_date: 2021-07-15
-  adaptive-evolution_2021-08-01:
+  # adaptive-evolution_2021-08-01:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (August 1, 2021)"
+  #   max_date: 2021-08-01
+  adaptive-evolution_2021-05-15_20k:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (August 1, 2021)"
-    max_date: 2021-08-01
-  adaptive-evolution_2021-08-15:
-    subsampling_scheme: global_by_region
-    auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (August 15, 2021)"
-    max_date: 2021-08-15
+    title: "Global phylogeny of SARS-CoV-2 (May 15, 2021)"
+    max_date: 2021-05-15
 
 # remove S dropout sequences and sequences without division label in US
 filter:
@@ -83,7 +83,7 @@ exposure:
 traits:
   adaptive-evolution:
     sampling_bias_correction: 2.5
-    columns: ["region_exposure"]
+    columns: ["country","region_exposure"]
 
 files:
   description: "adaptive_evolution_profiles/adaptive-evolution/adaptive_evolution_description.md"
@@ -93,42 +93,42 @@ subsampling:
   global_by_region:
     africa:
       group_by: "country year month"
-      max_sequences: 1600
+      max_sequences: 3300
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Africa'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     asia:
       group_by: "country year month"
-      max_sequences: 1600
+      max_sequences: 3300
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Asia'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     europe:
       group_by: "country year month"
-      max_sequences: 1600
+      max_sequences: 3300
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Europe'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     north_america:
       group_by: "division year month"
-      max_sequences: 1600
+      max_sequences: 3300
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=North America'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     oceania:
       group_by: "division year month"
-      max_sequences: 1600
+      max_sequences: 3300
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Oceania'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     south_america:
       group_by: "country year month"
-      max_sequences: 1600
+      max_sequences: 3300
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=South America'"
       min_date: "--min-date 2019-12-01"

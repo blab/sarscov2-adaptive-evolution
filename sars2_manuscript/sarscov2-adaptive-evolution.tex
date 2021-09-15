@@ -97,7 +97,7 @@ By demonstrating that strong immune responses to a particular historical isolate
 
 Standard methods used to detect adaptive evolution in seasonal influenza and seasonal coronaviruses rely on the fixation (or near fixation) of nonsynonymous changes, and thus require years or decades of evolutionary time.
 These methods are ill-fit to identify early adaptive evolution of a virus that has experienced a recent spillover event.
-For example, the common ancestor of globally circulating SARS-CoV-2 viruses is currently no earlier than January 2020, corresponding to the base of clade 20A or lineage B.1 \cite{Hadfield2018-wr}.
+For example, the common ancestor of globally circulating SARS-CoV-2 viruses is currently no earlier than January 2020, corresponding to the base of clade 20A or lineage B.1 (\href{https://nextstrain.org/ncov/gisaid/global}{nextstrain.org/ncov/gisaid/global}).
 Here, we present a new method to identify regions of the genome undergoing adaptive evolution, which is well-suited to early time points.
 This method correlates clade success with the accumulation of protein-coding changes in certain genes.
 We apply this method to SARS-CoV-2 genomic data from Dec 2019 to May 2021, focusing on the period of VOC and VOI emergence.
@@ -106,7 +106,7 @@ We show that the association between clade growth rates and nonsynonymous mutati
 Additionally, the ratio of nonsynonymous to synonymous divergence is markedly higher in S1 than other regions of the genome.
 We also examine the dynamics of adaptive evolution within the S1 subunit. Substitutions within S1 display a distinct pattern of temporal-clustering that synonymous mutations and RdRp substitutions do not.
 Several of these S1 substitutions, and a handful of mutations in other genes, exhibit convergent evolution, occurring independently many times and giving rise to successful viral clades each time they do.
-One of these mutations is a 3 amino acid deletion in the Nsp6 gene (ORF1a:3675-3677del), which occurs at the base of over half of the VOC clades and precedes the accumulation of more S1 substitutions than almost any other convergently-evolved mutation.
+One of these mutations is a 3-amino acid deletion in the Nsp6 gene (ORF1a:3675-3677del), which occurs at the base of over half of the VOC clades and precedes the accumulation of more S1 substitutions than almost any other convergently-evolved mutation.
 Together, these results indicate adaptation to a novel host and a partially immune host population is sculpting the evolutionary trajectory of SARS-CoV-2.
 
 \section*{Results}
@@ -125,7 +125,7 @@ To determine whether this is true, or whether adaptive evolution is also contrib
 	Each point is colored according to the lineage it belongs to.
 	Points are fit by linear regression.
 	\textbf{B)} For every clade, mutation accumulation (as in A) is plotted against logistic growth rate and the points are fit by linear regression.
-	\textbf{C)} The correlation coefficient $r$ between mutation accumulation and logistic growth rate is compared to an expected distribution to yield a $p$-value.
+	\textbf{C)} The empirical correlation coefficient $r$ between mutation accumulation and logistic growth rate (colored bar) is compared to an expected distribution (gray) to yield a $p$-value.
 	Expected values of $r$ are determined from randomizing mutations across the phylogeny using a multinomial draw with mutation likelihood proportional to relative branch length.
 	The results of 1000 iterations are shown.
 	}
@@ -148,54 +148,56 @@ Because positive selection causes alleles or clades to increase in frequency in 
 
 Clade success and the number of nonsynonymous S1 mutations are positively correlated, with a correlation coefficient $r$ of 0.46 (Figure \ref{fig:mutaccumulation}B).
 To test whether this correlation is greater than expected, we randomized the placement of mutations across branches of the phylogeny and computed a $p$-value between the empirical $r$ and the distribution of $r$ values from 1000 randomizations.
-The positive correlation between S1 mutations and logistic growth rate is statistically significant compared to the expected distribution ($p<0.005$), but is absent for S1 synonymous mutations and is not significant for RdRp substitutions (Figure \ref{fig:mutaccumulation}C).
+The positive correlation between S1 mutations and logistic growth rate is statistically significant compared to the expected distribution ($p$=0.003), but is absent for S1 synonymous mutations and is not significant for RdRp substitutions ($p$=0.256) (Figure \ref{fig:mutaccumulation}C).
 
 We applied this method to every gene in the SARS-CoV-2 genome (Table \ref{tab:table1} and Figure \ref{fig:4_comprehensive}). The highest nonsynonymous mutation rate is observed in ORF8. 
 However, ORF8 substitutions are not correlated with clade success (Table \ref{tab:table1}), and many lineages acquire premature stop codons in ORF8, indicating that the high rate of ORF8 substitutions is likely due, at least in part, to a lack of functional constraints. 
-Mutations within other regions of the genome, including spike S2 and nucleocapsid (N), also accumulate at reasonably-high levels, but only Nsp6 and ORF7a mutations have a significant relationship with growth rates at the $p=0.01$ level (Table \ref{tab:table1}, Figures \ref{fig:4_comprehensive} and \ref{fig:mutaccummoregenes}).
+Mutations within other regions of the genome, including spike S2 and nucleocapsid (N), also accumulate at reasonably-high levels but do not correlate well with clade success (Table Table \ref{tab:table1}). 
+Besides S1, only Nsp6 ($r$=0.35, $p$=0.011) and ORF7a ($r$=0.43, $p$\textless0.001) have a strong correlation with clade growth rates (Table \ref{tab:table1}, Figures \ref{fig:4_comprehensive} and \ref{fig:mutaccummoregenes}).
 
 \begin{table}[]
     \begin{center}
-    \caption{\textbf{Genome-wide correlation between nonsynonymous mutation accumulation and logistic growth rate showing evolutionary rate of nonsynonymous substitutions (and deletions) per codon per year, the correlation coefficient (\emph{r}) of mutation accumulation with logistic growth rate and the p-value of this correlation.}}
+    \caption{\textbf{Genome-wide correlation between nonsynonymous mutation accumulation and logistic growth rate showing evolutionary rate of nonsynonymous substitutions (and deletions) per codon per year, the correlation coefficient ($r$) of mutation accumulation with logistic growth rate and the p-value of this correlation.}}
     \begin{tabular}{lccc}
     \hline
-    \textbf{Gene} & \textbf{Evol rate} & \textbf{\emph{r}} & \textbf{p-value} \\
+    \textbf{Gene} & \textbf{Nonsyn Evolution rate} & \textbf{\emph{r}} & \textbf{p-value} \\
+      & \textbf{(subs/codon/year)} &  &  \\ 
     \hline
-    nsp1  & $0.1 \times 10^{-3}$  & 0.05   & 0.43     \\
-    nsp2  & $0.2 \times 10^{-3}$  & -0.10  & 0.89     \\
-    nsp3  & $1.3 \times 10^{-3}$  & 0.30   & 0.09     \\
-    nsp4  & $0.8 \times 10^{-3}$  & 0.28   & 0.06     \\
-    nsp5  & $0.5 \times 10^{-3}$  & -0.09  & 0.84     \\
-    nsp6  & $3.4 \times 10^{-3}$  & 0.35   & 0.01     \\
-    nsp7  & $0.3 \times 10^{-3}$  & -0.42  & 1.00     \\
-    nsp8  & $0.3 \times 10^{-3}$  & 0.04   & 0.44     \\
-    nsp9  & $0.7 \times 10^{-3}$  & 0.06   & 0.30     \\
-    nsp10 & $0.1 \times 10^{-3}$  & -0.05  & 0.81     \\
-    RdRp  & $0.5 \times 10^{-3}$  & 0.15   & 0.26     \\
-    nsp13 & $0.8 \times 10^{-3}$  & 0.20   & 0.15     \\
-    nsp14 & $0.3 \times 10^{-3}$  & -0.03  & 0.69     \\
-    nsp15 & $0.3 \times 10^{-3}$  & 0.15   & 0.23     \\
-    nsp16 & $0.3 \times 10^{-3}$  & -0.22  & 0.96     \\
-    S1    & $8.4 \times 10^{-3}$  & 0.46   & $<$0.005 \\
-    S2    & $3.5 \times 10^{-3}$  & 0.24   & 0.10     \\
-    ORF3a & $1.8 \times 10^{-3}$  & -0.06  & 0.86     \\
-    E     & $1.6 \times 10^{-3}$  & 0.03   & 0.39     \\
-    M     & $0.7 \times 10^{-3}$  & 0.29   & 0.04     \\
-    ORF6  & $0.2 \times 10^{-3}$  & 0.01   & 0.53     \\
-    ORF7a & $1.5 \times 10^{-3}$  & 0.43   & $<$0.005 \\
-    ORF7b & $1.7 \times 10^{-3}$  & 0.22   & 0.05     \\
-    ORF8  & $16.5 \times 10^{-3}$ & 0.19   & 0.19     \\
-    N     & $6.10 \times 10^{-3}$ & 0.21   & 0.22     \\
-    ORF9b & $2.10 \times 10^{-3}$ & 0.27   & 0.05     \\
+    Nsp1  & $0.1 \times 10^{-3}$  & 0.05   & 0.431     \\
+    Nsp2  & $0.2 \times 10^{-3}$  & -0.10  & 0.881     \\
+    Nsp3  & $1.3 \times 10^{-3}$  & 0.30   & 0.083     \\
+    Nsp4  & $0.8 \times 10^{-3}$  & 0.28   & 0.057     \\
+    Nsp5  & $0.5 \times 10^{-3}$  & -0.09  & 0.833     \\
+    Nsp6  & $3.4 \times 10^{-3}$  & 0.35   & \textbf{0.011}     \\
+    Nsp7  & $0.3 \times 10^{-3}$  & -0.42  & 0.998     \\
+    Nsp8  & $0.3 \times 10^{-3}$  & 0.04   & 0.443     \\
+    Nsp9  & $0.7 \times 10^{-3}$  & 0.06   & 0.299     \\
+    Nsp10 & $0.1 \times 10^{-3}$  & -0.05  & 0.807     \\
+    RdRp  & $0.5 \times 10^{-3}$  & 0.15   & 0.256     \\
+    Nsp13 & $0.8 \times 10^{-3}$  & 0.20   & 0.153     \\
+    Nsp14 & $0.3 \times 10^{-3}$  & -0.03  & 0.698     \\
+    Nsp15 & $0.3 \times 10^{-3}$  & 0.15   & 0.230     \\
+    Nsp16 & $0.3 \times 10^{-3}$  & -0.22  & 0.963     \\
+    S1    & $8.4 \times 10^{-3}$  & 0.46   & \textbf{0.003}     \\
+    S2    & $3.5 \times 10^{-3}$  & 0.24   & 0.105     \\
+    ORF3a & $1.8 \times 10^{-3}$  & -0.06  & 0.865     \\
+    E     & $1.6 \times 10^{-3}$  & 0.03   & 0.388     \\
+    M     & $0.7 \times 10^{-3}$  & 0.29   & 0.045     \\
+    ORF6  & $0.2 \times 10^{-3}$  & 0.01   & 0.528     \\
+    ORF7a & $1.5 \times 10^{-3}$  & 0.43   & \textbf{$<$0.001}  \\
+    ORF7b & $1.7 \times 10^{-3}$  & 0.22   & 0.050     \\
+    ORF8  & $16.5 \times 10^{-3}$ & 0.19   & 0.185     \\
+    N     & $6.10 \times 10^{-3}$ & 0.21   & 0.222     \\
+    ORF9b & $2.10 \times 10^{-3}$ & 0.27   & 0.050     \\
     \hline
     \end{tabular}
     \label{tab:table1}
     \end{center}
 \end{table}
 
-Though ORF7a substitutions appear highly correlated with clade success, this correlation is driven solely by the rapidly growing Delta variant, which possesses 3 mutations in ORF7a.
-Removing Delta clades from the analysis drops the $r$ for ORF7a from 0.43 to 0.09, whereas $r$ for S1 only dips from 0.46 to 0.41.
-This indicates that the correlation between S1 substitutions and clade success is a general feature of SARS-CoV-2 lineages.
+Though ORF7a substitutions appear highly correlated with clade success, this correlation is driven solely by the rapidly growing Delta variant, which possesses 3 mutations in ORF7a. 
+Removing Delta clades from the analysis drops the $r$ for ORF7a from 0.43 to 0.16, whereas $r$ for S1 and Nsp6 only dip from 0.46 to 0.41, and from 0.35 to 0.32, respectively. 
+This indicates that the correlation between S1 and Nsp6 substitutions and clade success is a general feature of SARS-CoV-2 lineages. 
 Thus, the metric presented here provides evidence that SARS-CoV-2 is evolving adaptively and that the predominant locus of this evolution is spike S1.
 
 \subsection*{The ratio of nonsynonymous to synonymous divergence is highest in S1}
@@ -218,7 +220,8 @@ Regardless of the cause, this change suggests a temporal structure to the adapti
 	Each point shows the mean and 95\% confidence interval of this ratio for all internal branches present in a 0.2 year window (ending at the date indicated on the x-axis).
 	Nonsynonymous divergence is calculated as the nonsynonymous Hamming distance between the sequence of an isolate and the root, normalized by the total possible number of nonsynonymous sites.
 	The same is done for synonymous divergence.
-	Divergence is calculated for various loci within the genome.
+	Divergence is calculated for various loci within the genome. 
+	The dashed line marks the average \emph{d\textsubscript{N}/d\textsubscript{S}} of the influenza H3N2 HA1 subunit across all 12 years, as calculated in \ref{fig:h3n2dnds}.
 	}
 	\label{fig:dnds}
 \end{figure}
@@ -294,7 +297,7 @@ Because recombination is common in coronaviruses \cite{Muller2021-qq, Turkahia20
 We considered all pairs of lineages containing this mutation as potential recombinants and compared informative mutations in the potential donor and acceptor.
 The closest informative mutations flanking ORF1a:3675-3677del are not shared by any pairs of lineages, offering a lack of evidence for recombination and strong support for convergent evolution.
 
-\subsection*{A 3 amino acid deletion in Nsp6 is associated with accumulation of S1 substitutions}
+\subsection*{A 3-amino acid deletion in Nsp6 is associated with accumulation of S1 substitutions}
 The ORF1a:3675-3677 deletion in Nsp6 exhibits striking convergent evolution and consistently precedes successful viral lineages. Because we have shown that S1 mutation accumulation is also associated with clade success, we next asked whether there is a relationship between the number of S1 substitutions in clades containing ORF1a:3675-3677del.
 
 We created an expectation for the mean number of S1 mutations that should be observed in clades with ORF1a:3675-3677del by generating 100 randomized trees where the mutation occurred on 8 branches selected by a multinomial draw.
@@ -334,7 +337,7 @@ In the context of deep mutational scanning (DMS) experiments, mutations at 501 i
 Recurrent mutations at S:681 enhance S1/S2 subunit cleavage \cite{Lubinski2021-ul, Liu2021-ne}, a protein-modification that is essential for spike-mediated cell entry \cite{Hoffmann2020-vi} and thus is thought to contribute to increased viral replication \cite{Liu2021-ne}.
 Many other convergently-evolved mutations are also shared by VOCs and possess demonstrably different phenotypes, often altering antigenicity \cite{Li2020-jd, McCarthy2021-lg, Wang2021-dm}.
 
-Despite the demonstrably advantageous effects of observed mutations, it is too soon, evolutionarily, to pick up strong signals of adaptive evolution by classical methods.
+Despite the demonstrably advantageous effects of observed mutations, it is too soon, evolutionarily, to pick up strong signals of adaptive evolution by classical methods that rely on fixation of nonsynonymous mutations.
 Instead, we capitalize on the high temporal and geographic density of SARS-CoV-2 sequencing data to create a new method for identifying adaptive evolution and regions of the genome where this evolution is localized.
 This method identifies genes where amino acid substitutions significantly correlate with clade growth rate.
 This can be intuitively interpreted as genes with high rates of amino acid substitutions (suggestive of positive selection) that result in more successful viruses (suggestive of a positive fitness effect) are undergoing adaptive evolution.

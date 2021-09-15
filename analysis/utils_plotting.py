@@ -1,6 +1,7 @@
 from scipy import stats
 from matplotlib.cm import get_cmap
 import seaborn as sns
+from datetime import timedelta, datetime
 
 
 def get_color_palette(num):
@@ -36,6 +37,19 @@ def convert_linege_names(old_name):
         new_name = old_name
 
     return new_name
+
+def DateToStr(number):
+    """
+    Convert decimal date into Mon-Year
+    """
+
+    year = int(number)
+    d = timedelta(days=(number - year)*365)
+    day_one = datetime(year,1,1)
+    date = d + day_one
+
+    date_str = date.strftime('%b-%Y')
+    return date_str
 
 def hue_regplot(data, x, y, hue, palette=None, **kwargs):
     """
