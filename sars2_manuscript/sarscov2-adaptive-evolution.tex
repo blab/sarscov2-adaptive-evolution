@@ -149,9 +149,9 @@ Clade success and the number of nonsynonymous S1 mutations are positively correl
 To test whether this correlation is greater than expected, we randomized the placement of mutations across branches of the phylogeny and computed a $p$-value between the empirical $r$ and the distribution of $r$ values from 1000 randomizations.
 The positive correlation between S1 mutations and logistic growth rate is statistically significant compared to the expected distribution ($p<0.005$), but is absent for S1 synonymous mutations and is not significant for RdRp substitutions (Figure \ref{fig:mutaccumulation}C).
 
-We applied this method to every gene in the SARS-CoV-2 genome (Table \ref{tab:table1}). The highest nonsynonymous mutation rate is observed in ORF8. 
+We applied this method to every gene in the SARS-CoV-2 genome (Table \ref{tab:table1} and Figure \ref{fig:4_comprehensive}). The highest nonsynonymous mutation rate is observed in ORF8. 
 However, ORF8 substitutions are not correlated with clade success (Table \ref{tab:table1}), and many lineages acquire premature stop codons in ORF8, indicating that the high rate of ORF8 substitutions is likely due, at least in part, to a lack of functional constraints. 
-Mutations within other regions of the genome, including spike S2 and nucleocapsid (N), also accumulate at reasonably-high levels, but only Nsp6 and ORF7a mutations have a significant relationship with growth rates at the $p=0.01$ level (Table \ref{tab:table1}, Figure \ref{fig:mutaccummoregenes}).
+Mutations within other regions of the genome, including spike S2 and nucleocapsid (N), also accumulate at reasonably-high levels, but only Nsp6 and ORF7a mutations have a significant relationship with growth rates at the $p=0.01$ level (Table \ref{tab:table1}, Figures \ref{fig:4_comprehensive} and \ref{fig:mutaccummoregenes}).
 
 \begin{table}[]
     \begin{center}
@@ -193,7 +193,7 @@ Mutations within other regions of the genome, including spike S2 and nucleocapsi
 \end{table}
 
 Though ORF7a substitutions appear highly correlated with clade success, this correlation is driven solely by the rapidly growing Delta variant, which possesses 3 mutations in ORF7a.
-Removing Delta clades from the analysis drops the $r$ for ORF7a from 0.43 to 0.09, whereas \emph{r} for S1 only dips from 0.46 to 0.41.
+Removing Delta clades from the analysis drops the $r$ for ORF7a from 0.43 to 0.09, whereas $r$ for S1 only dips from 0.46 to 0.41.
 This indicates that the correlation between S1 substitutions and clade success is a general feature of SARS-CoV-2 lineages.
 Thus, the metric presented here provides evidence that SARS-CoV-2 is evolving adaptively and that the predominant locus of this evolution is spike S1.
 
@@ -520,6 +520,14 @@ KEK was supported by the National Science Foundation Graduate Research Fellowshi
 	For each gene nonsynonymous mutation accumulation is separated into nonsynonymous SNPs (left) and deletions (right). Accumulation of these mutations is plotted against logistic growth rate for 8 genes (or subunits), as in Figure \ref{fig:mutaccumulation}B.
 	}
 	\label{fig:snpdel}
+\end{figure}
+
+\begin{figure}[h!]
+	\centerline{\includegraphics[scale=0.8]{table1_supp_comprehensive.png}}
+	\caption{\textbf{Visual Representation of Table \ref{tab:table1}.}
+	For every gene in the genome, the rate of nonsynonymous substitutions (and deletions) per codon per year is plotted against the correlation coefficient $r$ of mutation accumulation with logistic growth. Circles indicate genes with significant $r$ values at the $p$=0.01 level, and Xs indicate genes with insignificant $r$ values.
+	}
+	\label{fig:4_comprehensive}
 \end{figure}
 
 \begin{figure}[h!]
