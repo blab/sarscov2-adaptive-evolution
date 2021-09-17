@@ -23,7 +23,8 @@ snakemake_log
 sarscov2-adaptive-evolution.pdf
 
 # Cover Letter
-sars2_manuscript/cover_letter/*
+cell_cover_letter.tex
+cell_cover_letter.pdf
 
 # For Python #
 ##############
