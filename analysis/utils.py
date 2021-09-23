@@ -47,7 +47,6 @@ gene_lengths_aa['Nsp2'] = 638
 gene_lengths_aa['Nsp3'] = 1945
 gene_lengths_aa['Nsp4'] = 500
 gene_lengths_aa['Nsp5'] = 306
-gene_lengths_aa['Nsp6'] = 290
 gene_lengths_aa['Nsp7'] = 83
 gene_lengths_aa['Nsp8'] = 198
 gene_lengths_aa['Nsp9'] = 113
@@ -640,7 +639,7 @@ def add_mut_at_node_attr(tree):
     For each node, find the number of mutations that happened within each gene. Store this as an attribute of the node
     Nsp genome locations from: https://www.ncbi.nlm.nih.gov/gene/43740578
     """
-    for node in tree.find_clades(terminal=False):
+    for node in tree.find_clades():
 
         node.nonsyn_at_node = {}
         node.syn_at_node = {}
@@ -847,6 +846,8 @@ def add_changes_from_ref_attr(tree):
         parents_n_muts = []
         parents_e_muts = []
         parents_m_muts = []
+        parents_orf7a_muts = []
+        parents_nsp6_muts = []
 
         parents_s1_syn = []
         parents_s2_syn = []
@@ -855,6 +856,8 @@ def add_changes_from_ref_attr(tree):
         parents_n_syn = []
         parents_e_syn = []
         parents_m_syn = []
+        parents_orf7a_syn = []
+        parents_nsp6_syn = []
 
 
         for parent in parents:
@@ -875,6 +878,12 @@ def add_changes_from_ref_attr(tree):
                             #renumber mut according to rdrp protein
                             rdrp_mut = f'{mut[0]}{int(mut[1:-1])-4492}{mut[-1]}'
                             parents_rdrp_muts+=[rdrp_mut]
+                        elif int(mut[1:-1]) in range(3570,3859):
+                            # exclude this ancestral mut
+                            if mut!= 'K3833N':
+                                #renumber mut according to nsp6 protein
+                                nsp6_mut = f'{mut[0]}{int(mut[1:-1])-3570}{mut[-1]}'
+                                parents_nsp6_muts+=[nsp6_mut]
                 if "ORF1b" in parent.branch_attrs["mutations"]:
                     for mut in parent.branch_attrs["mutations"]["ORF1b"]:
                         if int(mut[1:-1]) in range(1,923):
@@ -890,6 +899,9 @@ def add_changes_from_ref_attr(tree):
                 # find M muts
                 if "M" in parent.branch_attrs["mutations"]:
                     parents_m_muts+=parent.branch_attrs["mutations"]["M"]
+                # find ORF7a muts
+                if "ORF7a" in parent.branch_attrs["mutations"]:
+                    parents_orf7a_muts+=parent.branch_attrs["mutations"]["ORF7a"]
             if hasattr(parent, 'node_attrs') and 'syn_muts' in parent.node_attrs:
                 if 'S' in parent.node_attrs['syn_muts']:
                     parents_spike_syn += parent.node_attrs['syn_muts']['S']
@@ -901,12 +913,16 @@ def add_changes_from_ref_attr(tree):
                     parents_s2_syn += parent.node_attrs['syn_muts']['S2']
                 if 'RdRp' in parent.node_attrs['syn_muts']:
                     parents_rdrp_syn += parent.node_attrs['syn_muts']['RdRp']
+                if 'Nsp6' in parent.node_attrs['syn_muts']:
+                    parents_nsp6_syn += parent.node_attrs['syn_muts']['Nsp6']
                 if 'E' in parent.node_attrs['syn_muts']:
                     parents_e_syn += parent.node_attrs['syn_muts']['E']
                 if 'N' in parent.node_attrs['syn_muts']:
                     parents_n_syn += parent.node_attrs['syn_muts']['N']
                 if 'M' in parent.node_attrs['syn_muts']:
                     parents_m_syn += parent.node_attrs['syn_muts']['M']
+                if 'ORF7a' in parent.node_attrs['syn_muts']:
+                    parents_orf7a_syn += parent.node_attrs['syn_muts']['ORF7a']
 
 
         # remove reversion mutations from each list
@@ -917,6 +933,8 @@ def add_changes_from_ref_attr(tree):
         parents_n_muts = remove_reversions(parents_n_muts)
         parents_e_muts = remove_reversions(parents_e_muts)
         parents_m_muts = remove_reversions(parents_m_muts)
+        parents_nsp6_muts = remove_reversions(parents_nsp6_muts)
+        parents_orf7a_muts = remove_reversions(parents_orf7a_muts)
         parents_s1_syn = remove_reversions(parents_s1_syn)
         parents_s2_syn = remove_reversions(parents_s2_syn)
         parents_rdrp_syn = remove_reversions(parents_rdrp_syn)
@@ -924,6 +942,8 @@ def add_changes_from_ref_attr(tree):
         parents_e_syn = remove_reversions(parents_e_syn)
         parents_n_syn = remove_reversions(parents_n_syn)
         parents_m_syn = remove_reversions(parents_m_syn)
+        parents_nsp6_syn = remove_reversions(parents_nsp6_syn)
+        parents_orf7a_syn = remove_reversions(parents_orf7a_syn)
 
 
         # count deletion of adjacent nucleotides as one mutation event
@@ -934,6 +954,8 @@ def add_changes_from_ref_attr(tree):
         n_mutation_list = consolidate_deletions_2(parents_n_muts)
         e_mutation_list = consolidate_deletions_2(parents_e_muts)
         m_mutation_list = consolidate_deletions_2(parents_m_muts)
+        nsp6_mutation_list = consolidate_deletions_2(parents_nsp6_muts)
+        orf7a_mutation_list = consolidate_deletions_2(parents_orf7a_muts)
         s1_syn_mutation_list = consolidate_deletions_2(parents_s1_syn)
         s2_syn_mutation_list = consolidate_deletions_2(parents_s2_syn)
         rdrp_syn_mutation_list = consolidate_deletions_2(parents_rdrp_syn)
@@ -941,8 +963,10 @@ def add_changes_from_ref_attr(tree):
         n_syn_mutation_list = consolidate_deletions_2(parents_n_syn)
         e_syn_mutation_list = consolidate_deletions_2(parents_e_syn)
         m_syn_mutation_list = consolidate_deletions_2(parents_m_syn)
+        nsp6_syn_mutation_list = consolidate_deletions_2(parents_nsp6_syn)
+        orf7a_syn_mutation_list = consolidate_deletions_2(parents_orf7a_syn)
 
-        node.node_attrs["changes_from_ref"] = {'s1_non':s1_mutation_list, 's2_non':s2_mutation_list, 'rdrp_non':rdrp_mutation_list, 'spike_non':spike_mutation_list, 'e_non':e_mutation_list, 'n_non':n_mutation_list, 'm_non':m_mutation_list, 's1_syn': s1_syn_mutation_list, 's2_syn':s2_syn_mutation_list, 'rdrp_syn': rdrp_syn_mutation_list, 'spike_syn': spike_syn_mutation_list, 'e_syn': e_syn_mutation_list, 'n_syn':n_syn_mutation_list, 'm_syn': m_syn_mutation_list}
+        node.node_attrs["changes_from_ref"] = {'s1_non':s1_mutation_list, 's2_non':s2_mutation_list, 'rdrp_non':rdrp_mutation_list, 'spike_non':spike_mutation_list, 'e_non':e_mutation_list, 'n_non':n_mutation_list, 'm_non':m_mutation_list, 'nsp6_non':nsp6_mutation_list, 'orf7a_non':orf7a_mutation_list, 's1_syn': s1_syn_mutation_list, 's2_syn':s2_syn_mutation_list, 'rdrp_syn': rdrp_syn_mutation_list, 'spike_syn': spike_syn_mutation_list, 'e_syn': e_syn_mutation_list, 'n_syn':n_syn_mutation_list, 'm_syn': m_syn_mutation_list, 'nsp6_syn': nsp6_syn_mutation_list, 'orf7a_syn': orf7a_syn_mutation_list}
     return tree
 
 
