@@ -23,7 +23,7 @@ inputs:
 builds:
   adaptive-evolution_2021-05-15_20k:
     subsampling_scheme: global_by_region
-    auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
+    auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
     title: "Global phylogeny of SARS-CoV-2 (May 15, 2021)"
     max_date: 2021-05-15
 
@@ -46,7 +46,7 @@ traits:
     columns: ["country","region_exposure"]
 
 files:
-  description: "adaptive_evolution_profiles/adaptive-evolution/adaptive_evolution_description.md"
+  description: "adaptive_evolution_profiles/adaptive_evolution_description.md"
 
 # add this for large datasets to help TreeTime converge
 refine:
