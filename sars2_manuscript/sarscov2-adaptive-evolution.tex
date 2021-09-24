@@ -338,11 +338,13 @@ In the context of deep mutational scanning (DMS) experiments, mutations at 501 i
 Recurrent mutations at S:681 enhance S1/S2 subunit cleavage \cite{Lubinski2021-ul, Liu2021-ne}, a protein-modification that is essential for spike-mediated cell entry \cite{Hoffmann2020-vi} and thus is thought to contribute to increased viral replication \cite{Liu2021-ne}.
 Many other convergently-evolved mutations are also shared by VOCs and possess demonstrably different phenotypes, often altering antigenicity \cite{Li2020-jd, McCarthy2021-lg, Wang2021-dm}.
 
-Despite the demonstrably advantageous effects of observed mutations, it is too soon, evolutionarily, to pick up strong signals of adaptive evolution by classical methods that rely on fixation of nonsynonymous mutations.
-Instead, we capitalize on the high temporal and geographic density of SARS-CoV-2 sequencing data to create a new method for identifying adaptive evolution and regions of the genome where this evolution is localized.
-This method identifies genes where amino acid substitutions significantly correlate with clade growth rate.
+Despite the demonstrably advantageous effects of observed mutations, it is too soon, evolutionarily, to pick up signals of adaptive evolution by classical methods that rely on fixation of nonsynonymous mutations.
+On a short time scale, these methods will detect only regions undergoing very high levels of adaptive evolution.
+As an alternative, we present a method that is able to detect subtler signals of adaptive evolution on short evolutionary time scales, and apply it to comprehensively scan for evidence of positive selection across every gene in the SARS-CoV-2 genome.
+This method capitalizes on the high temporal and geographic density of SARS-CoV-2 sequencing data to identify genes where amino acid substitutions significantly correlate with clade growth rate.
 This can be intuitively interpreted as genes with high rates of amino acid substitutions (suggestive of positive selection) that result in more successful viruses (suggestive of a positive fitness effect) are undergoing adaptive evolution.
-We find that the spike S1 subunit shows strong signals of adaptive evolution by this method (Figure \ref{fig:mutaccumulation}).
+Correlation of clade growth with nonsynonymous changes should function similarly to the logic of the McDonald-Kreitman test \cite{mcdonald1991adaptive}, where power is gained over analysis of \emph{d\textsubscript{N}/d\textsubscript{S}} by stratifying based on degree of evolutionary success.
+We find that the spike S1 subunit along with Nsp6 and ORF7a show strong signals of adaptive evolution by this method (Figure \ref{fig:mutaccumulation}, Table \ref{tab:table1}).
 
 Interestingly, we find temporal structure to this adaptive evolution. Substitutions within S1 cluster temporally (Figure \ref{fig:waittimes}), rather than accruing at a steady rate.
 The ratio of nonsynonymous to synonymous divergence (\emph{d\textsubscript{N}/d\textsubscript{S}}) in S1 also increases over time (Figure \ref{fig:dnds}).
