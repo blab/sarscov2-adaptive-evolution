@@ -1,7 +1,3 @@
-configfile:
-  - defaults/parameters.yaml
-  - adaptive_evolution_profiles/adaptive-evolution/builds.yaml
-
 cores: 8
 keep-going: False
 printshellcmds: True

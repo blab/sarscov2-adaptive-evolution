@@ -21,46 +21,6 @@ inputs:
 # These subsampling schemes are defined at the bottom of this file.
 # (They override the defaults)
 builds:
-  # adaptive-evolution_2021-05-15:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (May 15, 2021)"
-  #   max_date: 2021-05-15
-  # adaptive-evolution_2021-05-01:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (May 1, 2021)"
-  #   max_date: 2021-05-01
-  # adaptive-evolution_2021-04-15:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (April 15, 2021)"
-  #   max_date: 2021-04-15
-  # adaptive-evolution_2021-06-01:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (June 1, 2021)"
-  #   max_date: 2021-06-01
-  # adaptive-evolution_2021-06-15:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (June 15, 2021)"
-  #   max_date: 2021-06-15
-  # adaptive-evolution_2021-07-01:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (July 1, 2021)"
-  #   max_date: 2021-07-01
-  # adaptive-evolution_2021-07-15:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (July 15, 2021)"
-  #   max_date: 2021-07-15
-  # adaptive-evolution_2021-08-01:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (August 1, 2021)"
-  #   max_date: 2021-08-01
   adaptive-evolution_2021-05-15_20k:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/adaptive-evolution/global_auspice_config.json"
@@ -88,8 +48,13 @@ traits:
 files:
   description: "adaptive_evolution_profiles/adaptive-evolution/adaptive_evolution_description.md"
 
+# add this for large datasets to help TreeTime converge
+refine:
+  coalescent: opt
+
 subsampling:
   # Custom subsampling logic for global region.
+  # 3300 sequences per region for a total of ~20000
   global_by_region:
     africa:
       group_by: "country year month"
