@@ -294,18 +294,6 @@ The specific mutations identified by this analysis will vary over time and depen
 However, ORF1a:3675-3677del consistently appears as a top hit (Figure \ref{fig:convergent}C, and Figure \ref{fig:convergentovertime}).
 Remarkably, this deletion, which ablates amino acids 106-108 of Nsp6, arose 8 independent times and emerging lineages descend from each branch this deletion occurs on (Figure \ref{fig:emerginglineages}).
 
-Because recombination is common in coronaviruses \cite{Muller2021-qq, Turkahia2021-ao}, we investigated the possibility that these 8 occurrences of the ORF1a:3675-3677 deletion were due to recombination, rather than convergent evolution.
-We considered all pairs of lineages containing this mutation as potential recombinants and compared informative mutations in the potential donor and acceptor.
-The closest informative mutations flanking ORF1a:3675-3677del are not shared by any pairs of lineages, offering a lack of evidence for recombination and strong support for convergent evolution.
-
-\subsection*{A 3-amino acid deletion in Nsp6 is associated with accumulation of S1 substitutions}
-The ORF1a:3675-3677 deletion in Nsp6 exhibits striking convergent evolution and consistently precedes successful viral lineages. Because we have shown that S1 mutation accumulation is also associated with clade success, we next asked whether there is a relationship between the number of S1 substitutions in clades containing ORF1a:3675-3677del.
-
-We created an expectation for the mean number of S1 mutations that should be observed in clades with ORF1a:3675-3677del by generating 100 randomized trees where the mutation occurred on 8 branches selected by a multinomial draw.
-To make the expectation as fair as possible, we constrained the randomized branches to be on or after the date that the first Nsp6 deletion was observed.
-Under this expectation, there is no difference between the mean number of S1 or RdRp substitutions in clades that have the ORF1a:3675-3677 deletion versus clades that do not (Figure \ref{fig:nsp6s1}A, left).
-However, in the empirical phylogeny, there are significantly more S1 substitutions in clades with the Nsp6 deletion versus clades without (Figure \ref{fig:nsp6s1}A, right).
-
 \begin{figure}[h!]
 	\centerline{\includegraphics[width=1.0\textwidth]{fig5_nsp6s1.png}}
 	\caption{\textbf{Clades with the 3-amino acid deletion in Nsp6 have a high number of S1 mutations.}
@@ -317,6 +305,18 @@ However, in the empirical phylogeny, there are significantly more S1 substitutio
 	}
 	\label{fig:nsp6s1}
 \end{figure}
+
+Because recombination is common in coronaviruses \cite{Muller2021-qq, Turkahia2021-ao}, we investigated the possibility that these 8 occurrences of the ORF1a:3675-3677 deletion were due to recombination, rather than convergent evolution.
+We considered all pairs of lineages containing this mutation as potential recombinants and compared informative mutations in the potential donor and acceptor.
+The closest informative mutations flanking ORF1a:3675-3677del are not shared by any pairs of lineages, offering a lack of evidence for recombination and strong support for convergent evolution.
+
+\subsection*{A 3-amino acid deletion in Nsp6 is associated with accumulation of S1 substitutions}
+The ORF1a:3675-3677 deletion in Nsp6 exhibits striking convergent evolution and consistently precedes successful viral lineages. Because we have shown that S1 mutation accumulation is also associated with clade success, we next asked whether there is a relationship between the number of S1 substitutions in clades containing ORF1a:3675-3677del.
+
+We created an expectation for the mean number of S1 mutations that should be observed in clades with ORF1a:3675-3677del by generating 100 randomized trees where the mutation occurred on 8 branches selected by a multinomial draw.
+To make the expectation as fair as possible, we constrained the randomized branches to be on or after the date that the first Nsp6 deletion was observed.
+Under this expectation, there is no difference between the mean number of S1 or RdRp substitutions in clades that have the ORF1a:3675-3677 deletion versus clades that do not (Figure \ref{fig:nsp6s1}A, left).
+However, in the empirical phylogeny, there are significantly more S1 substitutions in clades with the Nsp6 deletion versus clades without (Figure \ref{fig:nsp6s1}A, right).
 
 That clades with ORF1a:3675-3677del have higher numbers of S1 substitutions does not speak to the directionality of this relationship.
 In other words, it is possible that ORF1a:3675-3677del occurs in lineages that already have a lot of S1 substitutions, or that a lot of S1 mutations accumulate in clades that already have ORF1a:3675-3677del.
