@@ -1,0 +1,33 @@
+GENES = ["S1", "S2"]
+NONSYN_SYN = ["nonsyn", "syn"]
+ITERATIONS = range(5)
+
+rule all:
+    input:
+        expand("results/randomizations/{gene}/{nonsyn_syn}/{iteration}.json", gene=GENES, nonsyn_syn=NONSYN_SYN, iteration=ITERATIONS)
+
+rule download_tree:
+    output:
+        tree="ncov_adaptive-evolution_2021-05-15.json",
+    params:
+        tree_url="https://nextstrain-blab.s3.amazonaws.com/ncov_adaptive-evolution_2021-05-15.json"
+    shell:
+        """
+        curl -O {params.tree_url}
+        """
+
+rule randomize_mutations_on_tree:
+    input:
+        tree="ncov_adaptive-evolution_2021-05-15.json",
+        # ???
+    output:
+        randomized_mutations="results/randomizations/{gene}/{nonsyn_syn}/{iteration}.json",
+    shell:
+        """
+        python3 randomize_mutations_on_tree.py \
+            --tree {input.tree} \
+            --gene {wildcards.gene} \
+            --nonsyn-syn {wildcards.nonsyn_syn} \
+            --iteration {wildcards.iteration} \
+            --output {output.randomized_mutations}
+        """
