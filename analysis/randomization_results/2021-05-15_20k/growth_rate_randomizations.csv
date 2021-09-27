@@ -1,0 +1,16 @@
+data,iteration,gene,nonsyn_syn,r_value
+randomized,0,S1,nonsyn,-0.1575294533242372
+randomized,1,S1,nonsyn,0.035451150724322686
+randomized,2,S1,nonsyn,0.16472756231225635
+randomized,3,S1,nonsyn,0.18910490254400122
+randomized,4,S1,nonsyn,0.15702149748970393
+randomized,0,S2,nonsyn,0.05152610807846196
+randomized,1,S2,nonsyn,-0.058720956484871877
+randomized,2,S2,nonsyn,0.06447211672788235
+randomized,3,S2,nonsyn,-0.10946985957095323
+randomized,4,S2,nonsyn,-0.0571980915689645
+randomized,0,S1,syn,0.16806419697884356
+randomized,1,S1,syn,-0.12284678991722449
+randomized,2,S1,syn,0.1217716419747741
+randomized,3,S1,syn,0.16220317953590016
+randomized,4,S1,syn,-0.07707975551868203
