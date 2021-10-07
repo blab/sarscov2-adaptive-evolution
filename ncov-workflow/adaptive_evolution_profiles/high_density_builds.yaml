@@ -20,12 +20,18 @@ inputs:
 # For each build we specify a subsampling scheme via an explicit key.
 # These subsampling schemes are defined at the bottom of this file.
 # (They override the defaults)
+# builds:
+#   adaptive-evolution_2021-05-15_20k:
+#     subsampling_scheme: global_by_region
+#     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+#     title: "Global phylogeny of SARS-CoV-2 (May 15, 2021)"
+#     max_date: 2021-05-15
 builds:
-  adaptive-evolution_2021-05-15_20k:
+  adaptive-evolution_2021-09-15_20k:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (May 15, 2021)"
-    max_date: 2021-05-15
+    title: "Global phylogeny of SARS-CoV-2 (September 15, 2021)"
+    max_date: 2021-09-15
 
 # remove S dropout sequences and sequences without division label in US
 filter:

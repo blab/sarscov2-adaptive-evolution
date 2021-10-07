@@ -66,11 +66,16 @@ builds:
   #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
   #   title: "Global phylogeny of SARS-CoV-2 (August 15, 2021)"
   #   max_date: 2021-08-15
-  adaptive-evolution_2021-09-01:
+  # adaptive-evolution_2021-09-01:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (September 1, 2021)"
+  #   max_date: 2021-09-01
+  adaptive-evolution_2021-10-01:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (September 1, 2021)"
-    max_date: 2021-09-01
+    title: "Global phylogeny of SARS-CoV-2 (October 1, 2021)"
+    max_date: 2021-10-01
 
 
 # remove S dropout sequences and sequences without division label in US
