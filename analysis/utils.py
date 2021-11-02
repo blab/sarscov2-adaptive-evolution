@@ -56,6 +56,9 @@ gene_lengths_aa['Nsp14'] = 527
 gene_lengths_aa['Nsp15'] = 346
 gene_lengths_aa['Nsp16'] = 298
 
+def sars2_genome_seq():
+    return reference_sequence_aa, reference_sequence_nt
+
 
 def sars2_genome_info():
     """

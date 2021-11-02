@@ -121,11 +121,11 @@ FEATURES             Location/Qualifiers
                      /gene="ORF9b"
                      /codon_start=1
                      /product="Protein 9b"
-     CDS             join(13442..13468,13468..16237)
+     CDS             join(13442..13468,13468..16236)
                      /codon_start=1
                      /gene="RdRp"
                      /note="nsp12; RNA-dependent RNA polymerase"
-     gene            join(13442..13468,13468..16237)
+     gene            join(13442..13468,13468..16236)
                      /gene="RdRp"
      CDS             21599..23617
                      /codon_start=1
@@ -139,6 +139,13 @@ FEATURES             Location/Qualifiers
                      /note="spike S2 domain"
      gene            23618..25381
                      /gene="S2"
+     CDS             10973..11842
+                     /codon_start=1
+                     /gene="Nsp6"
+                     /note="nonstructural protein 6"
+     gene            10973..11842
+                     /gene="Nsp6"
+                     
 ORIGIN
         1 attaaaggtt tataccttcc caggtaacaa accaaccaac tttcgatctc ttgtagatct
        61 gttctctaaa cgaactttaa aatctgtgtg gctgtcactc ggctgcatgc ttagtgcact

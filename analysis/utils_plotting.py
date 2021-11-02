@@ -48,7 +48,7 @@ def DateToStr(number):
     day_one = datetime(year,1,1)
     date = d + day_one
 
-    date_str = date.strftime('%b-%Y')
+    date_str = date.strftime('%b-%d-%Y')
     return date_str
 
 def hue_regplot(data, x, y, hue, palette=None, **kwargs):
