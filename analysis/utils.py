@@ -648,9 +648,38 @@ def add_mut_at_node_attr(tree):
         node.syn_at_node = {}
 
         s1_syn_at_this_node = []
-        if hasattr(node, "node_attrs") and 'S1' in node.node_attrs['syn_muts']:
-            s1_syn_at_this_node.append(node.node_attrs['syn_muts']['S1'])
+        s2_syn_at_this_node = []
+        rdrp_syn_at_this_node = []
+        e_syn_at_this_node = []
+        m_syn_at_this_node = []
+        n_syn_at_this_node = []
+        orf7a_syn_at_this_node = []
+        nsp6_syn_at_this_node = []
+        if hasattr(node, "node_attrs"):
+            if 'S1' in node.node_attrs['syn_muts']:
+                s1_syn_at_this_node.append(node.node_attrs['syn_muts']['S1'])
+            if 'S2' in node.node_attrs['syn_muts']:
+                s2_syn_at_this_node.append(node.node_attrs['syn_muts']['S2'])
+            if 'RdRp' in node.node_attrs['syn_muts']:
+                rdrp_syn_at_this_node.append(node.node_attrs['syn_muts']['RdRp'])
+            if 'E' in node.node_attrs['syn_muts']:
+                e_syn_at_this_node.append(node.node_attrs['syn_muts']['E'])
+            if 'M' in node.node_attrs['syn_muts']:
+                m_syn_at_this_node.append(node.node_attrs['syn_muts']['M'])
+            if 'N' in node.node_attrs['syn_muts']:
+                n_syn_at_this_node.append(node.node_attrs['syn_muts']['N'])
+            if 'ORF7a' in node.node_attrs['syn_muts']:
+                orf7a_syn_at_this_node.append(node.node_attrs['syn_muts']['ORF7a'])
+            if 'Nsp6' in node.node_attrs['syn_muts']:
+                nsp6_syn_at_this_node.append(node.node_attrs['syn_muts']['Nsp6'])
         node.syn_at_node['S1'] = len(s1_syn_at_this_node)
+        node.syn_at_node['S2'] = len(s2_syn_at_this_node)
+        node.syn_at_node['RdRp'] = len(rdrp_syn_at_this_node)
+        node.syn_at_node['E'] = len(e_syn_at_this_node)
+        node.syn_at_node['M'] = len(m_syn_at_this_node)
+        node.syn_at_node['N'] = len(n_syn_at_this_node)
+        node.syn_at_node['ORF7a'] = len(orf7a_syn_at_this_node)
+        node.syn_at_node['Nsp6'] = len(nsp6_syn_at_this_node)
 
 
         if hasattr(node, 'branch_attrs'):
