@@ -32,6 +32,16 @@
       "type": "continuous"
     },
     {
+      "key": "max_frequency",
+      "title": "Maximum frequency",
+      "type": "continuous"
+    },
+    {
+      "key": "max_frequency_timepoint",
+      "title": "Maximum frequency timepoint",
+      "type": "continuous"
+    },
+    {
       "key": "current_frequency",
       "title": "Current frequency",
       "type": "continuous"
