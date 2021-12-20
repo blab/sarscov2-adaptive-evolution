@@ -1,5 +1,7 @@
 auspice_json_prefix: ncov
 
+skip_travel_history_adjustment: true
+
 # These parameters are only used by the `export_for_nextstrain` rule and shouldn't need to be modified.
 # To modify the s3 _source_ bucket, specify this directly in the `inputs` section of the config.
 # P.S. These are intentionally set as top-level keys as this allows command-line overrides.
@@ -21,6 +23,31 @@ inputs:
 # These subsampling schemes are defined at the bottom of this file.
 # (They override the defaults)
 builds:
+  # adaptive-evolution_2020-11-15:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (November 15, 2020)"
+  #   max_date: 2020-11-15
+  # adaptive-evolution_2020-12-15:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (December 15, 2020)"
+  #   max_date: 2020-12-15
+  # adaptive-evolution_2021-01-15:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (January 15, 2021)"
+  #   max_date: 2021-01-15
+  # adaptive-evolution_2021-03-15:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (March 15, 2021)"
+  #   max_date: 2021-03-15
+  # adaptive-evolution_2021-02-15:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (February 15, 2021)"
+  #   max_date: 2021-02-15
   # adaptive-evolution_2021-05-15:
   #   subsampling_scheme: global_by_region
   #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
@@ -71,11 +98,21 @@ builds:
   #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
   #   title: "Global phylogeny of SARS-CoV-2 (September 1, 2021)"
   #   max_date: 2021-09-01
-  adaptive-evolution_2021-10-01:
+  # adaptive-evolution_2021-10-01:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (October 1, 2021)"
+  #   max_date: 2021-10-01
+  # adaptive-evolution_2021-11-01:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (November 1, 2021)"
+  #   max_date: 2021-11-01
+  adaptive-evolution_2021-12-01:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (October 1, 2021)"
-    max_date: 2021-10-01
+    title: "Global phylogeny of SARS-CoV-2 (December 1, 2021)"
+    max_date: 2021-12-01
 
 
 # remove S dropout sequences and sequences without division label in US
@@ -86,15 +123,16 @@ filter:
 # otherwise the default exposure in defaults/parameters.yaml will used
 exposure:
   adaptive-evolution:
-    trait: "region"
-    exposure: "region_exposure"
+    trait: ["region"]
+    exposure: ["region_exposure"]
 
 # if different traits should be reconstructed for some builds, specify here
 # otherwise the default trait config in defaults/parameters.yaml will used
 traits:
-  adaptive-evolution:
+  default:
     sampling_bias_correction: 2.5
-    columns: ["country","region_exposure"]
+    columns: ["region","country"]
+
 
 files:
   description: "adaptive_evolution_profiles/adaptive_evolution_description.md"
