@@ -206,9 +206,10 @@ A \emph{d\textsubscript{N}/d\textsubscript{S}} value less than 1 indicates that 
 Because even the most rapidly evolving genes are still subject to structural and functional constraints, it is rare for an entire gene to have a \emph{d\textsubscript{N}/d\textsubscript{S}} ratio greater than 1.
 For instance, the HA1 subunit of H3N2, which is the prototypical example of an adaptively-evolving viral protein, has \emph{d\textsubscript{N}/d\textsubscript{S}} of 0.37 \cite{Wolf2006-vy}.
 
-For various regions of the SARS-CoV-2 genome, we computed the nonsynonymous to synonymous divergence ratios over the course of the pandemic thus far.
-The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio within RdRp, S2, and the structural proteins Envelope (E), Membrane (M), and Nucleocapsid (N) is consistently under 1 at all timepoints (Figure \ref{fig:dnds}).
-However, \emph{d\textsubscript{N}/d\textsubscript{S}} within S1 increases over time, with an apparent inflection point in mid-2020, and the \emph{d\textsubscript{N}/d\textsubscript{S}} ratio exceeding 1 in late-2020 and 2021 with the most recent time point measured at 2.07.
+For various regions of the SARS-CoV-2 genome, we computed the accumulation of nonsynonymous and synonymous divergence in 2-month windows between January 1, 2020 and May 15, 2021 (Figure \ref{fig:dnds}A).
+The ratio of nonsynonymous to synonymous divergence, thus, reveals the relative enrichment of nonsynonymous change over time throughout the genome. 
+The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio within RdRp, S2, and the structural proteins Envelope (E), Membrane (M), and Nucleocapsid (N) is consistently under 1 at all timepoints (Figure \ref{fig:dnds}B).
+However, \emph{d\textsubscript{N}/d\textsubscript{S}} within S1 increases over time, with an apparent inflection point in mid-2020, and the \emph{d\textsubscript{N}/d\textsubscript{S}} ratio exceeding 1 in late-2020 and 2021 with the most recent time point measured at 1.80.
 The increase over time in S1 \emph{d\textsubscript{N}/d\textsubscript{S}} could be due to a variety of reasons.
 Two non-mutually exclusive hypotheses include the appearance of a new selective pressure on S1 substitutions, or the acquisition of mutations that change the mutational landscape to be more permissive towards S1 substitutions.
 Regardless of the cause, this change suggests a temporal structure to the adaptive evolution in the S1 subunit of SARS-CoV-2.
@@ -216,12 +217,14 @@ Regardless of the cause, this change suggests a temporal structure to the adapti
 \begin{figure}[h!]
 	\centerline{\includegraphics[width=0.85\textwidth]{fig2_dnds.png}}
 	\caption{\textbf{Ratio of nonsynonymous to synonymous divergence is highest S1.}
-	The ratio of nonsynonymous to synonymous divergence within various coding regions is plotted over time.
-	Each point shows the mean and 95\% confidence interval of this ratio for all internal branches present in a 0.2 year window (ending at the date indicated on the x-axis).
-	Nonsynonymous divergence is calculated as the nonsynonymous Hamming distance between the sequence of an isolate and the root, normalized by the total possible number of nonsynonymous sites.
+	The ratio of nonsynonymous to synonymous divergence accumulation within various coding regions is calculated over time.
+	The phylogeny is divided into overlapping 2-month windows between January 1, 2020 and May 15, 2021.
+	For every internal branch within a window, the accumulation of nonsynonymous and synonymous divergence from the root sequence is then calculated. 
+	\textbf{A)} Branches used to calculate divergence for the April 1, 2020 (March 1 to April 30) and January 1, 2021 (December 1 to January 31) time windows.
+	Nonsynonymous divergence is calculated as the nonsynonymous Hamming distance between the sequence of an internal branch and the root sequence, normalized by the total possible number of nonsynonymous sites.
 	The same is done for synonymous divergence.
-	Divergence is calculated for various loci within the genome. 
-	The dashed line marks the average \emph{d\textsubscript{N}/d\textsubscript{S}} of the influenza H3N2 HA1 subunit across all 12 years, as calculated in \ref{fig:h3n2dnds}.
+	The ratio of nonsynonymous to synonymous is calculated for various coding regions within the genome. 
+	\textbf{B)} Each point shows the mean and 95\% confidence interval of this ratio for all internal branches present in a 2-month window (centered at the date indicated on the x-axis).
 	}
 	\label{fig:dnds}
 \end{figure}
@@ -431,11 +434,12 @@ Each clade's frequencies for the last six weeks were logit transformed and used 
 The logistic growth of the clade was then annotated as the slope of the linear regression of the logit-transformed frequencies.
 
 \subsection*{Calculation of nonsynonymous to synonymous divergence ratio}
-A time-course of \emph{d\textsubscript{N}/d\textsubscript{S}} ratios was calculated in non-overlapping time windows by splitting all internal branches (with 3 or more descending tips) included in the phylogeny according to their date.
+A time-course of \emph{d\textsubscript{N}/d\textsubscript{S}} ratios was calculated in non-overlapping time windows by splitting all internal branches included in the phylogeny according to their date.
 Within each gene, the nonsynonymous and synonymous Hamming distances were found between the reference sequence and every internal branch.
 The Hamming distances were normalized by the total number of possible nonsynonymous or synonymous sites within that gene to give a measure of divergence.
-The nonsynonymous divergence was divided by synonymous divergence. Then, for each time window, the mean of this ratio was found for all internal branches within the window.
-For SARS-CoV-2, the time windows were 0.2 years and the code to run this analysis and reproduce Figure \ref{fig:dnds} is at \texttt{fig2-divergence.ipynb}.
+The nonsynonymous divergence was divided by synonymous divergence. 
+Then, for each time window, the mean of this ratio was found for all internal branches within the window.
+For SARS-CoV-2, the time windows were 2 months and the code to run this analysis and reproduce Figure \ref{fig:dnds} is at \texttt{fig2-divergence.ipynb}.
 For H3N2, the time windows were 0.4 years and the code is in \texttt{fig2supp-divergence\_h3n2.ipynb}.
 
 \subsection*{Randomization of mutations across the phylogeny for wait time calculations}
