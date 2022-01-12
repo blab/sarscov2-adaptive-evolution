@@ -108,11 +108,11 @@ builds:
   #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
   #   title: "Global phylogeny of SARS-CoV-2 (November 1, 2021)"
   #   max_date: 2021-11-01
-  adaptive-evolution_2021-12-01:
+  adaptive-evolution_2021-05-15_asia:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (December 1, 2021)"
-    max_date: 2021-12-01
+    title: "Asia phylogeny of SARS-CoV-2 (December 1, 2021)"
+    max_date: 2021-05-15
 
 
 # remove S dropout sequences and sequences without division label in US
@@ -121,17 +121,17 @@ filter:
 
 # if different exposure traits should be used for some builds, specify here
 # otherwise the default exposure in defaults/parameters.yaml will used
-exposure:
-  adaptive-evolution:
-    trait: ["region"]
-    exposure: ["region_exposure"]
+# exposure:
+#   adaptive-evolution:
+#     trait: ["region"]
+#     exposure: ["region_exposure"]
 
 # if different traits should be reconstructed for some builds, specify here
 # otherwise the default trait config in defaults/parameters.yaml will used
-traits:
-  default:
-    sampling_bias_correction: 2.5
-    columns: ["region","country"]
+# traits:
+#   default:
+#     sampling_bias_correction: 2.5
+#     columns: ["region","country"]
 
 
 files:
@@ -141,48 +141,48 @@ files:
 subsampling:
   # Custom subsampling logic for global region.
   global_by_region:
-    africa:
-      group_by: "country year month"
-      max_sequences: 1600
-      sampling_scheme: "--probabilistic-sampling"
-      exclude: "--exclude-where 'region!=Africa'"
-      min_date: "--min-date 2019-12-01"
-      max_date: "--max-date {max_date}"
+    # africa:
+    #   group_by: "country year month"
+    #   max_sequences: 1600
+    #   sampling_scheme: "--probabilistic-sampling"
+    #   exclude: "--exclude-where 'region!=Africa'"
+    #   min_date: "--min-date 2019-12-01"
+    #   max_date: "--max-date {max_date}"
     asia:
       group_by: "country year month"
-      max_sequences: 1600
+      max_sequences: 10000
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Asia'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
-    europe:
-      group_by: "country year month"
-      max_sequences: 1600
-      sampling_scheme: "--probabilistic-sampling"
-      exclude: "--exclude-where 'region!=Europe'"
-      min_date: "--min-date 2019-12-01"
-      max_date: "--max-date {max_date}"
-    north_america:
-      group_by: "division year month"
-      max_sequences: 1600
-      sampling_scheme: "--probabilistic-sampling"
-      exclude: "--exclude-where 'region!=North America'"
-      min_date: "--min-date 2019-12-01"
-      max_date: "--max-date {max_date}"
-    oceania:
-      group_by: "division year month"
-      max_sequences: 1600
-      sampling_scheme: "--probabilistic-sampling"
-      exclude: "--exclude-where 'region!=Oceania'"
-      min_date: "--min-date 2019-12-01"
-      max_date: "--max-date {max_date}"
-    south_america:
-      group_by: "country year month"
-      max_sequences: 1600
-      sampling_scheme: "--probabilistic-sampling"
-      exclude: "--exclude-where 'region!=South America'"
-      min_date: "--min-date 2019-12-01"
-      max_date: "--max-date {max_date}"
+    # europe:
+    #   group_by: "country year month"
+    #   max_sequences: 1600
+    #   sampling_scheme: "--probabilistic-sampling"
+    #   exclude: "--exclude-where 'region!=Europe'"
+    #   min_date: "--min-date 2019-12-01"
+    #   max_date: "--max-date {max_date}"
+    # north_america:
+    #   group_by: "division year month"
+    #   max_sequences: 1600
+    #   sampling_scheme: "--probabilistic-sampling"
+    #   exclude: "--exclude-where 'region!=North America'"
+    #   min_date: "--min-date 2019-12-01"
+    #   max_date: "--max-date {max_date}"
+    # oceania:
+    #   group_by: "division year month"
+    #   max_sequences: 1600
+    #   sampling_scheme: "--probabilistic-sampling"
+    #   exclude: "--exclude-where 'region!=Oceania'"
+    #   min_date: "--min-date 2019-12-01"
+    #   max_date: "--max-date {max_date}"
+    # south_america:
+    #   group_by: "country year month"
+    #   max_sequences: 1600
+    #   sampling_scheme: "--probabilistic-sampling"
+    #   exclude: "--exclude-where 'region!=South America'"
+    #   min_date: "--min-date 2019-12-01"
+    #   max_date: "--max-date {max_date}"
 
 # Define frequencies parameters.
 frequencies:
