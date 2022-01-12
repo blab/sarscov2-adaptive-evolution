@@ -69,11 +69,13 @@
 
 %%% ABSTRACT %%%
 \begin{abstract}
+\noindent
 Despite the appearance of variant SARS-CoV-2 viruses with altered receptor-binding or antigenic phenotypes, traditional methods for detecting adaptive evolution from sequence data do not pick up strong signals of positive selection.
 Here, we present a new method for identifying adaptive evolution on short evolutionary time scales with densely-sampled populations.
 We apply this method to SARS-CoV-2 to perform a comprehensive analysis of adaptively-evolving regions of the genome.
 We find that spike S1 is a focal point of adaptive evolution, but also identify positively-selected mutations in other genes that are sculpting the evolutionary trajectory of SARS-CoV-2.
-Protein-coding mutations in S1 are temporally-clustered and, in 2021, the ratio of nonsynonymous to synonymous divergence in S1 is more than 4 times greater than in the equivalent influenza HA1 subunit.
+The adaptive changes in S1 accumulated rapidly and in parallel in several lineages, resulting in a remarkably high ratio of nonsynonymous to synonymous divergence that is 2.5 times greater than that observed in HA1 at the beginning of the 2009 H1N1 pandemic.
+
 \end{abstract}
 
 \smallskip
@@ -141,6 +143,7 @@ As a control, we counted S1 synonymous mutations, and found they accumulate at $
 The per-codon rate of nonsynonymous mutation in S1 is roughly 17 times higher than in the RNA-dependent RNA polymerase (RdRp) gene.
 
 We hypothesize that adaptive evolution is driving the high rate of S1 nonsynonymous substitutions relative to S1 synonymous substitutions and RdRp nonsynonymous substitutions.
+And, though each S1 substitution will have a different effect on fitness, this observation suggests that this class of mutations is, on average, under positive selection.
 If this is the case, we would expect a correlation between S1 substitutions and a clade's evolutionary success: clades that happened to accumulate more S1 substitutions should have, on average, higher fitness (and hence faster growth in frequency) than clades that have accumulated fewer S1 substitutions.
 Based on this logic, we introduce a new method for detecting adaptive evolution, which looks for regions of the genome where mutation accumulation is associated with clade frequency growth.
 Because positive selection causes alleles or clades to increase in frequency in a logistic (rather than linear) fashion, we measure logistic growth rate and plot this versus mutation accumulation.
