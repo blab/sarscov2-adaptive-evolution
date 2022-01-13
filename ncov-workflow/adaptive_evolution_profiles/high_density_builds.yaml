@@ -27,11 +27,11 @@ inputs:
 #     title: "Global phylogeny of SARS-CoV-2 (May 15, 2021)"
 #     max_date: 2021-05-15
 builds:
-  adaptive-evolution_2021-10-01_20k:
+  adaptive-evolution_2022-01-01_30k:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (October 1, 2021)"
-    max_date: 2021-10-01
+    title: "Global phylogeny of SARS-CoV-2 (January 1, 2022)"
+    max_date: 2022-01-01
 
 # remove S dropout sequences and sequences without division label in US
 filter:
@@ -64,42 +64,42 @@ subsampling:
   global_by_region:
     africa:
       group_by: "country year month"
-      max_sequences: 3300
+      max_sequences: 5000
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Africa'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     asia:
       group_by: "country year month"
-      max_sequences: 3300
+      max_sequences: 5000
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Asia'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     europe:
       group_by: "country year month"
-      max_sequences: 3300
+      max_sequences: 5000
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Europe'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     north_america:
       group_by: "division year month"
-      max_sequences: 3300
+      max_sequences: 5000
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=North America'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     oceania:
       group_by: "division year month"
-      max_sequences: 3300
+      max_sequences: 5000
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=Oceania'"
       min_date: "--min-date 2019-12-01"
       max_date: "--max-date {max_date}"
     south_america:
       group_by: "country year month"
-      max_sequences: 3300
+      max_sequences: 5000
       sampling_scheme: "--probabilistic-sampling"
       exclude: "--exclude-where 'region!=South America'"
       min_date: "--min-date 2019-12-01"

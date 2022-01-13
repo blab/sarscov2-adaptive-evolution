@@ -1,0 +1,58 @@
+# builds file to run region-specific 10k trees
+auspice_json_prefix: ncov
+
+skip_travel_history_adjustment: true
+
+# These parameters are only used by the `export_for_nextstrain` rule and shouldn't need to be modified.
+# To modify the s3 _source_ bucket, specify this directly in the `inputs` section of the config.
+# P.S. These are intentionally set as top-level keys as this allows command-line overrides.
+S3_DST_BUCKET: "nextstrain-ncov-private"
+S3_DST_COMPRESSION: "xz"
+S3_DST_ORIGINS: ["gisaid"]
+
+genes: ["ORF1a", "ORF1b", "S", "ORF3a", "M", "N"]
+use_nextalign: true
+
+# Start from pre-filtered and aligned sequences
+inputs:
+  - name: gisaid
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    filtered: "s3://nextstrain-ncov-private/filtered.fasta.xz"
+
+# Define locations for which builds should be created.
+# For each build we specify a subsampling scheme via an explicit key.
+# These subsampling schemes are defined at the bottom of this file.
+# (They override the defaults)
+builds:
+  adaptive-evolution_2021-05-15:
+    subsampling_scheme: global_by_region
+    auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+    title: "Asia phylogeny of SARS-CoV-2 (May 1, 2021)"
+    max_date: 2021-05-15
+
+
+
+# remove S dropout sequences and sequences without division label in US
+filter:
+  exclude_where: "division='USA' purpose_of_sequencing='S dropout'"
+
+
+files:
+  description: "adaptive_evolution_profiles/adaptive_evolution_description.md"
+
+
+subsampling:
+  # Custom subsampling logic for region.
+  # change region heading and `exclude` according to region desired
+  global_by_region:
+    africa:
+      group_by: "country year month"
+      max_sequences: 10000
+      sampling_scheme: "--probabilistic-sampling"
+      exclude: "--exclude-where 'region!=Africa'"
+      min_date: "--min-date 2019-12-01"
+      max_date: "--max-date {max_date}"
+
+# Define frequencies parameters.
+frequencies:
+  min_date: 2020-01-01
