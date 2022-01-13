@@ -4,4 +4,8 @@
 <sup>2</sup> *Vaccine and Infectious Disease Division, Fred Hutchinson Cancer Research Center, Seattle, United States*
 
 ## Abstract
-Despite the appearance of variant SARS-CoV-2 viruses with altered receptor-binding or antigenic phenotypes, traditional methods for detecting adaptive evolution from sequence data do not pick up strong signals of positive selection. Here, we present a new method for identifying adaptive evolution on short evolutionary time scales with densely sampled populations and apply it to SARS-CoV-2 to present a comprehensive analysis of adaptively-evolving regions of the genome. We find that spike S1 is a focal point of adaptive evolution, but also identify positively-selected mutations in other genes that are sculpting the evolutionary trajectory of SARS-CoV-2. Protein-coding mutations in S1 are temporally-clustered and, in 2021, the ratio of nonsynonymous to synonymous divergence in S1 is more than 4 times greater than in the equivalent influenza HA1 subunit.
+Despite the appearance of variant SARS-CoV-2 viruses with altered receptor-binding or antigenic phenotypes, traditional methods for detecting adaptive evolution from sequence data do not pick up strong signals of positive selection.
+Here, we present a new method for identifying adaptive evolution on short evolutionary time scales with densely-sampled populations.
+We apply this method to SARS-CoV-2 to perform a comprehensive analysis of adaptively-evolving regions of the genome.
+We find that spike S1 is a focal point of adaptive evolution, but also identify positively-selected mutations in other genes that are sculpting the evolutionary trajectory of SARS-CoV-2.
+The adaptive changes in S1 accumulated rapidly and in parallel in several lineages, resulting in a remarkably high ratio of nonsynonymous to synonymous divergence that is 2.5 times greater than that observed in HA1 at the beginning of the 2009 H1N1 pandemic.
