@@ -10,7 +10,7 @@ def get_total_muts_on_tree(tree):
     Find the total number of mutations that occur on internal branches of the tree. Return a dictionary for nonsynonymous mutations and another for synonymous, each with gene as key and the value as the total number of mutations in that gene on internal branches of the tree
     """
     total_mutations_nonsyn = {'S1': 0, 'RdRp': 0, 'S2':0, 'N': 0, 'E':0, 'M':0, 'ORF3a':0, 'ORF6':0, 'ORF7a':0, 'ORF7b':0, 'ORF8':0, 'ORF9b':0, 'Nsp1':0, 'Nsp2':0, 'Nsp3':0, 'Nsp4':0, 'Nsp5':0, 'Nsp6':0, 'Nsp7':0, 'Nsp8':0, 'Nsp9':0, 'Nsp10':0, 'Nsp13':0, 'Nsp14':0, 'Nsp15':0, 'Nsp16':0}
-    total_mutations_syn = {'S1':0}
+    total_mutations_syn = {'S1':0, 'S2': 0, 'RdRp':0, 'E':0, 'M':0, 'N':0, 'ORF7a':0, 'Nsp6':0}
 
     for node in tree.find_clades(terminal=False):
         # look only at nodes with at least 3 descendents, to exclude weird stuff at tips and sequencing errors
@@ -110,7 +110,7 @@ def randomize_mutations_on_tree_multinomial(tree, num_mutations, branch_lengths,
     for node in tree.find_clades(terminal=False):
         if len(node.get_terminals()) >=3:
         # no branch length at root
-            if node.name == 'NODE_0000000':
+            if node.name == 'NODE_0000000' or node.name == 'NODE_0000001':
                 node.random_muts = 0
 
             else:

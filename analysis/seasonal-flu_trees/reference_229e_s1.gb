@@ -1,0 +1,54 @@
+LOCUS       229e_S1                 1635 bp    DNA              UNK 01-JAN-1980
+DEFINITION  spike s1 subdomain.
+ACCESSION   AF304460
+VERSION     AF304460.1
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     source          1..1635
+                     /organsism="229e"
+                     /mol_type="genomic RNA"
+     CDS             1..1635
+                     /gene="s1"
+                     /translation="CQTTNGLNTSYSVCNGCVGYSENVFAVESGGYIPSDFAFNNWFLL
+                     TNTSSVVDGVVRSFQPLLLNCLWSVSGLRFTTGFVYFNGTGRGDCKGFSSDVLSDVIRY
+                     NLNFEENLRRGTILFKTSYGVVVFYCTNNTLVSGDAHIPFGTVLGNFYCFVNTTIGNET
+                     TSAFVGALPKTVREFVISRTGHFYINGYRYFTLGNVEAVNFNVTTAETTDFCTVALASY
+                     ADVLVNVSQTSIANIIYCNSVINRLRCDQLSFDVPDGFYSTSPIQSVELPVSIVSLPVY
+                     HKHTFIVLYVDFKPQSGGGKCFNCYPAGVNITLANFNETKGPLCVDTSHFTTKYVAVYA
+                     NVGRWSASINTGNCPFSFGKVNNFVKFGSVCFSLKDIPGGCAMPIVANWAYSKYYTIGS
+                     LYVSWSDGDGITGVPQPVEGVSSFMNVTLDKCTKYNIYDVSGVGVIRVSNDTFLNGITY
+                     TSTSGNLLGFKDVTKGTIYSITPCNPPDQLVVYQQAVVGAMLSENFTSYGFSNVVELPK
+                     FFYASNGTYNCTDAVLTYSSFGVCADGS"
+ORIGIN
+        1 tgtcaaacta caaatgggct gaacactagt tactctgttt gcaacggctg tgttggttat
+       61 tcagaaaatg tatttgctgt tgagagtggt ggttatatac cctccgactt tgcattcaat
+      121 aattggttcc ttctaactaa tacctcatct gttgtagatg gtgttgtgag gagttttcag
+      181 cctttgttgc ttaattgctt atggtctgtt tctggcttgc ggtttactac tggttttgtc
+      241 tattttaatg gtactgggag aggtgattgt aaaggttttt cctcagatgt tttgtctgat
+      301 gtcatacgtt acaacctcaa ttttgaagaa aaccttagac gtggaaccat tttgtttaaa
+      361 acatcttatg gtgttgttgt gttttattgt accaacaaca ctttagtttc aggtgatgct
+      421 cacataccat ttggtacagt tttgggcaat ttttattgct ttgtaaatac tactattggc
+      481 aatgaaacta cgtctgcttt tgtgggtgca ctacctaaga cagttcgtga gtttgttatt
+      541 tcacgcacag gacattttta tattaatggc tatcgctatt tcactttagg taatgtagaa
+      601 gccgttaatt tcaatgtcac tactgcagaa accactgatt tttgtactgt tgcgttagct
+      661 tcttatgctg acgttttggt taatgtgtca caaacctcta ttgctaatat aatttattgc
+      721 aactctgtta ttaacagact gagatgtgac cagttgtcct ttgatgtacc agatggtttt
+      781 tattctacaa gccctattca atccgttgag ctacctgtgt ctattgtgtc gctacctgtt
+      841 tatcataaac atacgtttat tgtgttgtac gttgacttca aacctcagag tggcggtggc
+      901 aagtgcttta actgttatcc tgctggtgtt aatattacac tggccaattt taatgaaact
+      961 aaagggcctt tgtgtgttga cacatcacac ttcactacca aatacgttgc tgtttatgcc
+     1021 aatgttggta ggtggagtgc tagtattaac acgggaaatt gccctttttc ttttggcaaa
+     1081 gttaataact ttgttaaatt tggcagtgta tgtttttcgc taaaggatat acccggtggt
+     1141 tgcgcaatgc ctatagtggc taattgggct tatagtaagt actatactat aggctcattg
+     1201 tatgtttctt ggagtgatgg tgatggaatt actggcgtcc cacaacctgt tgagggtgtt
+     1261 agttccttta tgaatgttac attggacaaa tgtactaaat ataatattta tgatgtatct
+     1321 ggtgtgggtg ttattcgcgt tagcaatgac acctttctta atggaattac gtacacatca
+     1381 acttcaggta accttctggg ttttaaagat gttactaagg gcaccatcta ctctatcact
+     1441 ccttgtaacc caccagatca gcttgttgtt tatcagcaag ctgttgttgg tgctatgttg
+     1501 tctgaaaatt ttactagtta cggcttttct aatgttgtag aactgccgaa atttttctat
+     1561 gcgtccaatg gcacttataa ttgcacagac gctgttttaa cttattctag ttttggcgtt
+     1621 tgtgcagatg gttct
+//

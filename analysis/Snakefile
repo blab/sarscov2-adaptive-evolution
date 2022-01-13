@@ -1,33 +1,46 @@
-GENES = ["S1", "S2"]
-NONSYN_SYN = ["nonsyn", "syn"]
-ITERATIONS = range(5)
+BUILD = "2021-05-15"
+GENES = ['RdRp_syn']
+# GENES = ['Nsp1', 'Nsp2', 'Nsp3', 'Nsp4', 'Nsp5', 'Nsp6', 'Nsp7', 'Nsp8', 'Nsp9',
+#              'Nsp10', 'RdRp', 'Nsp13', 'Nsp14', 'Nsp15', 'Nsp16', 'S1', 'S2', 'ORF3a', 'E',
+#              'M', 'ORF6', 'ORF7a', 'ORF7b', 'ORF8', 'N', 'ORF9b', 'S1_syn']
+ITERATIONS = range(1000)
 
 rule all:
     input:
-        expand("results/randomizations/{gene}/{nonsyn_syn}/{iteration}.json", gene=GENES, nonsyn_syn=NONSYN_SYN, iteration=ITERATIONS)
+        expand("randomization_results/{build}/randomizations/{gene}/{iteration}.json", build= BUILD, gene=GENES, iteration=ITERATIONS)
+        # expand("randomization_results/{build}/growth_rate_randomizations.csv", build=BUILD)
 
-rule download_tree:
-    output:
-        tree="ncov_adaptive-evolution_2021-05-15.json",
+rule get_tree_info:
     params:
-        tree_url="https://nextstrain-blab.s3.amazonaws.com/ncov_adaptive-evolution_2021-05-15.json"
+        tree_url="https://nextstrain-blab.s3.amazonaws.com/ncov_adaptive-evolution_{build}.json"
+    output:
+        mutation_counts = 'randomization_results/{build}/mutation_counts_{build}.json',
+        branch_info = 'randomization_results/{build}/branch_info_{build}.json'
     shell:
         """
-        curl -O {params.tree_url}
+        python3 get_branch_lengths_and_muts.py \
+            --tree-url {params.tree_url} \
+            --mut-counts-output {output.mutation_counts} \
+            --branches-output {output.branch_info}
         """
+
 
 rule randomize_mutations_on_tree:
     input:
-        tree="ncov_adaptive-evolution_2021-05-15.json",
-        # ???
+        mutation_counts = rules.get_tree_info.output.mutation_counts,
+        branch_info = rules.get_tree_info.output.branch_info
+    # benchmark: "benchmarks/randomizations_{build}_{gene}_{iteration}.txt"
+    params:
+        tree_url="https://nextstrain-blab.s3.amazonaws.com/ncov_adaptive-evolution_{build}.json"
     output:
-        randomized_mutations="results/randomizations/{gene}/{nonsyn_syn}/{iteration}.json",
+        randomized_results="randomization_results/{build}/randomizations/{gene}/{iteration}.json",
     shell:
         """
         python3 randomize_mutations_on_tree.py \
-            --tree {input.tree} \
+            --tree-url {params.tree_url} \
+            --mutation-counts {input.mutation_counts} \
+            --branch-info {input.branch_info} \
             --gene {wildcards.gene} \
-            --nonsyn-syn {wildcards.nonsyn_syn} \
             --iteration {wildcards.iteration} \
-            --output {output.randomized_mutations}
+            --output {output.randomized_results}
         """

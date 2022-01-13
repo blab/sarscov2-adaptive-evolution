@@ -319,6 +319,7 @@ def add_mut_accumulation_attr(tree):
         parents_nsp16_muts = []
 
         parents_s1_syn = []
+        parents_rdrp_syn = []
 
         for parent in parents:
             if hasattr(parent, "branch_attrs") and "mutations" in parent.branch_attrs:
@@ -421,6 +422,8 @@ def add_mut_accumulation_attr(tree):
             if hasattr(parent, 'node_attrs') and 'syn_muts' in parent.node_attrs:
                 if 'S1' in parent.node_attrs['syn_muts']:
                     parents_s1_syn += parent.node_attrs['syn_muts']['S1']
+                if 'RdRp' in parent.node_attrs['syn_muts']:
+                    parents_rdrp_syn += parent.node_attrs['syn_muts']['RdRp']
 
 
         # remove reversion mutations from each list
@@ -452,6 +455,9 @@ def add_mut_accumulation_attr(tree):
         parents_nsp14_muts = remove_reversions(parents_nsp14_muts)
         parents_nsp15_muts = remove_reversions(parents_nsp15_muts)
         parents_nsp16_muts = remove_reversions(parents_nsp16_muts)
+
+        parents_s1_syn = remove_reversions(parents_s1_syn)
+        parents_rdrp_syn = remove_reversions(parents_rdrp_syn)
 
 
         # count deletion of adjacent nucleotides as one mutation event
@@ -486,6 +492,7 @@ def add_mut_accumulation_attr(tree):
 
 
         node.node_attrs["s1_syn_accumulation"] = len(parents_s1_syn)
+        node.node_attrs["rdrp_syn_accumulation"] = len(parents_rdrp_syn)
 
         node.node_attrs["spike_accumulation"] = spike_mutation_count
         node.node_attrs["s1_accumulation"] = s1_mutation_count
@@ -859,10 +866,11 @@ def add_mut_at_node_attr(tree):
 
             orf9b_consolidated = consolidate_deletions_2(orf9b_nonsyn_at_this_node)
             node.nonsyn_at_node['ORF9b'] = len(orf9b_consolidated)
+
     return tree
 
 
-def add_changes_from_ref_attr(tree):
+def add_changes_from_root_attr(tree):
     """
     For each node, find all mutations that occurred between the root and the node. Separate these mutations by gene and by synonymous/nonsynonymous. Add a dictionary of these mutations as an attribute to each node
     """
