@@ -439,7 +439,7 @@ This is consistent with the importance attributed of these mutations to the adap
 The code for all analyses presented in this manuscript is located at \href{https://github.com/blab/sarscov2-adaptive-evolution}{github.com/blab/sarscov2-adaptive-evolution}.
 
 \subsection*{Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences}
-All analyses in this manuscript were performed using data downloaded from the GISAID EpiCoV database (\href{https://gisaid.org}{gisaid.org}, \cite{Shu2017-ql}) on July 29, 2021 and curated by the Nextstrain nCoV ingest pipeline (\href{https://github.com/nextstrain/ncov-ingest}{github.com/nextstrain/ncov-ingest}).
+All primary analyses in this manuscript were performed using data downloaded from the GISAID EpiCoV database (\href{https://gisaid.org}{gisaid.org}, \cite{Shu2017-ql}) on July 29, 2021 and curated by the Nextstrain nCoV ingest pipeline (\href{https://github.com/nextstrain/ncov-ingest}{github.com/nextstrain/ncov-ingest}).
 This dataset contained 2,459,376 viral genomes and associated metadata.
 These genomes were aligned with Nextalign (\href{https://docs.nextstrain.org/projects/nextclade/en/latest/user/nextalign-cli.html}{docs.nextstrain.org/projects/nextclade/en/latest/user/nextalign-cli.html}) and masked to minimize error in phylogenetic inference associated with problematic amplicon sites.
 Masked alignments were filtered to exclude strains that were known outliers, sequenced due to `S dropout', mis-annotated with an admin division of `USA', shorter than 27,000 bp of A, C, T, or G bases, missing complete date information, annotated with a date prior to October 2019, flagged with more than 20 mutations above the expected number based on the mutational clock rate, or flagged by Nextclade (\href{https://docs.nextstrain.org/projects/nextclade/en/latest/user/algorithm/07-quality-control.html}{docs.nextstrain.org/projects/nextclade/en/latest/user/algorithm/07-quality-control.html}) with one or more clusters of 6 or more private differences in a 100-nucleotide window.
@@ -493,7 +493,8 @@ For each type of mutation (S1 nonsynonymous, S1 synonymous, and RdRp nonsynonymo
 Only internal branches with 3 or more descending tips were used.
 Random branches were selected by a multinomial draw, where the likelihood of a branch having a mutation is proportional to its branch length in years.
 Multiple mutations were allowed to occur on the same branch, just as with the empirical phylogeny.
-Randomizations were run 1000 times for each mutation type used in Figure \ref{fig:waittimes}B and C, and 10 times for the distributions shown in figure \ref{fig:expectedwait}. Code for this analysis is in \texttt{fig3-wait\_times.ipynb}.
+Randomizations were run 1000 times for each mutation type used in Figure \ref{fig:waittimes}B and C, and 10 times for the distributions shown in figure \ref{fig:expectedwait}. 
+Code for this analysis is in \texttt{fig3-wait\_times.ipynb}.
 
 \subsection*{Calculation of wait times}
 Wait times were counted for the following classes of mutations: S1 nonsynonymous, S1 synonymous, and RdRp nonsynonymous.
@@ -543,6 +544,26 @@ The number of mutations after is the final number of S1 mutations present on the
 The before total is subtracted from the after total to give the increase in S1 mutations after the event.
 The mean of this increase is calculated for every path containing the convergently-evolved mutation.
 Code to implement this analysis is in \texttt{fig5b-s1\_muts\_before\_vs\_after.ipynb}.
+
+\subsection*{Consideration of sampling biases}
+The impact of phylogeny size on the results presented in this manuscript was tested by running the same analyses on a phylogeny containing twice as many samples. 
+This phylogeny was built according to the same methods described in the "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences" section above, except that a maximum of 3,300 strains were sampled from each continental region. 
+This resulted in a tree with a total of 19,694 genomes, sampled on or before May 15,2021 and distributed roughly evenly over geography and time (\href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}). 
+The correlation between mutation accumulation in 8 genes(or subunits) and clade success (Figure \ref{fig:20tree}A)) is done in \texttt{fig1supp-20ktree.ipynb}.
+The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio was calculated on the 19,694-tip tree (Figure \ref{fig:20tree}B) as described in the "Calculation of nonsynonymous to synonymous divergence ratio" section, and this analysis is in \texttt{fig2supp-divergence-20k.ipynb}. 
+Convergently-evolved mutations (Figure \ref{fig:20tree}C) were identified on this larger tree in \texttt{fig4supp-convergent\_evolution-20k}.
+
+The impact of specific geographic regions on the results presented in Figure \ref{fig:mutaccumulation}B was analyzed by computing the correlation coefficient $r$ between S1 substitution accumulation and logistic growth rate for each geographic region separately. 
+This was done by constructing a separation ~10,000-sample tree for each of the 6 continental regions: Africa, Asia, Europe, North America, Oceania, and South America. 
+Samples are from May 15, 2021 or earlier and are roughly evenly distributed over time. 
+Each regional tree was built according to "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences", except that all sequences were restricted to that geographic region. 
+The Asia-specific tree can be interactively-viewed at \href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/asia}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/asia}, and other regional trees can be accessed by substituting the region's name at the end of the URL.
+Code to conduct the analysis presented in Figure \ref{fig:regionalcorrelation} is in \texttt{fig1-followup-regional.ipynb}.
+
+\subsection*{Analysis of duration of correlation between clade success and S1 substitutions}
+The correlation coefficient $r$ between S1 substitution accumulation and logistic growth rate was computed over time using 13 phylogenies spanning a year of time surrounding the primary analysis. 
+Trees for this analysis were built according to the methods in "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences" except that end date was changed to the 15th of the month, for each month between November 15, 2020 and November 15, 2021. The November 15, 2020 tree can be viewed at \href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2020-11-15}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2020-11-15}, and all other dates can be accessed by changing the date at the end of the URL.
+Code to conduct the analysis presented in Figure \ref{fig:rovertime} is in \texttt{fig1-followup-timeseries.ipynb}.
 
 \section*{Acknowledgements}
 \fussy
