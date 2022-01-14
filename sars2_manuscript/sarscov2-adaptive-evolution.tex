@@ -49,6 +49,8 @@
 	\renewcommand{\thefigure}{S\arabic{figure}}%
 }
 
+% notation
+\newcommand{\dnds}{\emph{d\textsubscript{N}/d\textsubscript{S}}}
 
 %%%%%%%%%%%%%%%
 \begin{document}
@@ -105,7 +107,7 @@ This method correlates clade success with the accumulation of protein-coding cha
 We apply this method to SARS-CoV-2 genomic data from Dec 2019 to May 2021, focusing on the period of VOC and VOI emergence.
 
 With this method, we aim to present a rigorous quantification of the evolutionary process during this time and to show that the observed success of variant viruses is a result of adaptive, not neutral, evolution.
-We complement these results with analyses of \emph{d\textsubscript{N}/d\textsubscript{S}} accumulation, evolutionary dynamics, and convergent evolution to provide evidence that genetic changes are contributing to viral fitness.
+We complement these results with analyses of \dnds{} accumulation, evolutionary dynamics, and convergent evolution to provide evidence that genetic changes are contributing to viral fitness.
 We find that adaptive evolution is driven by mutations in multiple regions of the genome, but is chiefly localized to the S1 subunit of spike.
 The extent of adaptive evolution we observe in S1 indicates that this subunit is highly amenable to acquiring and fixing beneficial mutations, suggesting that antigenic drift is likely and that vaccines will need to be updated to keep pace with this evolution.
 
@@ -203,18 +205,18 @@ This indicates that the correlation between S1 and Nsp6 substitutions and clade 
 Thus, the metric presented here provides evidence that SARS-CoV-2 is evolving adaptively and that the predominant locus of this evolution is spike S1.
 
 \subsection*{The ratio of nonsynonymous to synonymous divergence is highest in S1}
-A classical method for assessing the average directionality of natural selection on some region of the genome is \emph{d\textsubscript{N}/d\textsubscript{S}}, measuring the divergence of nonsynonymous sites relative to synonymous sites.
-A \emph{d\textsubscript{N}/d\textsubscript{S}} value less than 1 indicates that the region is, on average, under purifying selection, while \emph{d\textsubscript{N}/d\textsubscript{S}} greater than 1 indicates positive selection on the region.
-Because even the most rapidly evolving genes are still subject to structural and functional constraints, it is rare for an entire gene to have a \emph{d\textsubscript{N}/d\textsubscript{S}} ratio greater than 1.
-For instance, the HA1 subunit of H3N2, which is the prototypical example of an adaptively-evolving viral protein, has \emph{d\textsubscript{N}/d\textsubscript{S}} of 0.37 \cite{Wolf2006-vy}.
+A classical method for assessing the average directionality of natural selection on some region of the genome is \dnds{}, measuring the divergence of nonsynonymous sites relative to synonymous sites.
+A \dnds{} value less than 1 indicates that the region is, on average, under purifying selection, while \dnds{} greater than 1 indicates positive selection on the region.
+Because even the most rapidly evolving genes are still subject to structural and functional constraints, it is rare for an entire gene to have a \dnds{} ratio greater than 1.
+For instance, the HA1 subunit of H3N2, which is the prototypical example of an adaptively-evolving viral protein, has \dnds{} of 0.37 \cite{Wolf2006-vy}.
 
 For various regions of the SARS-CoV-2 genome, we computed the accumulation of nonsynonymous and synonymous divergence in 2-month windows between January 1, 2020 and May 15, 2021 (Figure \ref{fig:dnds}A).
 The ratio of nonsynonymous to synonymous divergence, thus, reveals the relative enrichment of nonsynonymous change over time throughout the genome.
-The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio within RdRp, S2, and the structural proteins Envelope (E), Membrane (M), and Nucleocapsid (N) is consistently under 1 at all timepoints (Figure \ref{fig:dnds}B).
-However, \emph{d\textsubscript{N}/d\textsubscript{S}} within S1 increases over time, with an apparent inflection point in mid-2020, and the \emph{d\textsubscript{N}/d\textsubscript{S}} ratio exceeding 1 in late-2020 and 2021 with the most recent time point measured at 1.80.
-As a point of comparison, we used the same methodology to compute \emph{d\textsubscript{N}/d\textsubscript{S}} for influenza H1N1pdm following its emergence in humans in 2009, and found that \emph{d\textsubscript{N}/d\textsubscript{S}} in HA1 subunit peaked at 0.72 roughly a year after the beginning of that pandemic (Figure \ref{fig:seasonaldnds}).
+The \dnds{} ratio within RdRp, S2, and the structural proteins Envelope (E), Membrane (M), and Nucleocapsid (N) is consistently under 1 at all timepoints (Figure \ref{fig:dnds}B).
+However, \dnds{} within S1 increases over time, with an apparent inflection point in mid-2020, and the \dnds{} ratio exceeding 1 in late-2020 and 2021 with the most recent time point measured at 1.80.
+As a point of comparison, we used the same methodology to compute \dnds{} for influenza H1N1pdm following its emergence in humans in 2009, and found that \dnds{} in HA1 subunit peaked at 0.72 roughly a year after the beginning of that pandemic (Figure \ref{fig:seasonaldnds}).
 
-The increase over time in S1 \emph{d\textsubscript{N}/d\textsubscript{S}} could be due to a variety of reasons.
+The increase over time in S1 \dnds{} could be due to a variety of reasons.
 Two non-mutually exclusive hypotheses include the appearance of a new selective pressure on S1 substitutions, or the acquisition of mutations that change the mutational landscape to be more permissive towards S1 substitutions.
 Regardless of the cause, this change suggests a temporal structure to the adaptive evolution in the S1 subunit of SARS-CoV-2.
 
@@ -376,23 +378,23 @@ We find that the correlation between clade success and S1 substitutions changes 
 
 Additionally, we find other indications of temporal structure in the adaptive evolution of SARS-CoV-2.
 Substitutions within S1 cluster temporally (Figure \ref{fig:waittimes}), rather than accruing at a steady rate.
-The ratio of nonsynonymous to synonymous divergence (\emph{d\textsubscript{N}/d\textsubscript{S}}) in S1 also increases over time (Figure \ref{fig:dnds}).
+The ratio of nonsynonymous to synonymous divergence (\dnds{}) in S1 also increases over time (Figure \ref{fig:dnds}).
 This temporal structure likely indicates a changing evolutionary landscape: either through the emergence of new selective pressure, and/or through the occurrence of permissive mutations that made adaptive mutations more accessible.
 Additionally, selective pressure may be heterogeneous across the SARS-CoV-2 phylogeny due to particular transmission chains transiting through populations with greater seroprevalence.
 Our results do not distinguish between these possibilities.
 
-While the overall \emph{d\textsubscript{N}/d\textsubscript{S}} ratio in S1 is 0.70, \emph{d\textsubscript{N}/d\textsubscript{S}} is 1.66 in 2021 (Figure 2).
+While the overall \dnds{} ratio in S1 is 0.70, \dnds{} is 1.66 in 2021 (Figure 2).
 This high ratio is remarkable when compared to the antigenically-evolving HA1 subunits of influenza H3N2 and H1N1pdm or the S1 subunit of seasonal coronavirus OC43 (Figure \ref{fig:seasonaldnds}).
-We estimate the mean \emph{d\textsubscript{N}/d\textsubscript{S}} ratio for HA1 to be 0.36 (Figure \ref{fig:seasonaldnds}), which is similar to the 0.37 estimated previously \cite{Wolf2006-vy}.
+We estimate the mean \dnds{} ratio for HA1 to be 0.36 (Figure \ref{fig:seasonaldnds}), which is similar to the 0.37 estimated previously \cite{Wolf2006-vy}.
 However, influenza H3N2 has been endemic in the human population for over 50 years, and its current evolution is largely driven by antigenic changes \cite{Smith2004-if}.
-It is unclear whether this high \emph{d\textsubscript{N}/d\textsubscript{S}} ratio in SARS-CoV-2 S1 will persist or whether it is a feature of this virus's recent emergence and will drop in the months and years to come.
+It is unclear whether this high \dnds{} ratio in SARS-CoV-2 S1 will persist or whether it is a feature of this virus's recent emergence and will drop in the months and years to come.
 
 An initially high rate of protein-coding changes is consistent with the idea that, soon after a spillover event, there are many evolutionarily-accessible mutations that are advantageous in the new host environment.
 This was observed in the influenza H1N1 pandemic virus (H1N1pdm).
-Su et al \cite{Su2015-az} report that H1N1pdm had elevated genome-wide \emph{d\textsubscript{N}/d\textsubscript{S}} rates for 2 years following its emergence in 2009, and evolution during this period is thought to largely have been adaptation to a new host, including increased transmission in humans.
+Su et al \cite{Su2015-az} report that H1N1pdm had elevated genome-wide \dnds{} rates for 2 years following its emergence in 2009, and evolution during this period is thought to largely have been adaptation to a new host, including increased transmission in humans.
 From 2011 onward, the adaptive evolution of H1N1pdm has been dominated by antigenic changes \cite{Su2015-az}.
-In agreement with these results, we observe that the accumulation of \emph{d\textsubscript{N}/d\textsubscript{S}} in the HA1 subunit of H1N1pdm peaks around a year after the virus' emergence at 0.72, roughly twice the mean \emph{d\textsubscript{N}/d\textsubscript{S}} ratio between 2009 and 2021 (Figure \ref{fig:seasonaldnds}).
-It is possible that SARS-CoV-2 is following a similar trajectory of adaptive evolution, with initially high \emph{d\textsubscript{N}/d\textsubscript{S}} due to host adaptation to be followed by sustained antigenic drift.
+In agreement with these results, we observe that the accumulation of \dnds{} in the HA1 subunit of H1N1pdm peaks around a year after the virus' emergence at 0.72, roughly twice the mean \dnds{} ratio between 2009 and 2021 (Figure \ref{fig:seasonaldnds}).
+It is possible that SARS-CoV-2 is following a similar trajectory of adaptive evolution, with initially high \dnds{} due to host adaptation to be followed by sustained antigenic drift.
 
 Together, the results presented in Figures \ref{fig:mutaccumulation}-\ref{fig:waittimes} offer phylogenetic evidence that SARS-CoV-2 is evolving adaptively and that the primary locus of this adaptation is in S1.
 Our results are consistent with experimental demonstration of phenotypic changes conferred by VOC spike mutations \cite{Wang2021-dm, Greaney2021-jn, Li2020-jd, Liu2021-ne}.
@@ -473,7 +475,7 @@ Each clade's frequencies for the last six weeks were logit transformed and used 
 The logistic growth of the clade was then annotated as the slope of the linear regression of the logit-transformed frequencies.
 
 \subsection*{Calculation of nonsynonymous to synonymous divergence ratio}
-A time-course of \emph{d\textsubscript{N}/d\textsubscript{S}} ratios was calculated in non-overlapping time windows by splitting all internal branches included in the phylogeny according to their date.
+A time-course of \dnds{} ratios was calculated in non-overlapping time windows by splitting all internal branches included in the phylogeny according to their date.
 Within each gene, the nonsynonymous and synonymous Hamming distances were found between the reference sequence and every internal branch.
 The Hamming distances were normalized by the total number of possible nonsynonymous or synonymous sites within that gene to give a measure of divergence.
 The nonsynonymous divergence was divided by synonymous divergence.
@@ -550,7 +552,7 @@ The impact of phylogeny size on the results presented in this manuscript was tes
 This phylogeny was built according to the same methods described in the "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences" section above, except that a maximum of 3,300 strains were sampled from each continental region.
 This resulted in a tree with a total of 19,694 genomes, sampled on or before May 15,2021 and distributed roughly evenly over geography and time (\href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}).
 The correlation between mutation accumulation in 8 genes(or subunits) and clade success (Figure \ref{fig:20tree}A)) is done in \texttt{fig1supp-20ktree.ipynb}.
-The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio was calculated on the 19,694-tip tree (Figure \ref{fig:20tree}B) as described in the "Calculation of nonsynonymous to synonymous divergence ratio" section, and this analysis is in \texttt{fig2supp-divergence-20k.ipynb}.
+The \dnds{} ratio was calculated on the 19,694-tip tree (Figure \ref{fig:20tree}B) as described in the "Calculation of nonsynonymous to synonymous divergence ratio" section, and this analysis is in \texttt{fig2supp-divergence-20k.ipynb}.
 Convergently-evolved mutations (Figure \ref{fig:20tree}C) were identified on this larger tree in \texttt{fig4supp-convergent\_evolution-20k}.
 
 The impact of specific geographic regions on the results presented in Figure \ref{fig:mutaccumulation}B was analyzed by computing the correlation coefficient $r$ between S1 substitution accumulation and logistic growth rate for each geographic region separately.
