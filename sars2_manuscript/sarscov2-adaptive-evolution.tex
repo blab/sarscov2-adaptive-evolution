@@ -105,7 +105,7 @@ This method correlates clade success with the accumulation of protein-coding cha
 We apply this method to SARS-CoV-2 genomic data from Dec 2019 to May 2021, focusing on the period of VOC and VOI emergence.
 
 With this method, we aim to present a rigorous quantification of the evolutionary process during this time and to show that the observed success of variant viruses is a result of adaptive, not neutral, evolution.
-We complement these results with analyses of \emph{d\textsubscript{N}/d\textsubscript{S}} accumulation, evolutionary dynamics, and convergent evolution to provide evidence that genetic changes are contributing to viral fitness. 
+We complement these results with analyses of \emph{d\textsubscript{N}/d\textsubscript{S}} accumulation, evolutionary dynamics, and convergent evolution to provide evidence that genetic changes are contributing to viral fitness.
 We find that adaptive evolution is driven by mutations in multiple regions of the genome, but is chiefly localized to the S1 subunit of spike.
 The extent of adaptive evolution we observe in S1 indicates that this subunit is highly amenable to acquiring and fixing beneficial mutations, suggesting that antigenic drift is likely and that vaccines will need to be updated to keep pace with this evolution.
 
@@ -120,7 +120,7 @@ To determine whether this is true, or whether adaptive evolution is also contrib
 \begin{figure}[h!]
 	\centerline{\includegraphics[width=1.0\textwidth]{fig1_mutaccumulation.png}}
 	\caption{\textbf{Accumulation of nonsynonymous S1 mutations is correlated with clade success.}
-	\textbf{A)} For every clade in the phylogeny, mutations relative to the root of the phylogeny are tallied and plotted against the date of the base of that clade. 
+	\textbf{A)} For every clade in the phylogeny, mutations relative to the root of the phylogeny are tallied and plotted against the date of the base of that clade.
 	Nonsynonymous S1, synonymous S1, and nonsynonymous RdRp mutations are plotted separately.
 	Nonsynonymous mutations include nonsynonymous SNPs and deletions.
 	The primary axis (left, black ticks) displays mutations per codon, and the secondary axis (right, gray ticks) shows the absolute number of mutations accumulated in each clade.
@@ -152,9 +152,9 @@ Clade success and the number of nonsynonymous S1 mutations are positively correl
 To test whether this correlation is greater than expected, we randomized the placement of mutations across branches of the phylogeny and computed a $p$-value between the empirical $r$ and the distribution of $r$ values from 1000 randomizations.
 The positive correlation between S1 mutations and logistic growth rate is statistically significant compared to the expected distribution ($p$=0.003), but is absent for S1 synonymous mutations and is not significant for RdRp substitutions ($p$=0.256) (Figure \ref{fig:mutaccumulation}C).
 
-We applied this method to every gene in the SARS-CoV-2 genome (Table \ref{tab:table1} and Figure \ref{fig:correlationcomprehensive}). The highest nonsynonymous mutation rate is observed in ORF8. 
-However, ORF8 substitutions are not correlated with clade success (Table \ref{tab:table1}), and many lineages acquire premature stop codons in ORF8, indicating that the high rate of ORF8 substitutions is likely due, at least in part, to a lack of functional constraints. 
-Mutations within other regions of the genome, including spike S2 and nucleocapsid (N), also accumulate at reasonably-high levels but do not correlate well with clade success (Table Table \ref{tab:table1}). 
+We applied this method to every gene in the SARS-CoV-2 genome (Table \ref{tab:table1} and Figure \ref{fig:correlationcomprehensive}). The highest nonsynonymous mutation rate is observed in ORF8.
+However, ORF8 substitutions are not correlated with clade success (Table \ref{tab:table1}), and many lineages acquire premature stop codons in ORF8, indicating that the high rate of ORF8 substitutions is likely due, at least in part, to a lack of functional constraints.
+Mutations within other regions of the genome, including spike S2 and nucleocapsid (N), also accumulate at reasonably-high levels but do not correlate well with clade success (Table Table \ref{tab:table1}).
 Besides S1, only Nsp6 ($r$=0.35, $p$=0.011) and ORF7a ($r$=0.43, $p$\textless0.001) have a strong correlation with clade growth rates (Table \ref{tab:table1}, Figures \ref{fig:correlationcomprehensive} and \ref{fig:mutaccummoregenes}).
 
 \begin{table}[]
@@ -163,7 +163,7 @@ Besides S1, only Nsp6 ($r$=0.35, $p$=0.011) and ORF7a ($r$=0.43, $p$\textless0.0
     \begin{tabular}{lccc}
     \hline
     \textbf{Gene} & \textbf{Nonsyn Evolution rate} & \textbf{\emph{r}} & \textbf{p-value} \\
-      & \textbf{(subs/codon/year)} &  &  \\ 
+      & \textbf{(subs/codon/year)} &  &  \\
     \hline
     Nsp1  & $0.1 \times 10^{-3}$  & 0.05   & 0.431     \\
     Nsp2  & $0.2 \times 10^{-3}$  & -0.10  & 0.881     \\
@@ -197,9 +197,9 @@ Besides S1, only Nsp6 ($r$=0.35, $p$=0.011) and ORF7a ($r$=0.43, $p$\textless0.0
     \end{center}
 \end{table}
 
-Though ORF7a substitutions appear highly correlated with clade success, this correlation is driven solely by the rapidly growing Delta variant, which possesses 3 mutations in ORF7a. 
-Removing Delta clades from the analysis drops the $r$ for ORF7a from 0.43 to 0.16, whereas $r$ for S1 and Nsp6 only dip from 0.46 to 0.41, and from 0.35 to 0.32, respectively. 
-This indicates that the correlation between S1 and Nsp6 substitutions and clade success is a general feature of SARS-CoV-2 lineages. 
+Though ORF7a substitutions appear highly correlated with clade success, this correlation is driven solely by the rapidly growing Delta variant, which possesses 3 mutations in ORF7a.
+Removing Delta clades from the analysis drops the $r$ for ORF7a from 0.43 to 0.16, whereas $r$ for S1 and Nsp6 only dip from 0.46 to 0.41, and from 0.35 to 0.32, respectively.
+This indicates that the correlation between S1 and Nsp6 substitutions and clade success is a general feature of SARS-CoV-2 lineages.
 Thus, the metric presented here provides evidence that SARS-CoV-2 is evolving adaptively and that the predominant locus of this evolution is spike S1.
 
 \subsection*{The ratio of nonsynonymous to synonymous divergence is highest in S1}
@@ -209,7 +209,7 @@ Because even the most rapidly evolving genes are still subject to structural and
 For instance, the HA1 subunit of H3N2, which is the prototypical example of an adaptively-evolving viral protein, has \emph{d\textsubscript{N}/d\textsubscript{S}} of 0.37 \cite{Wolf2006-vy}.
 
 For various regions of the SARS-CoV-2 genome, we computed the accumulation of nonsynonymous and synonymous divergence in 2-month windows between January 1, 2020 and May 15, 2021 (Figure \ref{fig:dnds}A).
-The ratio of nonsynonymous to synonymous divergence, thus, reveals the relative enrichment of nonsynonymous change over time throughout the genome. 
+The ratio of nonsynonymous to synonymous divergence, thus, reveals the relative enrichment of nonsynonymous change over time throughout the genome.
 The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio within RdRp, S2, and the structural proteins Envelope (E), Membrane (M), and Nucleocapsid (N) is consistently under 1 at all timepoints (Figure \ref{fig:dnds}B).
 However, \emph{d\textsubscript{N}/d\textsubscript{S}} within S1 increases over time, with an apparent inflection point in mid-2020, and the \emph{d\textsubscript{N}/d\textsubscript{S}} ratio exceeding 1 in late-2020 and 2021 with the most recent time point measured at 1.80.
 As a point of comparison, we used the same methodology to compute \emph{d\textsubscript{N}/d\textsubscript{S}} for influenza H1N1pdm following its emergence in humans in 2009, and found that \emph{d\textsubscript{N}/d\textsubscript{S}} in HA1 subunit peaked at 0.72 roughly a year after the beginning of that pandemic (Figure \ref{fig:seasonaldnds}).
@@ -223,13 +223,13 @@ Regardless of the cause, this change suggests a temporal structure to the adapti
 	\caption{\textbf{Ratio of nonsynonymous to synonymous divergence is highest S1.}
 	The ratio of nonsynonymous to synonymous divergence accumulation within various coding regions is calculated over time.
 	The phylogeny of 9544 viral sequences is divided into overlapping 2-month windows between January 1, 2020 and May 15, 2021.
-	\textbf{A)} The phylogeny is colored to indicate the paths on which divergence accumulation is calculated for two of these time windows. 
-	The dashed blue lines indicate the time windows centered at April 1, 2020 (left) and January 1, 2021 (right). 
+	\textbf{A)} The phylogeny is colored to indicate the paths on which divergence accumulation is calculated for two of these time windows.
+	The dashed blue lines indicate the time windows centered at April 1, 2020 (left) and January 1, 2021 (right).
 	Every internal branch within these windows and the phylogenetic path that connects that branch back to the root is highlighted in red.
 	The accumulation of divergence is calculated along these paths.
 	Nonsynonymous divergence is calculated as the nonsynonymous Hamming distance between the sequence of an internal branch and the root sequence, normalized by the total possible number of nonsynonymous sites.
 	The same is done for synonymous divergence.
-	\textbf{B)} The ratio of nonsynonymous to synonymous is calculated for various coding regions within the genome. 
+	\textbf{B)} The ratio of nonsynonymous to synonymous is calculated for various coding regions within the genome.
 	Each point shows the mean and 95\% confidence interval of this ratio for all internal branches present in a 2-month window (centered at the date indicated on the x-axis).
 	}
 	\label{fig:dnds}
@@ -290,7 +290,7 @@ After May 2021, VOCs comprise a majority of the global virus population, and sim
 \end{figure}
 
 For every deletion and substitution observed on the phylogeny, we tallied the number of independent occurrences and found the mean logistic growth rate of all clades where this mutation occurred.
-We limited this analysis to internal branches with 15 or more descending samples to limit the influence of stochasticity and sequencing errors that often occur on terminal branches. 
+We limited this analysis to internal branches with 15 or more descending samples to limit the influence of stochasticity and sequencing errors that often occur on terminal branches.
 As expected, the bulk (84\%) of mutations occur just once.
 Roughly 4\% of mutations arose 4 or more times, and the majority of these mutations are located in S1 (Figure \ref{fig:convergent}A).
 For seven of these convergently-evolved mutations, the mean growth rate is higher than the tree-wide average growth rate.
@@ -340,7 +340,7 @@ These results do not indicate that the deletion directly causes S1 substitutions
 Detecting adaptive evolution is both highly interesting from a basic scientific perspective as we seek to understand how and when this type of evolution occurs, and highly relevant from a public health perspective as we strive to curb the transmission of infectious diseases.
 As the SARS-CoV-2 pandemic rages on, our best defense is through vaccination.
 The SARS-CoV-2 vaccines showed high efficacy in clinical trials, but we must be proactive to ensure their continued effectiveness.
-Vaccines against viruses that undergo antigenic drift, like influenza, must be continually updated to match circulating variants. 
+Vaccines against viruses that undergo antigenic drift, like influenza, must be continually updated to match circulating variants.
 Therefore, the propensity of SARS-CoV-2 to evolve adaptively in spike S1 (the location of most neutralizing antibody epitopes) indicates whether the SARS-CoV-2 vaccine will also need to be regularly changed.
 
 SARS-CoV-2 exhibits convergent evolution \cite{Van_Dorp2020-ox, Martin2021-lj, Rochman2021-sv}, and some of the notable mutations that have occurred multiple times independently (like S:501Y and S:484K) appear in multiple VOCs, suggesting positive selection on these mutations.
@@ -352,39 +352,39 @@ Despite the demonstrably advantageous effects of observed mutations, it is too s
 Instead, we capitalize on the high temporal and geographic density of SARS-CoV-2 sequencing data to create a new method for identifying adaptive evolution and regions of the genome where this evolution is localized.
 This method identifies genes where amino acid substitutions significantly correlate with clade growth rate.
 This can be intuitively interpreted as genes with high rates of amino acid substitutions (suggestive of positive selection) that result in more successful viruses (suggestive of a positive fitness effect) are undergoing adaptive evolution.
-We find that the spike S1 subunit shows strong signals of adaptive evolution by this method (Figure \ref{fig:mutaccumulation}). 
+We find that the spike S1 subunit shows strong signals of adaptive evolution by this method (Figure \ref{fig:mutaccumulation}).
 
 Our inference of adaptive evolution is based on a correlation between S1 substitution accumulation and clade success that falls well outside the null expectation (Figure \ref{fig:mutaccumulation}C).
-It is important to emphasize that these results speak to the average evolutionary effect of S1 substitutions. 
+It is important to emphasize that these results speak to the average evolutionary effect of S1 substitutions.
 This does not mean that every S1 substitution is selectively advantageous, and it is likely that some mutations have larger effects on fitness than others.
-In fact, it is possible that successful viruses contain some S1 substitutions that do not contribute at all to their evolutionary success. 
-These hitchhiking mutations could have arisen during long-term infections where they were advantageous within a single host. 
+In fact, it is possible that successful viruses contain some S1 substitutions that do not contribute at all to their evolutionary success.
+These hitchhiking mutations could have arisen during long-term infections where they were advantageous within a single host.
 For instance, S1 mutations 484K and 501Y have been observed to arise from continued evolution within a single host \cite{Choi2020-to}.
-It is therefore possible that the parallel evolution of these particular mutations is due to a selective advantage at a within-host, rather than between-host, level. 
+It is therefore possible that the parallel evolution of these particular mutations is due to a selective advantage at a within-host, rather than between-host, level.
 Phylogenetically, hitchhiking mutations that are beneficial within-host are especially likely to be present on long branches with many mutations.
-We observe that the majority of S1 mutation accumulation occurs on just one or two branches preceding some VOCs (like Gamma and Kappa), but is spread over many branches leading to others (like Alpha and Beta) (Figure \ref{fig:s1paths}). 
+We observe that the majority of S1 mutation accumulation occurs on just one or two branches preceding some VOCs (like Gamma and Kappa), but is spread over many branches leading to others (like Alpha and Beta) (Figure \ref{fig:s1paths}).
 However, the context in which S1 mutations accumulated does not affect our finding that, on average, viruses with more nonsynonymous mutations in S1 are more successful within the global population of SARS-CoV-2 viruses.
 
-Phylogenetic inferences of evolution can be biased by the samples included in the analysis. 
-To reduce sampling biases, our examination of adaptive evolution is based on a phylogeny of 9544 SARS-CoV-2 genomes sampled evenly over space and time. 
+Phylogenetic inferences of evolution can be biased by the samples included in the analysis.
+To reduce sampling biases, our examination of adaptive evolution is based on a phylogeny of 9544 SARS-CoV-2 genomes sampled evenly over space and time.
 The strong correlation between S1 mutation accumulation and clade growth rate persists if the number of genomes included in the phylogeny is doubled (Figure \ref{fig:20tree}), indicating that our results are not biased by the number of samples included in the analysis.
-We also find that global adaptive evolution in S1 is not driven solely by certain geographic regions. 
-Using phylogenies that only include samples from a particular geographic region, we observe that clade success strongly correlates with S1 substitutions in Asia, Europe, North America, Oceania and South America (Figure \ref{fig:regionalcorrelation}). 
+We also find that global adaptive evolution in S1 is not driven solely by certain geographic regions.
+Using phylogenies that only include samples from a particular geographic region, we observe that clade success strongly correlates with S1 substitutions in Asia, Europe, North America, Oceania and South America (Figure \ref{fig:regionalcorrelation}).
 The only region where this correlation is not observed at this timepoint is Africa.
 The results we present focus on a phylogeny built with samples collected on or before May 15, 2021 and clade growth rates are computed from changes in clade frequencies during 6 weeks preceding May 15.
-We find that the correlation between clade success and S1 substitutions changes over time, showing the strongest signals of adaptive evolution in spring of 2021 (Figure \ref{fig:rovertime}). 
+We find that the correlation between clade success and S1 substitutions changes over time, showing the strongest signals of adaptive evolution in spring of 2021 (Figure \ref{fig:rovertime}).
 
-Additionally, we find other indications of temporal structure in the adaptive evolution of SARS-CoV-2. 
+Additionally, we find other indications of temporal structure in the adaptive evolution of SARS-CoV-2.
 Substitutions within S1 cluster temporally (Figure \ref{fig:waittimes}), rather than accruing at a steady rate.
 The ratio of nonsynonymous to synonymous divergence (\emph{d\textsubscript{N}/d\textsubscript{S}}) in S1 also increases over time (Figure \ref{fig:dnds}).
 This temporal structure likely indicates a changing evolutionary landscape: either through the emergence of new selective pressure, and/or through the occurrence of permissive mutations that made adaptive mutations more accessible.
-Additionally, selective pressure may be heterogeneous across the SARS-CoV-2 phylogeny due to particular transmission chains transiting through populations with greater seroprevalence. 
+Additionally, selective pressure may be heterogeneous across the SARS-CoV-2 phylogeny due to particular transmission chains transiting through populations with greater seroprevalence.
 Our results do not distinguish between these possibilities.
 
-While the overall \emph{d\textsubscript{N}/d\textsubscript{S}} ratio in S1 is 0.70, \emph{d\textsubscript{N}/d\textsubscript{S}} is 1.66 in 2021 (Figure 2). 
-This high ratio is remarkable when compared to the antigenically-evolving HA1 subunits of influenza H3N2 and H1N1pdm or the S1 subunit of seasonal coronavirus OC43 (Figure \ref{fig:seasonaldnds}). 
-We estimate the mean \emph{d\textsubscript{N}/d\textsubscript{S}} ratio for HA1 to be 0.36 (Figure \ref{fig:seasonaldnds}), which is similar to the 0.37 estimated previously \cite{Wolf2006-vy}. 
-However, influenza H3N2 has been endemic in the human population for over 50 years, and its current evolution is largely driven by antigenic changes \cite{Smith2004-if}. 
+While the overall \emph{d\textsubscript{N}/d\textsubscript{S}} ratio in S1 is 0.70, \emph{d\textsubscript{N}/d\textsubscript{S}} is 1.66 in 2021 (Figure 2).
+This high ratio is remarkable when compared to the antigenically-evolving HA1 subunits of influenza H3N2 and H1N1pdm or the S1 subunit of seasonal coronavirus OC43 (Figure \ref{fig:seasonaldnds}).
+We estimate the mean \emph{d\textsubscript{N}/d\textsubscript{S}} ratio for HA1 to be 0.36 (Figure \ref{fig:seasonaldnds}), which is similar to the 0.37 estimated previously \cite{Wolf2006-vy}.
+However, influenza H3N2 has been endemic in the human population for over 50 years, and its current evolution is largely driven by antigenic changes \cite{Smith2004-if}.
 It is unclear whether this high \emph{d\textsubscript{N}/d\textsubscript{S}} ratio in SARS-CoV-2 S1 will persist or whether it is a feature of this virus's recent emergence and will drop in the months and years to come.
 
 An initially high rate of protein-coding changes is consistent with the idea that, soon after a spillover event, there are many evolutionarily-accessible mutations that are advantageous in the new host environment.
@@ -396,7 +396,7 @@ It is possible that SARS-CoV-2 is following a similar trajectory of adaptive evo
 
 Together, the results presented in Figures \ref{fig:mutaccumulation}-\ref{fig:waittimes} offer phylogenetic evidence that SARS-CoV-2 is evolving adaptively and that the primary locus of this adaptation is in S1.
 Our results are consistent with experimental demonstration of phenotypic changes conferred by VOC spike mutations \cite{Wang2021-dm, Greaney2021-jn, Li2020-jd, Liu2021-ne}.
-Adaptive evolution in the S1 subunit during the period we focus on (December 2019 to March 2021) is likely driven by selection to adapt to a new host by increasing infectivity of human cells. 
+Adaptive evolution in the S1 subunit during the period we focus on (December 2019 to March 2021) is likely driven by selection to adapt to a new host by increasing infectivity of human cells.
 However, the amount of immunity to SARS-CoV-2 is rising globally, increasing the selection for antibody escape.
 Given the virus's demonstrated propensity for adaptive change in S1, antigenic drift will likely begin to sculpt the evolution of SARS-CoV-2.
 The potential antigenic impact of adaptive S1 mutations, which are accruing at pace over 4 times that of influenza H3N2 (Figure \ref{fig:dnds}, Figure \ref{fig:seasonaldnds}), suggests that it may become necessary to update the SARS-CoV-2 vaccine strain.
@@ -413,7 +413,7 @@ It is possible that some mutations display a large degree of parallelism due to 
 
 It is important to note that the precise mutations that appear most influential depend on when the analysis is done (Figure \ref{fig:convergent}C and Figure \ref{fig:convergentovertime}).
 The fitness effect of a mutation is not an absolute quality --- it depends on a multitude of influences including genetic background of the viral lineage, other co-circulating lineages, existing host immunity, and epidemiological factors (such as geographically heterogeneous mitigation efforts).
-Additionally, lineages can grow in frequency due to stochastic effects. 
+Additionally, lineages can grow in frequency due to stochastic effects.
 It is, therefore, expected that mutations associated with successful clades will change over time and that these changes reflect both a changing fitness landscape and the stochastic nature of evolution.
 Mutations that transcend this or, in other words, are associated with successful lineages at multiple time points, are more likely to have important, adaptive functions.
 One such mutation is ORF1a:3675-3677del (Figure \ref{fig:convergent}C and Figure \ref{fig:convergentovertime}).
@@ -426,9 +426,9 @@ However, in SARS-CoV-2, this deletion exhibits close to the highest level of con
 Future experimental study of this deletion would increase our understanding of what functions, apart from enhanced cell entry and potential antibody escape, were highly advantageous during the early adaptive evolution of SARS-CoV-2.
 
 So far, ORF1a:3675-3677del has not been observed in Delta viruses and our results suggest that the appearance of a sublineage of Delta possessing ORF1a:3675-3677del may outcompete basal Delta viruses.
-However, the Omicron variant, which appeared in late November 2021 and spread rapidly, does possess a very similar deletion. 
+However, the Omicron variant, which appeared in late November 2021 and spread rapidly, does possess a very similar deletion.
 All Omicron viruses have ORF1a:3675/3676del, and the most successful sublineage of Omicron subsequently acquired ORF1a:3674- as well.
-Besides this Nsp6 deletion, Omicron viruses also have a high number of S1 substitutions. 
+Besides this Nsp6 deletion, Omicron viruses also have a high number of S1 substitutions.
 This is consistent with the importance attributed of these mutations to the adaptive evolution of SARS-CoV-2 throughout this manuscript.
 
 
@@ -476,15 +476,15 @@ The logistic growth of the clade was then annotated as the slope of the linear r
 A time-course of \emph{d\textsubscript{N}/d\textsubscript{S}} ratios was calculated in non-overlapping time windows by splitting all internal branches included in the phylogeny according to their date.
 Within each gene, the nonsynonymous and synonymous Hamming distances were found between the reference sequence and every internal branch.
 The Hamming distances were normalized by the total number of possible nonsynonymous or synonymous sites within that gene to give a measure of divergence.
-The nonsynonymous divergence was divided by synonymous divergence. 
+The nonsynonymous divergence was divided by synonymous divergence.
 Then, for each time window, the mean of this ratio was found for all internal branches within the window.
-For SARS-CoV-2, the time windows were 2 months and overlap by 1 month. 
+For SARS-CoV-2, the time windows were 2 months and overlap by 1 month.
 The code to run this analysis and reproduce Figure \ref{fig:dnds} is at \texttt{fig2-divergence.ipynb}.
 
-Phylogenies for seasonal influenza A/H3N2 and A/H1N1pdm were built using the Nextstrain pipeline from \href{https://github.com/nextstrain/seasonal-flu}{github.com/nextstrain/seasonal-flu}. 
+Phylogenies for seasonal influenza A/H3N2 and A/H1N1pdm were built using the Nextstrain pipeline from \href{https://github.com/nextstrain/seasonal-flu}{github.com/nextstrain/seasonal-flu}.
 They include 2274 and 2169 genomes, respectively, that were sampled between 2009 and 2021 to capture the earliest sequences from the H1N1pdm pandemic (March 2009).
 The OC43 phylogeny was built from all available OC43 lineage A genomes sampled in 2009 or later (214 genomes) using the workflow in \href{https://github.com/blab/seasonal-cov-adaptive-evolution/oc43/separate_lineages}{github.com/blab/seasonal-cov-adaptive-evolution/oc43/separate\_lineages}.
-Divergence accumulation ratios were computed from the root of each tree using 1-year time windows overlapping by 0.5 years. 
+Divergence accumulation ratios were computed from the root of each tree using 1-year time windows overlapping by 0.5 years.
 These phylogenies can be found in \texttt{seasonal-flu\_trees/}.
 The code in \texttt{fig2supp-divergence\_seasonalflu.ipynb} reproduces Figure \ref{fig:seasonaldnds}.
 
@@ -493,7 +493,7 @@ For each type of mutation (S1 nonsynonymous, S1 synonymous, and RdRp nonsynonymo
 Only internal branches with 3 or more descending tips were used.
 Random branches were selected by a multinomial draw, where the likelihood of a branch having a mutation is proportional to its branch length in years.
 Multiple mutations were allowed to occur on the same branch, just as with the empirical phylogeny.
-Randomizations were run 1000 times for each mutation type used in Figure \ref{fig:waittimes}B and C, and 10 times for the distributions shown in figure \ref{fig:expectedwait}. 
+Randomizations were run 1000 times for each mutation type used in Figure \ref{fig:waittimes}B and C, and 10 times for the distributions shown in figure \ref{fig:expectedwait}.
 Code for this analysis is in \texttt{fig3-wait\_times.ipynb}.
 
 \subsection*{Calculation of wait times}
@@ -546,22 +546,22 @@ The mean of this increase is calculated for every path containing the convergent
 Code to implement this analysis is in \texttt{fig5b-s1\_muts\_before\_vs\_after.ipynb}.
 
 \subsection*{Consideration of sampling biases}
-The impact of phylogeny size on the results presented in this manuscript was tested by running the same analyses on a phylogeny containing twice as many samples. 
-This phylogeny was built according to the same methods described in the "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences" section above, except that a maximum of 3,300 strains were sampled from each continental region. 
-This resulted in a tree with a total of 19,694 genomes, sampled on or before May 15,2021 and distributed roughly evenly over geography and time (\href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}). 
+The impact of phylogeny size on the results presented in this manuscript was tested by running the same analyses on a phylogeny containing twice as many samples.
+This phylogeny was built according to the same methods described in the "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences" section above, except that a maximum of 3,300 strains were sampled from each continental region.
+This resulted in a tree with a total of 19,694 genomes, sampled on or before May 15,2021 and distributed roughly evenly over geography and time (\href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}).
 The correlation between mutation accumulation in 8 genes(or subunits) and clade success (Figure \ref{fig:20tree}A)) is done in \texttt{fig1supp-20ktree.ipynb}.
-The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio was calculated on the 19,694-tip tree (Figure \ref{fig:20tree}B) as described in the "Calculation of nonsynonymous to synonymous divergence ratio" section, and this analysis is in \texttt{fig2supp-divergence-20k.ipynb}. 
+The \emph{d\textsubscript{N}/d\textsubscript{S}} ratio was calculated on the 19,694-tip tree (Figure \ref{fig:20tree}B) as described in the "Calculation of nonsynonymous to synonymous divergence ratio" section, and this analysis is in \texttt{fig2supp-divergence-20k.ipynb}.
 Convergently-evolved mutations (Figure \ref{fig:20tree}C) were identified on this larger tree in \texttt{fig4supp-convergent\_evolution-20k}.
 
-The impact of specific geographic regions on the results presented in Figure \ref{fig:mutaccumulation}B was analyzed by computing the correlation coefficient $r$ between S1 substitution accumulation and logistic growth rate for each geographic region separately. 
-This was done by constructing a separation ~10,000-sample tree for each of the 6 continental regions: Africa, Asia, Europe, North America, Oceania, and South America. 
-Samples are from May 15, 2021 or earlier and are roughly evenly distributed over time. 
-Each regional tree was built according to "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences", except that all sequences were restricted to that geographic region. 
+The impact of specific geographic regions on the results presented in Figure \ref{fig:mutaccumulation}B was analyzed by computing the correlation coefficient $r$ between S1 substitution accumulation and logistic growth rate for each geographic region separately.
+This was done by constructing a separation ~10,000-sample tree for each of the 6 continental regions: Africa, Asia, Europe, North America, Oceania, and South America.
+Samples are from May 15, 2021 or earlier and are roughly evenly distributed over time.
+Each regional tree was built according to "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences", except that all sequences were restricted to that geographic region.
 The Asia-specific tree can be interactively-viewed at \href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/asia}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/asia}, and other regional trees can be accessed by substituting the region's name at the end of the URL.
 Code to conduct the analysis presented in Figure \ref{fig:regionalcorrelation} is in \texttt{fig1-followup-regional.ipynb}.
 
 \subsection*{Analysis of duration of correlation between clade success and S1 substitutions}
-The correlation coefficient $r$ between S1 substitution accumulation and logistic growth rate was computed over time using 13 phylogenies spanning a year of time surrounding the primary analysis. 
+The correlation coefficient $r$ between S1 substitution accumulation and logistic growth rate was computed over time using 13 phylogenies spanning a year of time surrounding the primary analysis.
 Trees for this analysis were built according to the methods in "Phylogenetic reconstruction of a subsampling of global SARS-CoV-2 genome sequences" except that end date was changed to the 15th of the month, for each month between November 15, 2020 and November 15, 2021. The November 15, 2020 tree can be viewed at \href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2020-11-15}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2020-11-15}, and all other dates can be accessed by changing the date at the end of the URL.
 Code to conduct the analysis presented in Figure \ref{fig:rovertime} is in \texttt{fig1-followup-timeseries.ipynb}.
 
@@ -617,7 +617,7 @@ Nonsynonymous mutation accumulation (mutations per codon) is plotted against log
 \begin{figure}[h!]
 \centerline{\includegraphics[scale=0.55]{fig2_supp_seasonalflu.png}}
 \caption{\textbf{Ratio of nonsynonymous to synonymous divergence in seasonal influenza H3N2 and H1N1pdm and seasonal coronavirus OC43.}
-The mean and 95\% confidence intervals for nonsynonymous/synonymous divergence ratios for the seasonal influenza HA1 subunits and seasonal coronavirus S1 subunit are shown over a 12-year period starting in January 2009. Divergence accumulation from the root is calculated as in Figure \ref{fig:dnds} except using windows of 1 year that overlap by half a year. 
+The mean and 95\% confidence intervals for nonsynonymous/synonymous divergence ratios for the seasonal influenza HA1 subunits and seasonal coronavirus S1 subunit are shown over a 12-year period starting in January 2009. Divergence accumulation from the root is calculated as in Figure \ref{fig:dnds} except using windows of 1 year that overlap by half a year.
 }
 \label{fig:seasonaldnds}
 \end{figure}
@@ -658,7 +658,7 @@ Every occurrence of the convergently-evolved mutations is colored according to t
 \centerline{\includegraphics[width=0.95\textwidth]{disc_supp_20k.png}}
 \caption{\textbf{Primary results are reproduced using a phylogeny of 19694 genomes.}
 Analyses presented in the primary figures were repeated using a tree containing twice as many samples \href{https://nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}{nextstrain.org/groups/blab/ncov/adaptive-evolution/2021-05-15/20k}.
-\textbf{A)} Correlation between nonsynonymous mutation accumulation and clade growth for 8 genes as in Figure \ref{fig:mutaccummoregenes}. For each gene, the empirical r-value is compared to a distribution of r-values from 1000 randomizations to determine the $p$-value. \textbf{B)} Nonsynonymous to synonymous divergence accumulation ratio over time as in Figure \ref{fig:dnds}. \textbf{C)} Convergently-evolved mutations that occur 5 or more times independently and the mean growth rate of every clade containing that mutation are plotted, as in Figure \ref{fig:convergent}A. 
+\textbf{A)} Correlation between nonsynonymous mutation accumulation and clade growth for 8 genes as in Figure \ref{fig:mutaccummoregenes}. For each gene, the empirical r-value is compared to a distribution of r-values from 1000 randomizations to determine the $p$-value. \textbf{B)} Nonsynonymous to synonymous divergence accumulation ratio over time as in Figure \ref{fig:dnds}. \textbf{C)} Convergently-evolved mutations that occur 5 or more times independently and the mean growth rate of every clade containing that mutation are plotted, as in Figure \ref{fig:convergent}A.
 }
 \label{fig:20tree}
 \end{figure}
@@ -674,7 +674,7 @@ Phylogenies were built using only around 10,000 samples from a single geographic
 \begin{figure}[h!]
 \centerline{\includegraphics[width=0.95\textwidth]{disc_supp_r_over_time.png}}
 \caption{\textbf{Correlation between S1 substitutions and clade success over time.}
-\textbf{A)} The correlation coefficient $r$ is calculated between logistic growth rate and S1 substitution accumulation for every clade within 6 weeks preceding the build date (x-axis). 
+\textbf{A)} The correlation coefficient $r$ is calculated between logistic growth rate and S1 substitution accumulation for every clade within 6 weeks preceding the build date (x-axis).
 \textbf{B)} Mutation accumulation is plotted against logistic growth rate and the points are fit by linear regression (as in Figure \ref{fig:mutaccumulation}). $p$-values are computed by comparing the observed $r$ value to the distribution of $r$ values from 1000 trees where S1 substitutions are randomized across branches according to a multinomial draw.
 }
 \label{fig:rovertime}
