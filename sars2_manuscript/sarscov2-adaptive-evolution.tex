@@ -59,12 +59,13 @@
 
 \bigskip
 
-\noindent{{Kathryn E. Kistler$^{1,2, *}$, John Huddleston$^{1}$, Trevor Bedford$^{1,2}$}}
+\noindent{{Kathryn E. Kistler$^{1,2,*}$, John Huddleston$^{1}$, Trevor Bedford$^{1,2,3}$}}
 
 \smallskip
 
-\noindent{\scriptsize$^{1}$Vaccine and Infectious Disease Division, Fred Hutchinson Cancer Research Center, Seattle, United States\\}
-\noindent{\scriptsize$^{2}$Molecular and Cellular Biology Program, University of Washington, Seattle, United States\\}
+\noindent{\scriptsize$^{1}$Vaccine and Infectious Disease Division, Fred Hutchinson Cancer Research Center, Seattle, WA, United States\\}
+\noindent{\scriptsize$^{2}$Molecular and Cellular Biology Program, University of Washington, Seattle, WA, United States\\}
+\noindent{\scriptsize$^{3}$Howard Hughes Medical Institute, Seattle, WA, United States\\}
 \noindent{\scriptsize$^{*}$Corresponding author: kistlerk@uw.edu \\}
 \bigskip
 \normalsize
@@ -72,11 +73,10 @@
 %%% ABSTRACT %%%
 \begin{abstract}
 \noindent
-Despite the appearance of variant SARS-CoV-2 viruses with altered receptor-binding or antigenic phenotypes, traditional methods for detecting adaptive evolution from sequence data do not pick up strong signals of positive selection.
-Here, we present a new method for identifying adaptive evolution on short evolutionary time scales with densely-sampled populations.
-We apply this method to SARS-CoV-2 to perform a comprehensive analysis of adaptively-evolving regions of the genome.
-We find that spike S1 is a focal point of adaptive evolution, but also identify positively-selected mutations in other genes that are sculpting the evolutionary trajectory of SARS-CoV-2.
-The adaptive changes in S1 accumulated rapidly and in parallel in several lineages, resulting in a remarkably high ratio of nonsynonymous to synonymous divergence that is 2.5 times greater than that observed in HA1 at the beginning of the 2009 H1N1 pandemic.
+Given the importance of variant SARS-CoV-2 viruses with altered receptor-binding or antigenic phenotypes, we sought to quantify the degree to which adaptive evolution is driving accumulation of mutations in the SARS-CoV-2 genome.
+Here we assessed adaptive evolution across genes in the SARS-CoV-2 genome by correlating clade growth with mutation accumulation as well as by comparing rates of nonsynonymous to synonymous divergence, clustering of mutations across the SARS-CoV-2 phylogeny and degree of convergent evolution of individual mutations.
+We find that spike S1 is the focus of adaptive evolution, but also identify positively-selected mutations in other genes that are sculpting the evolutionary trajectory of SARS-CoV-2.
+Adaptive changes in S1 accumulated rapidly, resulting in a remarkably high ratio of nonsynonymous to synonymous divergence that is 2.5X greater than that observed in HA1 at the beginning of the 2009 H1N1 pandemic.
 
 \end{abstract}
 
@@ -107,9 +107,8 @@ This method correlates clade success with the accumulation of protein-coding cha
 We apply this method to SARS-CoV-2 genomic data from Dec 2019 to May 2021, focusing on the period of VOC and VOI emergence.
 
 With this method, we aim to present a rigorous quantification of the evolutionary process during this time and to show that the observed success of variant viruses is a result of adaptive, not neutral, evolution.
-We complement these results with analyses of \dnds{} accumulation, evolutionary dynamics, and convergent evolution to provide evidence that genetic changes are contributing to viral fitness.
-We find that adaptive evolution is driven by mutations in multiple regions of the genome, but is chiefly localized to the S1 subunit of spike.
-The extent of adaptive evolution we observe in S1 indicates that this subunit is highly amenable to acquiring and fixing beneficial mutations, suggesting that antigenic drift is likely and that vaccines will need to be updated to keep pace with this evolution.
+We conduct these analyses across the SARS-CoV-2 genome to identify foci of adaptive evolution.
+We complement these results with analyses of \dnds{} accumulation, evolutionary dynamics, and convergent evolution to provide evidence that genetic changes are contributing to viral fitness and identify genomic regions that are responsible.
 
 
 \section*{Results}
@@ -340,7 +339,7 @@ These results do not indicate that the deletion directly causes S1 substitutions
 
 \section*{Discussion}
 Detecting adaptive evolution is both highly interesting from a basic scientific perspective as we seek to understand how and when this type of evolution occurs, and highly relevant from a public health perspective as we strive to curb the transmission of infectious diseases.
-As the SARS-CoV-2 pandemic rages on, our best defense is through vaccination.
+As widespread SARS-CoV-2 circulation continues, our best defense is through vaccination.
 The SARS-CoV-2 vaccines showed high efficacy in clinical trials, but we must be proactive to ensure their continued effectiveness.
 Vaccines against viruses that undergo antigenic drift, like influenza, must be continually updated to match circulating variants.
 Therefore, the propensity of SARS-CoV-2 to evolve adaptively in spike S1 (the location of most neutralizing antibody epitopes) has important bearing as to whether the SARS-CoV-2 vaccine will also need to be regularly updated.
@@ -353,7 +352,7 @@ Many other convergently-evolved mutations are also shared by VOCs and possess de
 Despite the demonstrably advantageous effects of observed mutations, it is too soon, evolutionarily, to pick up strong signals of adaptive evolution by classical methods that rely on fixation of nonsynonymous mutations.
 Instead, we capitalize on the high temporal and geographic density of SARS-CoV-2 sequencing data to create a new method for identifying adaptive evolution and regions of the genome where this evolution is localized.
 This method identifies genes where amino acid substitutions significantly correlate with clade growth rate.
-This can be intuitively interpreted as genes with high rates of amino acid substitutions (suggestive of positive selection) that result in more successful viruses (suggestive of a positive fitness effect) are undergoing adaptive evolution and is effectively a continuous analog to partitioning differences between polmorphism and divergence in the classical McDonald-Kreitman test \cite{mcdonald1991adaptive}.
+This can be intuitively interpreted as genes with high rates of amino acid substitutions (suggestive of positive selection) that result in more successful viruses (suggestive of a positive fitness effect) are undergoing adaptive evolution and is effectively a continuous analog to partitioning differences between polymorphism and divergence in the classical McDonald-Kreitman test \cite{mcdonald1991adaptive}.
 We find that the spike S1 subunit shows strong signals of adaptive evolution by this method (Figure \ref{fig:mutaccumulation}).
 
 Our inference of adaptive evolution is based on a correlation between S1 substitution accumulation and clade success that falls well outside the null expectation (Figure \ref{fig:mutaccumulation}C).
@@ -371,7 +370,7 @@ To reduce sampling biases, our study is based on a phylogeny of 9544 SARS-CoV-2 
 The strong correlation between S1 mutation accumulation and clade growth rate persists if the number of genomes included in the phylogeny is doubled (Figure \ref{fig:20tree}), indicating that our results are not biased by the number of samples included in the analysis.
 We also find that global adaptive evolution in S1 is not driven solely by certain geographic regions.
 Using phylogenies that only include samples from a particular geographic region, we observe that clade success strongly correlates with S1 substitutions in Asia, Europe, North America, Oceania and South America (Figure \ref{fig:regionalcorrelation}).
-The only region where this correlation is not observed at this timepoint is Africa. % TB: maybe revise depending on rebuild results
+The only region where this correlation is not observed at this timepoint is Africa, where decline in frequency of a particular clade of Beta drives an overall lack of correlation.
 
 We observe temporal structure in the adaptive evolution of SARS-CoV-2.
 We find that the correlation between clade success and S1 substitutions changes over time, though shows strong signals of adaptive evolution from Jan to Sep 2021 (Figure \ref{fig:rovertime}).
@@ -393,7 +392,7 @@ Adaptive evolution in the S1 subunit during the period we focus on (December 201
 However, the amount of immunity to SARS-CoV-2 is rising globally, increasing the selection for antibody escape.
 Given the virus's demonstrated propensity for adaptive change in S1, antigenic drift will likely begin to sculpt the evolution of SARS-CoV-2.
 The potential antigenic impact of adaptive S1 mutations, which are accruing at pace over 4 times that of influenza H3N2 (Figure \ref{fig:dnds}, Figure \ref{fig:seasonaldnds}), suggests that it may become necessary to update the SARS-CoV-2 vaccine strain.
-Indeed, the emergence of the Omicron Variant of Concern demonstrated a SARS-CoV-2 virus with an extraordinarily high number of S1 substitutions \cite{viana2021rapid} that spread rapidly across the world and showed significantly reduced neutralization titers  relative to preceeding variants \cite{cele2021omicron}.
+Indeed, the emergence of the Omicron Variant of Concern demonstrated a SARS-CoV-2 virus with an extraordinarily high number of S1 substitutions \cite{viana2021rapid} that spread rapidly across the world and showed significantly reduced neutralization titers  relative to preceding variants \cite{cele2021omicron}.
 With Omicron, we now know that significant antigenic variants can emerge with highly modified S1 domains.
 However, the observed pace of adaptive evolution in S1 perhaps should have suggested the potential for emergence of such a variant.
 
@@ -423,7 +422,7 @@ Future experimental study of this deletion would increase our understanding of w
 
 So far, ORF1a:3675-3677del has not been observed in Delta viruses and our results suggest that the appearance of a sublineage of Delta possessing ORF1a:3675-3677del may outcompete basal Delta viruses.
 However, the Omicron variant, which appeared in late November 2021 and spread rapidly, possesses a very similar deletion, where Omicron viruses from the primary BA.1 PANGO lineage exhibit ORF1a:3674-3676del.
-This provide yet another example of deletion to this region of Nsp6 being associated with consequential VOC viruses.
+This provides yet another example of deletion to this region of Nsp6 being associated with consequential VOC viruses.
 
 \section*{Methods}
 
@@ -559,11 +558,12 @@ Code to conduct the analysis presented in Figure \ref{fig:rovertime} is in \text
 
 \section*{Acknowledgements}
 \fussy
+We thank members of the Bedford Lab, Tami Lieberman and two anonymous reviewers for helpful feedback on the manuscript.
 We acknowledge the authors for originating and submitting laboratories of the sequences from GISAID's EpiCoV database, on which this research is based.
 A full Acknowledgments table is available in the Supplementary Materials.
 T.B. is a Pew Biomedical Scholar.
 This work was supported by NIH R35 GM119774.
-KEK was supported by the National Science Foundation Graduate Research Fellowship Program under Grant No. DGE-1762114.
+K.E.K.\ was supported by the National Science Foundation Graduate Research Fellowship Program under Grant No.\ DGE-1762114.
 
 \small
 \bibliographystyle{plos}
