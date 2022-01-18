@@ -1,4 +1,3 @@
-# builds file to run region-specific 10k trees
 auspice_json_prefix: ncov
 
 skip_travel_history_adjustment: true
@@ -24,10 +23,10 @@ inputs:
 # These subsampling schemes are defined at the bottom of this file.
 # (They override the defaults)
 builds:
-  adaptive-evolution_2021-05-15:
+  adaptive-evolution_2021-05-15_africa:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-    title: "Asia phylogeny of SARS-CoV-2 (May 1, 2021)"
+    title: "Africa phylogeny of SARS-CoV-2 (May 15, 2021)"
     max_date: 2021-05-15
 
 
