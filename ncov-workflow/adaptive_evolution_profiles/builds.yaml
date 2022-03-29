@@ -113,16 +113,21 @@ builds:
   #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
   #   title: "Global phylogeny of SARS-CoV-2 (December 1, 2021)"
   #   max_date: 2021-12-01
-  # adaptive-evolution_2022-01-01:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (January 1, 2022)"
-  #   max_date: 2022-01-01
+  adaptive-evolution_2022-01-01:
+    subsampling_scheme: global_by_region
+    auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+    title: "Global phylogeny of SARS-CoV-2 (January 1, 2022)"
+    max_date: 2022-01-01
   adaptive-evolution_2022-02-01:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
     title: "Global phylogeny of SARS-CoV-2 (February 1, 2022)"
     max_date: 2022-02-01
+  adaptive-evolution_2022-03-01:
+    subsampling_scheme: global_by_region
+    auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+    title: "Global phylogeny of SARS-CoV-2 (March 1, 2022)"
+    max_date: 2022-03-01
 
 
 
