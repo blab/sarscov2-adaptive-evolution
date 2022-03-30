@@ -16,7 +16,7 @@ use_nextalign: true
 inputs:
   - name: gisaid
     metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
-    filtered: "s3://nextstrain-ncov-private/filtered.fasta.xz"
+    aligned: "s3://nextstrain-ncov-private/aligned.fasta.xz"
 
 # Define locations for which builds should be created.
 # For each build we specify a subsampling scheme via an explicit key.
