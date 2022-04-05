@@ -1,6 +1,7 @@
 # About
 
-This repository analyzes viral genomes using [Nextstrain](https://nextstrain.org) to understand how SARS-CoV-2, the virus that is responsible for the COVID-19 pandemic, evolves and spreads. This workflow is copied from [github.com/nextstrain/ncov](https://github.com/nextstrain/ncov).
+This repository analyzes viral genomes using [Nextstrain](https://nextstrain.org) to understand how SARS-CoV-2, the virus that is responsible for the COVID-19 pandemic, evolves and spreads. 
+This workflow was copied from [github.com/nextstrain/ncov](https://github.com/nextstrain/ncov) on April 4, 2022.
 
 # Running
 

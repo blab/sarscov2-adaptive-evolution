@@ -115,16 +115,21 @@
     "distance_measure": "num_date",
     "geo_resolution": "country",
     "map_triplicate": true,
-    "branch_label": "none",
+    "branch_label": "clade",
     "transmission_lines": false
   },
   "filters": [
+    "recency",
     "clade_membership",
     "emerging_lineage",
     "region",
     "country",
+    "division",
+    "location",
     "host",
-    "pango_lineage"
+    "pango_lineage",
+    "originating_lab",
+    "submitting_lab"
   ],
   "panels": [
     "tree",

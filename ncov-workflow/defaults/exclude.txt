@@ -49,7 +49,6 @@ DRC/KN-0051/2020
 India/S8/2020
 India/S10/2020
 India/S12/2020
-Indonesia/JA-GS-EIJK-RSRM-0168/2020
 
 # UPHL-05 and -06 are same patient - exclude -06
 USA/UPHL-06/2020
@@ -10143,9 +10142,6 @@ India/ILSGS00928/2021
 # Excess S1 mutations and reversions
 Canada/QC-1nIOU-A9012019/2021
 
-# misdated Delta
-Indonesia/JA-GS-EIJK-RSRM-0172/2020
-
 # Duplicates, see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1627287831055900
 Brazil/AM-FIOCRUZ-21321-1P/2021
 DominicanRepublic/21895-3P/2021
@@ -10911,6 +10907,7 @@ OV113567
 OV114062
 MWI/MLW00073/2020
 MWI/MLW00128/2021
+PapuaNewGuinea/PNG4040/2020
 Slovakia/UVZ_PL36_A5_17804/2021
 Slovakia/UVZ_PL36_D11_17986/2021
 Slovakia/UVZ_PL37_C8_18063/2021
@@ -10920,6 +10917,7 @@ Timor-Leste/TL1011/2021
 Timor-Leste/TL1013/2021
 Timor-Leste/TL1015/2021
 Timor-Leste/TL1017/2021
+USA/VI-Yale-10211/2020
 
 # Under/over diverged Omicron sequences
 AntiguaandBarbuda/114024/2021
@@ -10929,6 +10927,7 @@ Bangladesh/BCSIR-PRAVA-14/2022
 Bangladesh/CVASU-57/2022
 Botswana/R64B32_BHP_931953/2022
 Chile/RM-29234/2022
+Congo/RC-405/2021
 Italy/LOM_Sacco_Var_Q37731/2022
 Kazakhstan/2846/2021
 Kazakhstan/2863/2021

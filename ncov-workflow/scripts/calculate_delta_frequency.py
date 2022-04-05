@@ -110,10 +110,9 @@ if __name__ == "__main__":
     # frequency value.
     delta_frequency = {}
     for node in tree.find_clades(order="preorder"):
+        # Always annotate the current frequency of each node.
         delta_frequency[node.name] = {
-            "current_frequency": node.frequencies[last_pivot_index],
-            "max_frequency": node.frequencies.max(),
-            "max_frequency_timepoint": pivots[node.frequencies.argmax()],
+            "current_frequency": node.frequencies[last_pivot_index]
         }
 
         # don't estimate logistic growth rate for low frequency nodes

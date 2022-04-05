@@ -12,11 +12,13 @@ S3_DST_ORIGINS: ["gisaid"]
 genes: ["ORF1a", "ORF1b", "S", "ORF3a", "M", "N"]
 use_nextalign: true
 
-# Start from pre-filtered and aligned sequences
+# Note: unaligned sequences are provided as "aligned" sequences to avoid an initial full-DB alignment
+# as we re-align everything after subsampling.
 inputs:
   - name: gisaid
     metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
-    aligned: "s3://nextstrain-ncov-private/aligned.fasta.xz"
+    aligned: "s3://nextstrain-ncov-private/sequences.fasta.xz"
+    skip_sanitize_metadata: true
 
 # Define locations for which builds should be created.
 # For each build we specify a subsampling scheme via an explicit key.
@@ -103,16 +105,16 @@ builds:
   #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
   #   title: "Global phylogeny of SARS-CoV-2 (October 1, 2021)"
   #   max_date: 2021-10-01
-  # adaptive-evolution_2021-11-01:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (November 1, 2021)"
-  #   max_date: 2021-11-01
-  # adaptive-evolution_2021-12-01:
-  #   subsampling_scheme: global_by_region
-  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-  #   title: "Global phylogeny of SARS-CoV-2 (December 1, 2021)"
-  #   max_date: 2021-12-01
+  adaptive-evolution_2021-11-01:
+    subsampling_scheme: global_by_region
+    auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+    title: "Global phylogeny of SARS-CoV-2 (November 1, 2021)"
+    max_date: 2021-11-01
+  adaptive-evolution_2021-12-01:
+    subsampling_scheme: global_by_region
+    auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+    title: "Global phylogeny of SARS-CoV-2 (December 1, 2021)"
+    max_date: 2021-12-01
   adaptive-evolution_2022-01-01:
     subsampling_scheme: global_by_region
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
@@ -123,11 +125,11 @@ builds:
     auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
     title: "Global phylogeny of SARS-CoV-2 (February 1, 2022)"
     max_date: 2022-02-01
-  adaptive-evolution_2022-03-01:
-    subsampling_scheme: global_by_region
-    auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
-    title: "Global phylogeny of SARS-CoV-2 (March 1, 2022)"
-    max_date: 2022-03-01
+  # adaptive-evolution_2022-03-01:
+  #   subsampling_scheme: global_by_region
+  #   auspice_config: "adaptive_evolution_profiles/global_auspice_config.json"
+  #   title: "Global phylogeny of SARS-CoV-2 (March 1, 2022)"
+  #   max_date: 2022-03-01
 
 
 
